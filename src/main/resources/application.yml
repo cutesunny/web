@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+  datasource:
+    username: root
+    password: xxx1aAxxx!!!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #使用阿里的连接池
+    #type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/painting?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
