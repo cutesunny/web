@@ -1,6 +1,5 @@
 package com.painting.web.interceptor;
 
-import com.painting.web.entity.ResponseEntity;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;

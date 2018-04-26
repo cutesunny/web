@@ -1,23 +1,23 @@
-package com.painting.web.entity;
+package com.painting.web.vo;
 
 /**
  * 返回数据
  * @param <T>
  */
-public class ResponseEntity <T>{
+public class ResponseVO<T>{
 
     private Integer code;
     private String errMsg;
     private T data;
 
-    public ResponseEntity() {
+    public ResponseVO() {
     }
 
-    public ResponseEntity(Integer code) {
+    public ResponseVO(Integer code) {
         this.code = code;
     }
 
-    public ResponseEntity(Integer code, String errMsg) {
+    public ResponseVO(Integer code, String errMsg) {
         this.code = code;
         this.errMsg = errMsg;
     }
