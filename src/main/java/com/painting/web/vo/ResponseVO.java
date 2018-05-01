@@ -5,7 +5,8 @@ package com.painting.web.vo;
  * @param <T>
  */
 public class ResponseVO<T>{
-
+    public static final int SUCCESS = 200;
+    public static final int ERROR = 400;
     private Integer code;
     private String errMsg;
     private T data;
@@ -35,7 +36,10 @@ public class ResponseVO<T>{
     }
 
     public void setErrMsg(String errMsg) {
-        this.errMsg = errMsg;
+        if(errMsg != null) {
+            this.code = ERROR;
+            this.errMsg = errMsg;
+        }
     }
 
     public T getData() {
@@ -43,6 +47,9 @@ public class ResponseVO<T>{
     }
 
     public void setData(T data) {
-        this.data = data;
+        if(data != null) {
+            this.data = data;
+            this.code = SUCCESS;
+        }
     }
 }
