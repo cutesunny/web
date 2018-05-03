@@ -1,9 +1,6 @@
 package com.painting.web.dao;
 
-import com.painting.web.entity.Gallery;
 import com.painting.web.entity.SliderImage;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

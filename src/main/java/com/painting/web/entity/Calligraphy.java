@@ -3,12 +3,11 @@ package com.painting.web.entity;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-//图片素材,作品等
+//书法
 @Entity
-@Table(name = "image")
-public class Image {
-    public static final int CHUANQI_SHUHUA = 0;
-    public static final int DANGDAI_SHUHUA = 1;
+@Table(name = "calligraphy")
+public class Calligraphy {
+
     private Integer id;
     private String path;
     private String title;

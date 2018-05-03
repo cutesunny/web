@@ -1,6 +1,5 @@
 package com.painting.web.dao;
 
-import com.painting.web.entity.Gallery;
 import com.painting.web.entity.News;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

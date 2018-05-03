@@ -1,5 +1,6 @@
 package com.painting.web.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -7,16 +8,23 @@ import javax.persistence.Table;
  * 图片评论
  */
 @Entity
-@Table(name = "image_comment")
-public class ImageComment {
+@Table(name = "comment")
+public class Comment {
+
+    public static final Integer CALLIGRAPHY = 1;
+    public static final Integer PAINTING = 1;
+
     private Integer id;
-    private Integer imageId;
+    @Column(name = "article_id")
+    private Integer articleID;
     private String comment;
     private Integer star;
     private String username;
 
+    @Column(name = "create_time")
     private String createTime;
 
+    private String type;
     public Integer getId() {
         return id;
     }
@@ -25,13 +33,6 @@ public class ImageComment {
         this.id = id;
     }
 
-    public Integer getImageId() {
-        return imageId;
-    }
-
-    public void setImageId(Integer imageId) {
-        this.imageId = imageId;
-    }
 
     public String getComment() {
         return comment;
@@ -63,5 +64,21 @@ public class ImageComment {
 
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
+    }
+
+    public Integer getArticleID() {
+        return articleID;
+    }
+
+    public void setArticleID(Integer articleID) {
+        this.articleID = articleID;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

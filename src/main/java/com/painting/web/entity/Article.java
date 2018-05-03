@@ -4,13 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "gallery")
-public class Gallery {
+@Table(name = "article")
+public class Article {
     private Integer id;
-    private String name;
+    private String title;
     private String thumb;
-    private String startTime;
-    private String endTime;
+    private String description;
     private String content;
 
     public Integer getId() {
@@ -21,14 +20,6 @@ public class Gallery {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getThumb() {
         return thumb;
     }
@@ -37,20 +28,20 @@ public class Gallery {
         this.thumb = thumb;
     }
 
-    public String getStartTime() {
-        return startTime;
+    public String getTitle() {
+        return title;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getEndTime() {
-        return endTime;
+    public String getDescription() {
+        return description;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getContent() {
