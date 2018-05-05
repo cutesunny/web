@@ -8,7 +8,7 @@ import javax.persistence.Table;
 /**
  * 新闻
  */
-@Entity(name = "news")
+
 public class News extends AbstractEntity{
 
     //标题

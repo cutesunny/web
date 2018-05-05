@@ -1,11 +1,6 @@
 package com.painting.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 //书法
 @Entity(name = "calligraphy")
@@ -25,13 +20,6 @@ public class Calligraphy extends AbstractEntity{
         this.type = type;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getPath() {
         return path;

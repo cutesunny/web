@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ArticleDao extends JpaRepository<Article, Integer> {
 
-    @Override
-    Page<Article> findAll(Pageable pageable);
+
+    Page<Article> findAllByTypeOrderByIdDesc(String type, Pageable pageable);
 }

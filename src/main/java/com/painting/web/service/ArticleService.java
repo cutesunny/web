@@ -23,10 +23,9 @@ public class ArticleService {
     /**
      * 分页
      */
-    public Page<Article> findAll(Integer page, Integer size) {
-        Pageable pageable1 = new QPageRequest(page, size);
-        Page<Article> articles = articleDao.findAll(pageable1);
-        return articleDao.findAll(pageable1);
+    public Page<Article> findAll(Integer page, Integer size, Integer type) {
+        Pageable pageable1 = new QPageRequest(page-1, size);
+        return articleDao.findAllByTypeOrderByIdDesc(type.toString(), pageable1);
     }
 
 

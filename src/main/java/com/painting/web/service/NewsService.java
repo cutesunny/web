@@ -11,7 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
-@Service
+
 public class NewsService {
 
 

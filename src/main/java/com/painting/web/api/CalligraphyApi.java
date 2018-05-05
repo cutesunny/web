@@ -20,7 +20,7 @@ public class CalligraphyApi {
 
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public Page<Calligraphy> getList(Integer pageNum, Integer pageSize){
-        return calligraphyService.findAll(pageNum, pageSize);
+    public Page<Calligraphy> getList(Integer pageNum, Integer pageSize, Integer type){
+        return calligraphyService.findAll(pageNum, pageSize, type);
     }
 }

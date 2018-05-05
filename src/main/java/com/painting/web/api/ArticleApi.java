@@ -18,8 +18,8 @@ public class ArticleApi {
     private ArticleService articleService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public Page<Article> getList(Integer page, Integer size){
-        return articleService.findAll(page, size);
+    public Page<Article> getList(Integer page, Integer size, Integer type){
+        return articleService.findAll(page, size, type);
     }
 
     @RequestMapping(method = RequestMethod.GET)

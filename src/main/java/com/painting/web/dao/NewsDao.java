@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 /**
  * 新闻
  */
-@Repository
+
 public interface NewsDao extends JpaRepository<News, Integer> {
 
     @Override

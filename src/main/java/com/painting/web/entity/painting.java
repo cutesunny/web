@@ -1,14 +1,10 @@
 package com.painting.web.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 //绘画
-@Entity(name = "calligraphy")
+@Entity(name = "painting")
 public class Painting extends AbstractEntity{
-
 
     private String path;
     private String title;

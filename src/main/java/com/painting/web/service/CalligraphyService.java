@@ -26,9 +26,15 @@ public class CalligraphyService {
     /**
      * 分页
      */
-    public Page<Calligraphy> findAll(Integer pageNum, Integer size) {
-        Pageable pageable1 = new QPageRequest(pageNum, size);
-        return calligraphyDao.findAll(pageable1);
+    public Page<Calligraphy> findAll(Integer pageNum, Integer size, Integer type) {
+        Pageable pageable1 = new QPageRequest(pageNum-1, size);
+        Page<Calligraphy> calligraphyPage;
+        if(type == null){
+            calligraphyPage = calligraphyDao.findAll(pageable1);
+        }else{
+            calligraphyPage = calligraphyDao.findAllByTypeOrderByIdAsc(type.toString(), pageable1);
+        }
+        return calligraphyPage;
     }
 
 
