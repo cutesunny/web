@@ -8,13 +8,9 @@ import javax.persistence.Table;
 /**
  * 新闻
  */
-@Entity
-@Table(name = "news")
-public class News {
+@Entity(name = "news")
+public class News extends AbstractEntity{
 
-    @Id
-    @GeneratedValue
-    private Integer id;
     //标题
     private String title;
     //来源
@@ -27,14 +23,6 @@ public class News {
     private String introduction;
     //内容
     private String content;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;

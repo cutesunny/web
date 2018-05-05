@@ -5,13 +5,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-//作品
+//书画
 public interface CalligraphyDao extends JpaRepository<Calligraphy, Integer> {
 
     @Override
     Page<Calligraphy> findAll(Pageable pageable);
-
-
 
 
     @Override

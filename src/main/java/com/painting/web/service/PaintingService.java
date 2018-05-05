@@ -20,23 +20,16 @@ public class PaintingService {
 
 
 
-    public ResponseVO<Painting> getById(Integer id) {
-        Painting painting = paintingDao.getOne(id);
-        ResponseVO<Painting> responseEntity = new ResponseVO<>();
-        responseEntity.setData(painting);
-        return responseEntity;
+    public Painting getById(Integer id) {
+        return paintingDao.getOne(id);
     }
 
     /**
      * 分页
      */
-    public ResponseVO<Page<Painting>> findAll(Integer page, Integer size) {
-        ResponseVO<Page<Painting>> responseEntity = new ResponseVO<>();
-        responseEntity.setCode(200);
-        Pageable pageable1 = new QPageRequest(page, size);
-        Page<Painting> images = paintingDao.findAll(pageable1);
-        responseEntity.setData(images);
-        return responseEntity;
+    public Page<Painting> findAll(Integer pageNum, Integer size) {
+        Pageable pageable1 = new QPageRequest(pageNum, size);
+        return  paintingDao.findAll(pageable1);
     }
 
 

@@ -9,6 +9,6 @@ import java.util.List;
 public interface CommentDao extends JpaRepository<Comment, Integer>{
 
     //查找评论
-    List<Comment> findByImageId(Integer imageId);
+    List<Comment> findByMaterialId(Integer materialId);
 
 }

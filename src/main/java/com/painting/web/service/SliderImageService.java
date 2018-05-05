@@ -20,12 +20,8 @@ public class SliderImageService {
     }
 
 
-    public ResponseVO<List<SliderImage>> findAll() {
-        ResponseVO<List<SliderImage>> responseEntity = new ResponseVO<>();
-        responseEntity.setCode(200);
-        List<SliderImage> SliderImages = sliderImageDao.findAll();
-        responseEntity.setData(SliderImages);
-        return responseEntity;
+    public List<SliderImage> findAll() {
+        return sliderImageDao.findAll();
     }
 
 

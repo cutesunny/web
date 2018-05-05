@@ -1,24 +1,18 @@
 package com.painting.web.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
  * 首页轮播图
  */
-@Table(name = "slider_image")
-@Entity
-public class SliderImage {
-    private Integer id;
+@Entity(name = "slider_image")
+public class SliderImage extends AbstractEntity{
+
     private String path;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private Integer rank;
 
     public String getPath() {
         return path;
@@ -26,5 +20,13 @@ public class SliderImage {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public Integer getRank() {
+        return rank;
+    }
+
+    public void setRank(Integer rank) {
+        this.rank = rank;
     }
 }

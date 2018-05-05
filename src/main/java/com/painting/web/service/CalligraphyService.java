@@ -18,23 +18,17 @@ public class CalligraphyService {
 
 
 
-    public ResponseVO<Calligraphy> getById(Integer id) {
+    public Calligraphy getById(Integer id) {
         Calligraphy calligraphy = calligraphyDao.getOne(id);
-        ResponseVO<Calligraphy> responseEntity = new ResponseVO<>();
-        responseEntity.setData(calligraphy);
-        return responseEntity;
+        return calligraphy;
     }
 
     /**
      * 分页
      */
-    public ResponseVO<Page<Calligraphy>> findAll(Integer page, Integer size) {
-        ResponseVO<Page<Calligraphy>> responseEntity = new ResponseVO<>();
-        responseEntity.setCode(200);
-        Pageable pageable1 = new QPageRequest(page, size);
-        Page<Calligraphy> images = calligraphyDao.findAll(pageable1);
-        responseEntity.setData(images);
-        return responseEntity;
+    public Page<Calligraphy> findAll(Integer pageNum, Integer size) {
+        Pageable pageable1 = new QPageRequest(pageNum, size);
+        return calligraphyDao.findAll(pageable1);
     }
 
 

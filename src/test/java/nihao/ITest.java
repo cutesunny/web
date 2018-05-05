@@ -1,6 +1,5 @@
 package nihao;
 
-import hello.GG;
 import hello.II;
 
 public class ITest {

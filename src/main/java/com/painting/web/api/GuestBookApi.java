@@ -1,6 +1,7 @@
 
 package com.painting.web.api;
 
+import com.painting.web.entity.GuestBook;
 import com.painting.web.vo.ResponseVO;
 import com.painting.web.service.GuestBookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class GuestBookApi {
     }
 
     @RequestMapping(value = "/")
-    public ResponseVO getById(HttpServletResponse response){
+    public GuestBook getById(HttpServletResponse response){
         return guestBookServiceImpl.getById(1);
     }
 }

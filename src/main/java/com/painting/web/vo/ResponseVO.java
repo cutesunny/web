@@ -2,14 +2,14 @@ package com.painting.web.vo;
 
 /**
  * 返回数据
- * @param <T>
+ * @param
  */
-public class ResponseVO<T>{
+public class ResponseVO{
     public static final int SUCCESS = 200;
     public static final int ERROR = 400;
     private Integer code;
     private String errMsg;
-    private T data;
+    private  Object data;
 
     public ResponseVO() {
     }
@@ -27,8 +27,9 @@ public class ResponseVO<T>{
         return code;
     }
 
-    public void setCode(Integer code) {
+    public ResponseVO setCode(Integer code) {
         this.code = code;
+        return this;
     }
 
     public String getErrMsg() {
@@ -42,14 +43,15 @@ public class ResponseVO<T>{
         }
     }
 
-    public T getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public ResponseVO setData(Object data) {
         if(data != null) {
             this.data = data;
             this.code = SUCCESS;
         }
+        return this;
     }
 }

@@ -21,12 +21,12 @@ public class NewsApi {
 
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ResponseVO<Page<News>> getList(Integer page, Integer size){
+    public Page<News> getList(Integer page, Integer size){
         return newsService.findAll(page, size);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseVO<News> getOne(Integer id){
+    public News getOne(Integer id){
         return newsService.getById(id);
     }
 }

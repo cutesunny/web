@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class ArticleApi {
 
     @Autowired
-    private ArticleService galleryService;
+    private ArticleService articleService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ResponseVO<Page<Article>> getList(Integer page, Integer size){
-        return galleryService.findAll(page, size);
+    public Page<Article> getList(Integer page, Integer size){
+        return articleService.findAll(page, size);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseVO<Article> getOne(Integer id){
-        return galleryService.getById(id);
+    public Object getOne(Integer id){
+        return articleService.getById(id);
     }
 }

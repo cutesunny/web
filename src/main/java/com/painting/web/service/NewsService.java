@@ -23,23 +23,16 @@ public class NewsService {
     }
 
 
-    public ResponseVO<News> getById(Integer id) {
-        News news = newsDao.getOne(id);
-        ResponseVO<News> responseEntity = new ResponseVO<>();
-        responseEntity.setData(news);
-        return responseEntity;
+    public News getById(Integer id) {
+        return newsDao.getOne(id);
     }
 
     /**
      * 分页
      */
-    public ResponseVO<Page<News>> findAll(Integer page, Integer size) {
-        ResponseVO<Page<News>> responseEntity = new ResponseVO<>();
-        responseEntity.setCode(200);
+    public Page<News> findAll(Integer page, Integer size) {
         Pageable pageable1 = new QPageRequest(page, size);
-        Page<News> news = newsDao.findAll(pageable1);
-        responseEntity.setData(news);
-        return responseEntity;
+        return newsDao.findAll(pageable1);
     }
 
 

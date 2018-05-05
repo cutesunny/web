@@ -1,14 +1,15 @@
 package com.painting.web.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 //绘画
-@Entity
-@Table(name = "calligraphy")
-public class Painting {
+@Entity(name = "calligraphy")
+public class Painting extends AbstractEntity{
 
-    private Integer id;
+
     private String path;
     private String title;
     private String description;
@@ -21,14 +22,6 @@ public class Painting {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getPath() {

@@ -1,24 +1,21 @@
 package com.painting.web.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "article")
-public class Article {
-    private Integer id;
+@Entity(name = "article")
+public class Article extends AbstractEntity{
+
+
     private String title;
     private String thumb;
     private String description;
     private String content;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getThumb() {
         return thumb;

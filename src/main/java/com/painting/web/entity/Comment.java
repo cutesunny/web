@@ -1,22 +1,20 @@
 package com.painting.web.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 
 /**
  * 图片评论
  */
-@Entity
-@Table(name = "comment")
-public class Comment {
+@Entity(name = "comment")
+public class Comment extends AbstractEntity{
 
     public static final Integer CALLIGRAPHY = 1;
     public static final Integer PAINTING = 1;
 
-    private Integer id;
-    @Column(name = "article_id")
-    private Integer articleID;
+    @Column(name = "material_id")
+    private Integer materialId;
     private String comment;
     private Integer star;
     private String username;
@@ -25,13 +23,6 @@ public class Comment {
     private String createTime;
 
     private String type;
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
 
     public String getComment() {
@@ -66,12 +57,12 @@ public class Comment {
         this.createTime = createTime;
     }
 
-    public Integer getArticleID() {
-        return articleID;
+    public Integer getMaterialId() {
+        return materialId;
     }
 
-    public void setArticleID(Integer articleID) {
-        this.articleID = articleID;
+    public void setMaterialId(Integer materialId) {
+        this.materialId = materialId;
     }
 
     public String getType() {

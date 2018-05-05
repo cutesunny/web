@@ -1,18 +1,15 @@
 package com.painting.web.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 
-@Entity
-@Table(name = "guest_book")
-public class GuestBook{
+@Entity(name = "guest_book")
+public class GuestBook extends AbstractEntity{
 
-    @Id
-    @GeneratedValue
-    private Integer id;
 
     @Column(nullable = false)
     private String username;
@@ -20,13 +17,6 @@ public class GuestBook{
     @Column(nullable = false)
     private String content;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;

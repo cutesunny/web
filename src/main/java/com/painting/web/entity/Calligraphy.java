@@ -1,14 +1,16 @@
 package com.painting.web.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 //书法
-@Entity
-@Table(name = "calligraphy")
-public class Calligraphy {
+@Entity(name = "calligraphy")
+public class Calligraphy extends AbstractEntity{
 
-    private Integer id;
     private String path;
     private String title;
     private String description;

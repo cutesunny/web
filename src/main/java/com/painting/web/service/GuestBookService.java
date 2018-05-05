@@ -22,30 +22,22 @@ public class GuestBookService{
     }
 
 
-    public ResponseVO<GuestBook> getById(Integer id) {
-        GuestBook guestBook = guestBookDao.getById(id);
-        ResponseVO<GuestBook> responseEntity = new ResponseVO<>();
-        responseEntity.setData(guestBook);
-        return responseEntity;
+    public GuestBook getById(Integer id) {
+        return guestBookDao.getById(id);
     }
 
     /**
      * 分页
      */
-    public ResponseVO<Page<GuestBook>> findAll(Integer page, Integer size) {
-        ResponseVO<Page<GuestBook>> responseEntity = new ResponseVO<>();
-        responseEntity.setCode(200);
+    public Page<GuestBook> findAll(Integer page, Integer size) {
         Pageable pageable1 = new QPageRequest(page, size);
-        Page<GuestBook> guestBooks = guestBookDao.findAll(pageable1);
-        responseEntity.setData(guestBooks);
-        return responseEntity;
+        return guestBookDao.findAll(pageable1);
     }
 
     /**
      * 保存
      */
-    public ResponseVO<String> save(GuestBook guestBook) {
-         guestBookDao.saveAndFlush(guestBook);
-        return new ResponseVO<>(200);
+    public void save(GuestBook guestBook) {
+        guestBookDao.saveAndFlush(guestBook);
     }
 }
