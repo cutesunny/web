@@ -10,10 +10,9 @@ import javax.persistence.Table;
 @Entity(name = "article")
 public class Article extends AbstractEntity{
 
-    public static final Integer NEWS = 1;//新闻类型
-    public static final Integer RECENTLY_EXHIBITION = 2;//近期展会
-    public static final Integer GALLERY = 3;//画廊
-    public static final Integer ONLINE = 4;//在线展览
+    public static final Integer RECENTLY_EXHIBITION = 1;//近期展会
+    public static final Integer GALLERY = 2;//画廊
+    public static final Integer ONLINE = 3;//在线展览
 
     private String title;
     private String thumb;

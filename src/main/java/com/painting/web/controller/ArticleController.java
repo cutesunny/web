@@ -6,24 +6,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 新闻
+ * 文章
  */
 @Controller
-@RequestMapping(value = "/news")
-public class NewsController {
+@RequestMapping(value = "/article")
+public class ArticleController {
 
-    @GetMapping()
-    public String news(){
-        return "news";
-    }
 
     @GetMapping(value = "/list")
     public String list(Integer type, Integer pageNo, Integer pageSize){
-        return "/news_list";
+        return "/article_list";
     }
 
     @GetMapping(value = "/{id}")
     public String news(@PathVariable Integer id){
-        return "news";
+        return "article";
     }
 }

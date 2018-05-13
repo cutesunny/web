@@ -4,6 +4,7 @@ import com.painting.web.entity.Calligraphy;
 import com.painting.web.service.CalligraphyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ public class CalligraphyApi {
     private CalligraphyService calligraphyService;
 
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @GetMapping(value = "/list")
     public Page<Calligraphy> getList(Integer pageNum, Integer pageSize, Integer type){
         return calligraphyService.findAll(pageNum, pageSize, type);
     }

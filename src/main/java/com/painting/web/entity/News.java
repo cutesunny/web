@@ -11,6 +11,18 @@ import javax.persistence.Table;
 
 public class News extends AbstractEntity{
 
+    /**
+     * 焦点
+     */
+    public static final int FOCUS = 1;
+    /**
+     * 艺术
+     */
+    public static final int ART = 2;
+    /**
+     * 艺术家
+     */
+    public static final int ARTIST = 2;
     //标题
     private String title;
     //来源
