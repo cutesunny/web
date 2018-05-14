@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ArticleService {
 
@@ -28,5 +30,11 @@ public class ArticleService {
         return articleDao.findAllByTypeOrderByIdDesc(type.toString(), pageable1);
     }
 
-
+    /**
+     * 首页固定数据
+     * @return
+     */
+    public List<Article> getIndexData() {
+        return articleDao.findAllByTypeOrderByIdAsc(Article.INDEX_DATA);
+    }
 }

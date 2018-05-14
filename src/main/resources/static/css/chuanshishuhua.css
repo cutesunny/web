@@ -1,0 +1,230 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+		
+a{
+	text-decoration: none;
+}
+		
+ul li {
+	list-style: none;
+}
+		
+body,html {
+	font-size: 18px;
+	font-family: "微软雅黑";
+}
+.main-cssh{
+	margin-top: 20px;
+	margin-left: 4%;
+	margin-right: 4%;
+}
+.col-lg-8{
+	height: 500px;
+	/*background: red;*/
+}
+.col-lg-8 img{
+	width: 100%;
+	height: 500px;
+}
+.col-lg-4{
+	height: 500px;
+	/*background:black;*/
+}
+.cssh-top-left{
+	margin-top: 25px;
+}
+.cssh-top-left-1,.cssh-top-left-2,.cssh-top-left-3{
+	float: left;
+	height: 150px;
+	width: 100%;
+	border-bottom: 4px solid gainsboro;
+}
+.cssh-top-left-1{
+	border-top: 4px solid gainsboro;
+}
+.cssh-top-left-11{
+	width: 35%;
+	height: 145px;
+	/*background: white;*/
+	/*border: 1px solid red;*/
+	float: left;
+}
+.cssh-top-left-12{
+	width: 60%;
+	height: 145px;
+	/*border: 1px solid black;*/
+	float: left;
+}
+.cssh-top-left-11 img{
+	margin-top: 22px;
+	margin-left: 24px;
+}
+.cssh-top-left-11 img:hover {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+.cssh-top-left-12 a{
+	color: #000000;
+	display: block;
+	text-decoration: none;
+}
+.cssh-top-left-12 p{
+	text-decoration: none;
+	display: block;
+	font-size: 25px;
+	margin-top: 35px;
+	margin-left: 65px;
+	font-family: "楷体";
+	font-weight: bold;
+	float: left;
+	color: white;
+}
+.cssh-top-left-12 span{
+	float: left;
+	font-family: "楷体";
+	font-size: 20px;
+	margin-top: -5px;
+	color: white;
+}
+/*show1*/
+.cssh-show1{
+	/*height: 600px;*/
+	/*border: 1px solid red;*/
+}
+.cssh-show1-title{
+	height: 100px;
+	/*border: white;*/
+}
+.cssh-show1-title .col-lg-12{
+	height: 100px;
+	/*border: 1px solid red;*/
+}
+.cssh-show1-title .col-lg-12 a{
+	text-decoration: none;
+	display: block;
+}
+.cssh-show1-title .col-lg-12 h2{
+	text-align: center;
+	line-height: 100px;
+	color: white;
+	margin-top: -1px;
+}
+.cssh-show1 .cssh-show1-main{
+	/*height: 500px;*/
+	/*border: 1px solid white;*/
+}
+.cssh-show1-main .col-lg-3{
+	height: 500px;
+	/*border: 1px solid green;*/
+}
+.cssh-show1-main-top{
+	height: 420px;
+	/*border: 1px solid yellow;*/
+}
+.cssh-show1-main-top  img{
+	height: 400px;
+	width: 96%;
+    margin-top: 20px;
+    margin-left: 2%;
+	border-radius:20px;
+}
+.cssh-show1-main-top  img:hover{
+    margin-top: 0px;
+    width: 100%;
+    height: 420px;
+    cursor: pointer;
+    transition: all 0.9s;
+}
+.cssh-show1-main-bottom{
+	height: 80px;
+	/*border: 1px solid red;*/
+}
+.cssh-show1-main-bottom-1{
+	height: 40px;
+	/*border: 1px solid yellow;*/
+}
+.cssh-show1-main-bottom-1 a{
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	line-height: 40px;
+	color: white;
+}
+.cssh-show1-main-bottom-2{
+	height: 40px;
+	/*border: 1px solid white;*/
+}
+.cssh-show1-main-bottom-2 img{
+	float: left;
+}
+.cssh-show1-main-bottom-2 a{
+	text-decoration: none;
+	display: block;
+	color: white;
+	float: left;
+	margin-top: 5px;
+}
+.cssh-show1 .more .col-lg-12{
+    height: 60px;
+    border-bottom: 1px solid beige;
+}
+.cssh-show1 .more .col-lg-12 a{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: beige;
+    line-height: 60px;
+    font-size: 18px;
+}
+.cssh-show2{
+	/*margin-top: 20px;*/
+	/*height: 600px;*/
+	/*border: 1px solid red;*/
+}
+.cssh-show2 .more .col-lg-12{
+    height: 60px;
+    border-bottom: 1px solid beige;
+}
+.cssh-show2 .more .col-lg-12 a{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: beige;
+    line-height: 60px;
+    font-size: 18px;
+}
+.cssh-show3{
+	/*margin-top: 20px;*/
+	/*height: 600px;*/
+	/*border: 1px solid red;*/
+}
+.cssh-show3 .more .col-lg-12{
+    height: 60px;
+    border-bottom: 1px solid beige;
+}
+.cssh-show3 .more .col-lg-12 a{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: beige;
+    line-height: 60px;
+    font-size: 18px;
+}

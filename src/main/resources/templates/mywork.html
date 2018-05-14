@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <!--使得i内核使用更高的渲染效果展示-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--设置支持移动端的视窗-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
+    <title>近期展览</title>
+    <!--Bootsttap-->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/contact.css" rel="stylesheet" />
+    <link href="/css/shop.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/chuanshishuhua.css" rel="stylesheet" />
+    <link href="/css/dangdaishuhua.css" rel="stylesheet" />
+    <link href="/css/show.css" rel="stylesheet" />
+    <link href="/css/news.css" rel="stylesheet" />
+    <link href="/css/gonex-icons.css" rel="stylesheet" />
+    <link href="/css/cssh-erji.css" rel="stylesheet" />
+    <link href="/css/remark.css" rel="stylesheet" />
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    body,
+    html {
+        font-size: 18px;
+        font-family: "微软雅黑";
+    }
+
+    .mywork-main {
+        margin-left: 4%;
+        margin-right: 4%;
+    }
+    .mywork-details{
+        height: 800px;
+        background: url("img/mywork-bg.jpg");
+    }
+    .mywork-details .col-lg-12{
+        height:800px;
+    }
+    .mywork-content{
+        width: 30%;
+        margin-left: 35%;
+    }
+    @media screen and (max-width: 980px) {
+        .mywork-content{
+            width: 50%;
+            margin-left: 25%;
+        }
+    }
+    @media screen and (max-width: 736px) {
+        .mywork-content{
+            width: 60%;
+            margin-left: 20%;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .mywork-content{
+            width: 80%;
+            margin-left: 10%;
+        }
+    }
+    .mywork-details .col-lg-12 h3{
+        color: #ffffff;
+        line-height: 100px;
+        text-align: center;
+    }
+    .mywork-details label{
+        color: white;
+        display: block;
+        font-size: 20px;
+    }
+    .mywork1{
+        height: 90px;
+    }
+    .mywork1 input{
+        width: 100%;
+        outline: none;
+        border: none;
+        background: rgba(255, 255, 255, 0.5);
+        height: 50px;
+    }
+    .mywork2{
+        height: 90px;
+    }
+    .mywork2 select{
+        width: 100%;
+        outline: none;
+        border: none;
+        background: rgba(255, 255, 255, 0.5);
+        height: 50px;
+    }
+    .mywork3{
+        height: 90px;
+    }
+    .mywork3 input{
+        width: 100%;
+        outline: none;
+        border: none;
+        background: rgba(255, 255, 255, 0.5);
+        height: 50px;
+    }
+    .mywork6{
+        height: 130px;
+    }
+    .mywork6 textarea{
+        width: 100%;
+        height: 80px;
+        outline: none;
+        border: none;
+        background: rgba(255, 255, 255, 0.5);
+    }
+    .mywork4{
+        height: 130px;
+    }
+    .mywork4 textarea{
+        width: 100%;
+        height: 80px;
+        outline: none;
+        border: none;
+        background: rgba(255, 255, 255, 0.5);
+    }
+    .mywork5{
+        height: 50px;
+    }
+    .mywork5 input{
+        width: 30%;
+        margin-left: 35%;
+        outline: none;
+        border: none;
+        background: #e25111;
+        height: 40px;
+    }
+</style>
+
+<body>
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="/">书画网</a></h1>
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                    <div id="menu">
+                        <ul>
+                            <li>
+                                <a href="/">首页</a>
+                            </li>
+                            <li>
+                                <a href="/calligraphy">传世书法</a>
+                            </li>
+                            <li>
+                                <a href="/painting">传世绘画</a>
+                            </li>
+                            <li>
+                                <a href="/show">书画展览</a>
+                            </li>
+                            <li>
+                                <a href="/auction">书画竞拍</a>
+                            </li>
+                            <li>
+                                <a href="/share">书画共享</a>
+                            </li>
+                            <li>
+                                <a href="/news">新闻资讯</a>
+                            </li>
+                            <li>
+                                <a href="/contact-us">联系我们</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<div class="container-fluid">
+    <div class="mywok-main">
+        <div class="mywork-details">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="mywork-content">
+                        <h3>上传作品</h3>
+                        <form>
+                            <div class="mywork1">
+                                <label for="work-name">作品类别：</label>
+                                <input type="text" name="work-name" required="required" placeholder="作品名称"/>
+                            </div>
+                            <div class="mywork2">
+                                <label for="work-kind">作品类别：</label>
+                                <select name="id">
+                                    <option value="">书法作品</option>
+                                    <option value="">国画作品</option>
+                                    <option value="">油画作品</option>
+                                    <option value="">版画作品</option>
+                                    <option value="">水粉作品</option>
+                                </select>
+                            </div>
+                            <div class="mywork3">
+                                <label for="imgfile">选择图片文件:</label>
+                                <input type="file" name="imgfile"  accept="image/gif, image/jpeg" style="outline: none;border: none;"/>
+                            </div>
+                            <div class="mywork6">
+                                <label>作品特点：</label>
+                                <textarea name="special" id="special" required="required" placeholder="介绍一下宝贝的特点吧！"></textarea>
+                            </div>
+                            <div class="mywork4">
+                                <label>作品描述：</label>
+                                <textarea name="describe" id="describe" required="required" placeholder="留下宝贝的获奖情况及其他描述吧！"></textarea>
+                            </div>
+                            <div class="mywork5">
+                                <input name="upload" type="submit" value="上传" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-main">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="footer-page1">
+                            <h3>关于我们</h3>
+                            <ul class="footer-page1-1">
+                                <li>
+                                    <a href="#">在这里，你可以share</a>
+                                </li>
+                                <li>
+                                    <a href="#">在这里，你可以remark</a>k</li>
+                                <li>
+                                    <a href="#">在这里，你可以go shopping</a>
+                                </li>
+                                <li>
+                                    <a href="#">在这里，你可以learn</a>
+                                </li>
+                                <li>
+                                    <a href="#">在这里，你可以read</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="footer-page2">
+                            <h3>页面链接</h3>
+                            <ul class="footer-page2-1">
+                                <li>
+                                    <a href="#">传世书画</a>
+                                </li>
+                                <li>
+                                    <a href="#">当代书画</a>k</li>
+                                <li>
+                                    <a href="#">书画展览</a>
+                                </li>
+                                <li>
+                                    <a href="#">书画拍卖</a>
+                                </li>
+                                <li>
+                                    <a href="#">新闻资讯</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="footer-page3">
+                            <h3>联系我们</h3>
+                            <ul class="footer-page3-1">
+                                <li>
+                                    <a href="#">电话：028-123456789</a>
+                                </li>
+                                <li>
+                                    <a href="#">手机：1234567890</a>k</li>
+                                <li>
+                                    <a href="#">邮箱：1829978700@qq.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-img">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="social-info">
+                            <a href="#" class="-facebook"><span class="ico ico-facebook" aria-hidden="true"></span></a>
+                            <a href="#" class="-twitter"><span class="ico ico-twitter" aria-hidden="true"></span></a>
+                            <a href="#" class="-dribbble"><span class="ico ico-dribbble" aria-hidden="true"></span></a>
+                            <a href="#" class="-googleplus"><span class="ico ico-google-plus" aria-hidden="true"></span></a>
+                            <a href="#" class="-youtube"><span class="ico ico-youtube" aria-hidden="true"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>© 2018 - All Rights Reserved. 书画网</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--jQuery  使用bootstrap插件必须引入jQuery-->
+<script src="/js/jquery.min.js"></script>
+<!--使用bootstrap插件必须引入-->
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.scrollex.min.js"></script>
+<script src="/js/jquery.scrolly.min.js"></script>
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+</body>
+
+</html>

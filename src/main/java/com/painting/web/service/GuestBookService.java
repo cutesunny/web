@@ -30,7 +30,7 @@ public class GuestBookService{
      * 分页
      */
     public Page<GuestBook> findAll(Integer page, Integer size) {
-        Pageable pageable1 = new QPageRequest(page, size);
+        Pageable pageable1 = new QPageRequest(page-1, size);
         return guestBookDao.findAll(pageable1);
     }
 

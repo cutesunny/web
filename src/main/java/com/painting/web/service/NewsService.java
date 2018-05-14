@@ -12,6 +12,7 @@ import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
 
+@Service
 public class NewsService {
 
 
@@ -30,9 +31,13 @@ public class NewsService {
     /**
      * 分页
      */
-    public Page<News> findAll(Integer page, Integer size) {
-        Pageable pageable1 = new QPageRequest(page, size);
-        return newsDao.findAll(pageable1);
+    public Page<News> findAll(Integer type, Integer pageNum, Integer pageSize) {
+        Pageable pageable1 = new QPageRequest(pageNum-1, pageSize);
+        if(type != null){
+            return newsDao.findAllByTypeOrderByIdDesc(type.toString(), pageable1);
+        }else{
+            return newsDao.findAll(pageable1);
+        }
     }
 
 

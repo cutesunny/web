@@ -8,21 +8,21 @@ import javax.persistence.Table;
 /**
  * 新闻
  */
-
+@Entity(name = "news")
 public class News extends AbstractEntity{
 
     /**
      * 焦点
      */
-    public static final int FOCUS = 1;
+    public static final Integer FOCUS = 1;
     /**
      * 艺术
      */
-    public static final int ART = 2;
+    public static final Integer ART = 2;
     /**
      * 艺术家
      */
-    public static final int ARTIST = 2;
+    public static final Integer ARTIST = 2;
     //标题
     private String title;
     //来源
@@ -32,9 +32,23 @@ public class News extends AbstractEntity{
     //封面
     private String thumb;
     //简介
-    private String introduction;
+    private String description;
     //内容
     private String content;
+
+    /**
+     * 类型
+     * @return
+     */
+    private Integer type;
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
 
     public String getTitle() {
         return title;
@@ -68,12 +82,12 @@ public class News extends AbstractEntity{
         this.thumb = thumb;
     }
 
-    public String getIntroduction() {
-        return introduction;
+    public String getDescription() {
+        return description;
     }
 
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getContent() {

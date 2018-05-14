@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CalligraphyService {
 
@@ -26,16 +28,25 @@ public class CalligraphyService {
     /**
      * 分页
      */
-    public Page<Calligraphy> findAll(Integer pageNum, Integer size, Integer type) {
-        Pageable pageable1 = new QPageRequest(pageNum-1, size);
+    public Page<Calligraphy> findAll(Integer pageNum, Integer pageSize, Integer type) {
+        pageNum= pageNum==null?1:pageNum;
+        pageSize= pageSize==null?12:pageSize;
+        Pageable pageable1 = new QPageRequest(pageNum-1, pageSize);
         Page<Calligraphy> calligraphyPage;
         if(type == null){
             calligraphyPage = calligraphyDao.findAll(pageable1);
         }else{
-            calligraphyPage = calligraphyDao.findAllByTypeOrderByIdAsc(type.toString(), pageable1);
+            calligraphyPage = calligraphyDao.findAllByTypeOrderByIdDesc(type.toString(), pageable1);
         }
         return calligraphyPage;
     }
 
 
+    /**
+     * 获取首页数据
+     * @return
+     */
+    public List<Calligraphy> getIndexData() {
+        return calligraphyDao.findAllByTypeOrderByIdAsc(Calligraphy.INDEX_DATA.toString());
+    }
 }

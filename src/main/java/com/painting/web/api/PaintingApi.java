@@ -26,8 +26,8 @@ public class PaintingApi {
 
 
     @GetMapping(value = "/list")
-    public Page<Painting> getList(Integer pageNum, Integer pageSize, Integer type){
-        return paintingService.findAll(pageNum, pageSize, type);
+    public Page<Painting> getList(Integer pageNum, Integer pageSize){
+        return paintingService.findAll(pageNum, pageSize);
     }
 
 }

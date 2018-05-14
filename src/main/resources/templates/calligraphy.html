@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<!--使得i内核使用更高的渲染效果展示-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--设置支持移动端的视窗-->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
+		<title>书法</title>
+		<!--Bootsttap-->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/chuanshishuhua.css" rel="stylesheet">
+		<link href="/css/index.css" rel="stylesheet">
+		<link href="/css/dangdaishuhua.css" rel="stylesheet" />
+		<link href="/css/show.css" rel="stylesheet" />
+		<link href="/css/shop.css" rel="stylesheet" />
+		<link href="/css/news.css" rel="stylesheet" />
+		<link href="/css/contact.css" rel="stylesheet" />
+		<link href="/css/gonex-icons.css" rel="stylesheet" />
+
+		<!--HTML5 shim和Respond.js为了使得ie8更好的支持html5元素和媒体展示-->
+		<!--警告:Respond.js 当你使用file://这种访问时候是不支持的，支持http://访问模式-->
+		<!--[if it IE9]>
+		   <script src="/js/html5shiv.min.js"></script>
+		   <script src="/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<!-- Page Wrapper -->
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1><a href="/">书画网</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+                                <ul>
+                                    <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                    <li>
+                                        <a href="/calligraphy">传世书法</a>
+                                    </li>
+                                    <li>
+                                        <a href="/painting">传世绘画</a>
+                                    </li>
+                                    <li>
+                                        <a href="/show">书画展览</a>
+                                    </li>
+                                    <li>
+                                        <a href="/auction">书画竞拍</a>
+                                    </li>
+                                    <li>
+                                        <a href="/share">书画共享</a>
+                                    </li>
+                                    <li>
+                                        <a href="/news">新闻资讯</a>
+                                    </li>
+                                    <li>
+                                        <a href="/contact-us">联系我们</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+				</nav>
+			</header>
+			<div class="container-fluid">
+				<div class="main-cssh">
+					<div class="row">
+						<div class="col-lg-8">
+							<img src="img/cssh.jpg" />
+						</div>
+						<div class="col-lg-4">
+							<div class="cssh-top-left">
+								<div class="cssh-top-left-1">
+									<div class="cssh-top-left-11">
+										<img src="img/csshleft2.png" />
+									</div>
+									<div class="cssh-top-left-12">
+										<a href="javascript:void(0);" class="xing">
+											<p>行书</p>
+											<span>“行”即“行走”，因此行书既不“潦草”，也不“端正”。</span>
+										</a>
+									</div>
+								</div>
+								<div class="cssh-top-left-2">
+									<div class="cssh-top-left-11">
+										<img src="img/csshleft1.png" />
+									</div>
+									<div class="cssh-top-left-12">
+										<a href="javascript:void(0);"  class="cao">
+											<p>草书</p>
+											<span>草书是按一定规律将字的点划连字，并不是随心所欲的乱写。</span>
+										</a>
+									</div>
+								</div>
+								<div class="cssh-top-left-3">
+									<div class="cssh-top-left-11">
+										<img src="img/csshleft3.png" />
+									</div>
+									<div class="cssh-top-left-12">
+										<a href="javascript:void(0);"  class="kai">
+											<p>楷书</p>
+											<span>由隶书逐渐演变而来，更趋简化，横平竖直。</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cssh-show1" id="xingshu">
+						<div class="cssh-show1-title">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="cssh-show1-top">
+										<a href="cssh-erji.html">
+											<h2>行书</h2></a>
+									</div>
+								</div>
+							</div>
+						</div>
+                        <div class="cssh-show1-main">
+							<div class="row">
+								<div class="col-lg-3" th:each="item:${xingshu}">
+									<div class="cssh-show1-main-top">
+                                        <a th:href="|/calligraphy/${item.id}|"><img th:src="${item.path}" /></a>
+									</div>
+									<div class="cssh-show1-main-bottom">
+										<div class="cssh-show1-main-bottom-1">
+											<a th:href="|/calligraphy/${item.id}|" th:text="${item.title}">行书</a>
+										</div>
+										<div class="cssh-show1-main-bottom-2">
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/message.png" style="width: 24px;height: 24px; margin-top: 3px; margin-left: 14%;" />
+											<a href="remark.html" th:text="|${item.commentAmount}条评论|"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					    <div class="more">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="/calligraphy/list?type=1">查看更多&nbsp;&nbsp;→</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<div class="cssh-show2" id="caoshu">
+						<div class="cssh-show1-title">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="cssh-show1-top">
+										<a href="cssh-erji.html">
+											<h2>草书</h2></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cssh-show1-main">
+							<div class="row">
+								<div class="col-lg-3" th:each="item:${caoshu}">
+									<div class="cssh-show1-main-top">
+										<a th:href="|/calligraphy/${item.id}|"><img  th:src="${item.path}" /></a>
+									</div>
+									<div class="cssh-show1-main-bottom">
+										<div class="cssh-show1-main-bottom-1">
+											<a th:href="|/calligraphy/${item.id}|" th:text="${item.title}">徐悲鸿作品</a>
+										</div>
+										<div class="cssh-show1-main-bottom-2">
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/message.png" style="width: 24px;height: 24px; margin-top: 3px; margin-left: 14%;" />
+											<a href="remark.html" th:text="|${item.commentAmount}条评论|">596条评论</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                        <div class="more">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="/calligraphy/list?type=2">查看更多&nbsp;&nbsp;→</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<div class="cssh-show3" id="kaishu">
+						<div class="cssh-show1-title">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="cssh-show1-top">
+										<a href="cssh-erji.html">
+											<h2>楷书</h2></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cssh-show1-main">
+							<div class="row">
+								<div class="col-lg-3" th:each="item:${caoshu}">
+									<div class="cssh-show1-main-top">
+										<a th:href="|/calligraphy/${item.id}|"><img  th:src="${item.path}"/></a>
+									</div>
+									<div class="cssh-show1-main-bottom">
+										<div class="cssh-show1-main-bottom-1">
+											<a th:href="|/calligraphy/${item.id}|" th:text="${item.title}">徐悲鸿作品</a>
+										</div>
+										<div class="cssh-show1-main-bottom-2">
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="img/message.png" style="width: 24px;height: 24px; margin-top: 3px; margin-left: 14%;" />
+											<a href="remark.html" th:text="|${item.commentAmount}条评论|">596条评论</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                        <div class="more">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="/calligraphy/list?type=3">查看更多&nbsp;&nbsp;→</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+					<div class="footer">
+						<div class="footer-main">
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="footer-page1">
+										<h3>关于我们</h3>
+										<ul class="footer-page1-1">
+											<li>
+												<a href="#">在这里，你可以share</a>
+											</li>
+											<li>
+												<a href="#">在这里，你可以remark</a>k</li>
+											<li>
+												<a href="#">在这里，你可以go shopping</a>
+											</li>
+											<li>
+												<a href="#">在这里，你可以learn</a>
+											</li>
+											<li>
+												<a href="#">在这里，你可以read</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="footer-page2">
+										<h3>页面链接</h3>
+										<ul class="footer-page2-1">
+											<li>
+												<a href="#">传世书画</a>
+											</li>
+											<li>
+												<a href="#">当代书画</a>k</li>
+											<li>
+												<a href="#">书画展览</a>
+											</li>
+											<li>
+												<a href="#">书画拍卖</a>
+											</li>
+											<li>
+												<a href="#">新闻资讯</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="footer-page3">
+										<h3>联系我们</h3>
+										<ul class="footer-page3-1">
+											<li>
+												<a href="#">电话：028-123456789</a>
+											</li>
+											<li>
+												<a href="#">手机：1234567890</a>k</li>
+											<li>
+												<a href="#">邮箱：1829978700@qq.com</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="footer-img">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="social-info">
+										<a href="#" class="-facebook"><span class="ico ico-facebook" aria-hidden="true"></span></a>
+										<a href="#" class="-twitter"><span class="ico ico-twitter" aria-hidden="true"></span></a>
+										<a href="#" class="-dribbble"><span class="ico ico-dribbble" aria-hidden="true"></span></a>
+										<a href="#" class="-googleplus"><span class="ico ico-google-plus" aria-hidden="true"></span></a>
+										<a href="#" class="-youtube"><span class="ico ico-youtube" aria-hidden="true"></span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="footer-copyright">
+							<div class="row">
+								<div class="col-lg-12">
+									<p>© 2018 - All Rights Reserved. 书画网</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--jQuery  使用bootstrap插件必须引入jQuery-->
+		<script src="/js/jquery.min.js"></script>
+		<!--使用bootstrap插件必须引入-->
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/jquery.scrollex.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+        <script src="/js/jquery.scrollTo.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/util.js"></script>
+		<script src="/js/main.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $(".xing").click(function(){
+                    window.scrollTo(0, 550);
+                });
+                $(".cao").click(function(){
+                    window.scrollTo(0, 1200);
+                });
+                $(".kai").click(function(){
+                    window.scrollTo(0,1850);
+                });
+            });
+        </script>
+	</body>
+
+</html>

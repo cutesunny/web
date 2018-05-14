@@ -12,7 +12,7 @@ public class IndexController {
 
     @GetMapping(value = "/")
     public String index(){
-        return "/index";
+        return "index";
     }
 
     /**
@@ -21,6 +21,6 @@ public class IndexController {
      */
     @GetMapping(value = "/contact-us")
     public String contact(){
-        return "/contact_us";
+        return "contact_us";
     }
 }

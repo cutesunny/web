@@ -1,0 +1,129 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+		
+a{
+	text-decoration: none;
+}
+		
+ul li {
+	list-style: none;
+}
+		
+body,html {
+	font-size: 18px;
+	font-family: "微软雅黑";
+}
+.contact-main{
+	margin-left: 4%;
+	margin-right: 4%;
+}
+.contact-top{
+	margin-top: 20px;
+	/*height: 300px;*/
+	/*border: 1px solid red;*/
+}
+.contact-top .col-lg-12{
+	height: 300px;
+	/*border: 1px solid yellow;*/
+} 
+.contact-top .col-lg-12 img{
+	height: 300px;
+	width: 100%;
+}
+.contactus{
+	/*height: 500px;*/
+	border:1px solid white;
+	background-image: url(../img/contact-bg.jpg);
+	background-size: cover;
+	overflow: hidden;
+	/*border-radius: 20px;*/
+}
+.contactus1{
+	/*height: 100px;*/
+	width: 100%;
+	/*border: 1px solid red;*/
+	margin-top: 50px;
+}
+.contactus1 .col-lg-4{
+	height: 100px;
+	/*border: 1px solid green;*/
+}
+.contactus2{
+	/*height: 100px;*/
+	width: 100%;
+	/*border: 1px solid red;*/
+
+}
+.contactus2 .col-lg-4{
+	height: 100px;
+	/*border: 1px solid green;*/
+}
+.contactus2 select{
+	background: darkseagreen;
+	outline: none;
+	border: none;
+}
+.contactus2 option{
+	outline: none;
+	border: none;
+}
+#style1 input{
+	width: 95%;
+  	outline: none;
+  	border: none;
+  	background: rgba(255, 255, 255, 0.5);
+  	height: 40px;
+  	margin-left: 2%;
+}
+.contactus3{
+	/*height: 180px;*/
+	width: 100%;
+	/*border: 1px solid black;*/
+
+}
+.contactus3 .col-lg-12{
+	height: 180px;
+	/*border: 1px solid green;*/
+}
+.contactus label{
+	color: white; 
+   	display: block;
+   	font-size: 20px;
+   	margin-left: 2%;
+}
+.contactus textarea{
+	width: 98%;
+	height: 150px;
+	outline: none;
+	border: none;
+	background: rgba(255, 255, 255, 0.5);
+	margin-left: 1%;
+}
+.contactus4{
+	/*height: 50px;*/
+	width: 100%;
+	/*border: 1px solid red;*/
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+.contactus4 .col-lg-12{
+	height: 50px;
+	width: 100%;
+	/*border: 1px solid black;*/
+	text-align: center;
+}
+.contactus4 input {
+  color: #ffffff;
+  background: #e25111;
+  padding: 10px 40px;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  
+}
+.contactus4 input:hover {
+  opacity: 0.6;
+}

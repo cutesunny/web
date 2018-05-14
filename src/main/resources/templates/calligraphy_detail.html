@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<!--使得i内核使用更高的渲染效果展示-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--设置支持移动端的视窗-->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
+		<title th:text="${item.title}">书法标题</title>
+		<!--Bootsttap-->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/contact.css" rel="stylesheet" />
+		<link href="/css/shop.css" rel="stylesheet">
+		<link href="/css/index.css" rel="stylesheet">
+		<link href="/css/chuanshishuhua.css" rel="stylesheet" />
+		<link href="/css/dangdaishuhua.css" rel="stylesheet" />
+		<link href="/css/show.css" rel="stylesheet" />
+		<link href="/css/news.css" rel="stylesheet" />
+		<link href="/css/gonex-icons.css" rel="stylesheet" />
+		<link href="/css/cssh-erji.css" rel="stylesheet" />
+		<link href="/css/remark.css" rel="stylesheet" />
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		ul li {
+			list-style: none;
+		}
+		
+		body,
+		html {
+			font-size: 18px;
+			font-family: "微软雅黑";
+		}
+		
+		.cssh-details1-main {
+			margin-left: 4%;
+			margin-right: 4%;
+		}
+		
+		.cssh-details1-top {
+			height: 100px;
+			/*border: 1px solid red;*/
+		}
+		
+		.cssh-details1-top .col-lg-12 {
+			height: 100px;
+			/*border: 1px solid white;*/
+		}
+		
+		.cssh-details1-top .col-lg-12 h2 {
+			text-align: center;
+			line-height: 100px;
+			color: white;
+			margin-top: -1px;
+		}
+		.cssh-details1-content{
+			/*height: 1600px;*/
+			/*border: 1px solid red;*/
+		}
+		.cssh-details1-content .col-lg-12{
+			/*height:1600px;*/
+			/*border: 1px solid white;*/
+		}
+		.cssh-details1-content-top{
+			height: 450px;
+			/*border: 1px solid red;*/
+		}
+		.cssh-details1-content-top .cssh1-1 img{
+			width: 70%;
+			height: 400px;
+			margin-left: 15%;
+			margin-top: 25px;
+		}
+		.cssh-details1-content-top figcaption p{
+			color: white;
+			line-height:30px;
+			text-align: center;
+		}
+		.cssh-details1-content-top img{
+			width: 70%;
+			height: 400px;
+			margin-left: 15%;
+			margin-top: 25px;
+		}
+		.cssh-details1-content-bottom{
+			height: 250px;
+			/*border: 1px solid green;*/
+		}
+		.cssh-details1-content-bottom p{
+			/*padding: 10px 0;*/
+            text-indent: 2em;
+			margin: 10px 20px;
+			line-height: 25px;
+			color: white;
+		}
+		.cssh-details1-remark{
+            margin-top: 50px;
+			height: 300px;
+			/*border: 1px solid white;*/
+		}
+		.cssh-details1-remark .col-lg-12{
+			height: 300px;
+			/*border: 1px solid red;*/
+		}
+		.cssh-details1-remark label{
+			color: white;
+			font-size: 30px;
+			font-family: "楷体";
+		}
+		.cssh-details1-remark textarea{
+			/*outline: none;
+ 		 	border: none;*/
+  			background: beige;
+  			height: 200px;
+			width: 100%;
+		}
+		.cssh-details1-remark .submit{
+			/*border: 1px solid red;*/
+			padding: 10px 60px;
+  			background: royalblue;
+  			text-decoration: none;
+  			display: block;
+  			cursor: pointer;
+  			margin-left: 990px;
+  			color: white;
+  			/*margin-top: 0px;*/
+		}
+		.cssh-details1-remark .submit:hover {
+  			opacity: 0.6;
+		}
+	</style>
+
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1><a href="/">书画网</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+                                <ul>
+                                    <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                    <li>
+                                        <a href="/calligraphy">传世书法</a>
+                                    </li>
+                                    <li>
+                                        <a href="/painting">传世绘画</a>
+                                    </li>
+                                    <li>
+                                        <a href="/show">书画展览</a>
+                                    </li>
+                                    <li>
+                                        <a href="/auction">书画竞拍</a>
+                                    </li>
+                                    <li>
+                                        <a href="/share">书画共享</a>
+                                    </li>
+                                    <li>
+                                        <a href="/news">新闻资讯</a>
+                                    </li>
+                                    <li>
+                                        <a href="/contact-us">联系我们</a>
+                                    </li>
+                                </ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+		<div class="container-fluid">
+			<div class="cssh-details1-main">
+				<div class="cssh-details1-top">
+					<div class="row">
+						<div class="col-lg-12">
+							<h2 th:text="${item.title}">王羲之《兰亭集序》</h2>
+						</div>
+					</div>
+				</div>
+				<div class="cssh-details1-content">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="cssh-details1-content-top">
+								<figure class="cssh1-1">
+									<img th:src="${item.path}"/>
+<!--									<figcaption>
+										<p>图一</p>
+									</figcaption>-->
+								</figure>
+							</div>
+							<div class="cssh-details1-content-bottom" th:utext="${item.content}">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cssh-details1-remark">
+					<div class="row">
+						<div class="col-lg-12">
+							<form action="#" method="post" id="comment">
+								<label for="comment">发表观点:</label>
+								<textarea name="comment"  placeholder="来说两句吧..."></textarea>
+								<a class="submit" onclick="submit()">畅言一下</a>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="footer-main">
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="footer-page1">
+									<h3>关于我们</h3>
+									<ul class="footer-page1-1">
+										<li>
+											<a href="#">在这里，你可以share</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以remark</a>k</li>
+										<li>
+											<a href="#">在这里，你可以go shopping</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以learn</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以read</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-page2">
+									<h3>页面链接</h3>
+									<ul class="footer-page2-1">
+										<li>
+											<a href="#">传世书画</a>
+										</li>
+										<li>
+											<a href="#">当代书画</a>k</li>
+										<li>
+											<a href="#">书画展览</a>
+										</li>
+										<li>
+											<a href="#">书画拍卖</a>
+										</li>
+										<li>
+											<a href="#">新闻资讯</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-page3">
+									<h3>联系我们</h3>
+									<ul class="footer-page3-1">
+										<li>
+											<a href="#">电话：028-123456789</a>
+										</li>
+										<li>
+											<a href="#">手机：1234567890</a>k</li>
+										<li>
+											<a href="#">邮箱：1829978700@qq.com</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-img">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="social-info">
+									<a href="#" class="-facebook"><span class="ico ico-facebook" aria-hidden="true"></span></a>
+									<a href="#" class="-twitter"><span class="ico ico-twitter" aria-hidden="true"></span></a>
+									<a href="#" class="-dribbble"><span class="ico ico-dribbble" aria-hidden="true"></span></a>
+									<a href="#" class="-googleplus"><span class="ico ico-google-plus" aria-hidden="true"></span></a>
+									<a href="#" class="-youtube"><span class="ico ico-youtube" aria-hidden="true"></span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-copyright">
+						<div class="row">
+							<div class="col-lg-12">
+								<p>© 2018 - All Rights Reserved. 书画网</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--jQuery  使用bootstrap插件必须引入jQuery-->
+		<script src="/js/jquery.min.js"></script>
+		<!--使用bootstrap插件必须引入-->
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/jquery.scrollex.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/util.js"></script>
+		<script src="/js/main.js"></script>
+	</body>
+
+</html>

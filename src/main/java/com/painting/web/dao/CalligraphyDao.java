@@ -7,16 +7,17 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 //书法
 @Repository
 public interface CalligraphyDao extends JpaRepository<Calligraphy, Integer> {
 
 
-    Page<Calligraphy> findAllByTypeOrderByIdAsc(@Param("type") String type, Pageable pageable);
+    Page<Calligraphy> findAllByTypeOrderByIdDesc(@Param("type") String type, Pageable pageable);
 
-    @Override
-    Page<Calligraphy> findAll(Pageable pageable);
 
+    List<Calligraphy> findAllByTypeOrderByIdAsc(String type);
 
     @Override
     Calligraphy getOne(Integer id);

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<!--使得i内核使用更高的渲染效果展示-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--设置支持移动端的视窗-->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
+		<title>more新闻</title>
+		<!--Bootsttap-->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/contact.css" rel="stylesheet" />
+		<link href="/css/shop.css" rel="stylesheet">
+		<link href="/css/index.css" rel="stylesheet">
+		<link href="/css/chuanshishuhua.css" rel="stylesheet" />
+		<link href="/css/dangdaishuhua.css" rel="stylesheet" />
+		<link href="/css/show.css" rel="stylesheet" />
+		<link href="/css/news.css" rel="stylesheet" />
+		<link href="/css/gonex-icons.css" rel="stylesheet" />
+		<link href="/css/cssh-erji.css" rel="stylesheet" />
+		<link href="/css/remark.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.2.0//css/font-awesome.min.css" />
+        <link href="/css/animation.css" rel="stylesheet" />
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		ul li {
+			list-style: none;
+		}
+		
+		body,
+		html {
+			font-size: 18px;
+			font-family: "微软雅黑";
+		}
+		
+		.news1-main {
+			margin-left: 4%;
+			margin-right: 4%;
+		}
+		.news1-top {
+			/*height: 100px;*/
+			/*border: 1px solid red;*/
+		}
+		
+		.news1-top .col-lg-12 {
+			height: 100px;
+			/*border: 1px solid white;*/
+		}
+		
+		.news1-top .col-lg-12 h2 {
+			text-align: center;
+			line-height: 100px;
+			color: white;
+			margin-top: -1px;
+		}
+		
+		.news1-details1 .col-lg-6 {
+			height: 400px;
+		}
+        .news1-details1 .col-lg-6 img{
+            height: 400px;
+            width: 100%;
+        }
+		.news1-details2 .col-lg-6 {
+			height: 400px;
+            margin-top: 50px;
+		}
+        .news1-details2 .col-lg-6 img{
+            height: 400px;
+            width: 100%;
+        }
+		.news1-details3 .col-lg-6 {
+			height: 400px;
+            margin-top: 50px;
+		}
+        .news1-details3 .col-lg-6 img{
+            height: 400px;
+            width: 100%;
+        }
+		figure.effect-terry {
+			background: #34495e;
+		}
+		
+		figure.effect-terry figcaption {
+			padding: 1em;
+		}
+		
+		figure.effect-terry figcaption::before,
+		figure.effect-terry figcaption::after {
+			position: absolute;
+			width: 200%;
+			height: 200%;
+			border-style: solid;
+			border-color: #101010;
+			content: '';
+			-webkit-transition: -webkit-transform 0.35s;
+			transition: transform 0.35s;
+		}
+		
+		figure.effect-terry figcaption::before {
+			right: 0;
+			bottom: 0;
+			border-width: 0 70px 60px 0;
+			-webkit-transform: translate3d(70px, 60px, 0);
+			transform: translate3d(70px, 60px, 0);
+		}
+		
+		figure.effect-terry figcaption::after {
+			top: 0;
+			left: 0;
+			border-width: 15px 0 0 15px;
+			-webkit-transform: translate3d(-15px, -15px, 0);
+			transform: translate3d(-15px, -15px, 0);
+		}
+		
+		figure.effect-terry img,
+		figure.effect-terry p a {
+			-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+			transition: opacity 0.35s, transform 0.35s;
+		}
+		
+		figure.effect-terry img {
+			opacity: 0.85;
+		}
+		
+		figure.effect-terry h2 {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			padding: 0.4em 10px;
+			width: 50%;
+			-webkit-transition: -webkit-transform 0.35s;
+			transition: transform 0.35s;
+			-webkit-transform: translate3d(100%, 0, 0);
+			transform: translate3d(100%, 0, 0);
+		}
+		
+		@media screen and (max-width: 500px) {
+			figure.effect-terry h2 {
+				padding: 0.5em 5px;
+				font-size: 100%;
+			}
+		}
+		
+		figure.effect-terry p {
+			float: right;
+			clear: both;
+			text-align: left;
+			text-transform: none;
+			font-size: 111%;
+		}
+		
+		figure.effect-terry p a {
+			display: block;
+			margin-bottom: 1em;
+			color: #fff;
+			opacity: 0;
+			-webkit-transform: translate3d(90px, 0, 0);
+			transform: translate3d(90px, 0, 0);
+		}
+		
+		figure.effect-terry p a:hover,
+		figure.effect-terry p a:focus {
+			color: #f3cf3f;
+		}
+		
+		figure.effect-terry:hover figcaption::before,
+		figure.effect-terry:hover figcaption::after {
+			-webkit-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+		}
+		
+		figure.effect-terry:hover img {
+			opacity: 0.6;
+		}
+		
+		figure.effect-terry:hover h2,
+		figure.effect-terry:hover p a {
+			-webkit-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+		}
+		
+		figure.effect-terry:hover p a {
+			opacity: 1;
+		}
+		
+		figure.effect-terry:hover p a:first-child {
+			-webkit-transition-delay: 0.025s;
+			transition-delay: 0.025s;
+		}
+		
+		figure.effect-terry:hover p a:nth-child(2) {
+			-webkit-transition-delay: 0.05s;
+			transition-delay: 0.05s;
+		}
+		
+		figure.effect-terry:hover p a:nth-child(3) {
+			-webkit-transition-delay: 0.075s;
+			transition-delay: 0.075s;
+		}
+		
+		figure.effect-terry:hover p a:nth-child(4) {
+			-webkit-transition-delay: 0.1s;
+			transition-delay: 0.1s;
+		}
+        .news1-bottom {
+            height: 100px;
+            /*border: 1px solid red;*/
+        }
+
+        .news1-bottom .col-lg-12 {
+            height: 100px;
+            /*border: 1px solid green;*/
+        }
+
+        .news1-bottom .nextpage {
+            height: 40px;
+            width: 300px;
+            /*border: 1px solid red;*/
+            /*background: gold;*/
+            margin: 30px auto;
+        }
+
+        .news1-bottom .nextpage a {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            line-height: 40px;
+        }
+        .news1-bottom .nextpage a span {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            padding:0 30px;
+            background: gold;
+            float: left;
+            line-height: 40px;
+        }
+        .news1-bottom .nextpage .next span{
+            margin-left: 70px;
+        }
+        @media screen and (max-width: 500px) {
+            .news1-bottom .nextpage a span {
+                text-decoration: none;
+                display: block;
+                text-align: center;
+                padding:0 20px;
+                background: gold;
+                float: left;
+                line-height: 40px;
+            }
+            .news1-bottom .nextpage .next span{
+                margin-left: 10px;
+            }
+        }
+        @media screen and (max-width: 500px) {
+            .news1-bottom .nextpage a span {
+                text-decoration: none;
+                display: block;
+                text-align: center;
+                padding:0 20px;
+                background: gold;
+                float: left;
+                line-height: 40px;
+            }
+            .news1-bottom .nextpage .next span{
+                margin-left: 10px;
+            }
+        }
+	</style>
+
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1><a href="/">书画网</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+                                <ul>
+                                    <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                    <li>
+                                        <a href="/calligraphy">传世书法</a>
+                                    </li>
+                                    <li>
+                                        <a href="/painting">传世绘画</a>
+                                    </li>
+                                    <li>
+                                        <a href="/show">书画展览</a>
+                                    </li>
+                                    <li>
+                                        <a href="/auction">书画竞拍</a>
+                                    </li>
+                                    <li>
+                                        <a href="/share">书画共享</a>
+                                    </li>
+                                    <li>
+                                        <a href="/news">新闻资讯</a>
+                                    </li>
+                                    <li>
+                                        <a href="/contact-us">联系我们</a>
+                                    </li>
+                                </ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+		<div class="container-fluid">
+			<div class="news1-main">
+				<div class="news1-top">
+					<div class="row">
+						<div class="col-lg-12">
+							<h2>焦点新闻</h2>
+						</div>
+					</div>
+				</div>
+				<div class="news1-details1">
+					<div class="row">
+						<div class="col-lg-6">
+							<figure class="effect-terry">
+								<img src="img/news-news1.jpg" alt="news-news1.jpg" />
+								<figcaption>
+									<h2>90周年 <span>华诞</span></h2>
+									<p>
+										<a href="#"><i class="fa fa-fw fa-download"></i></a>
+										<a href="#"><i class="fa fa-fw fa-heart"></i></a>
+										<a href="#"><i class="fa fa-fw fa-share"></i></a>
+										<a href="#"><i class="fa fa-fw fa-tags"></i></a>
+									</p>
+									<a href="news_detail.html">View more</a>
+								</figcaption>
+							</figure>
+						</div>
+						<div class="col-lg-6">
+							<figure class="effect-terry">
+								<img src="img/news-news2.jpg" alt="news-news2.jpg" />
+								<figcaption>
+									<h2>Noisy <span>Terry</span></h2>
+									<p>
+										<a href="#"><i class="fa fa-fw fa-download"></i></a>
+										<a href="#"><i class="fa fa-fw fa-heart"></i></a>
+										<a href="#"><i class="fa fa-fw fa-share"></i></a>
+										<a href="#"><i class="fa fa-fw fa-tags"></i></a>
+									</p>
+									<a href="news_detail.html">View more</a>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+				<div class="news1-details2">
+					<div class="row">
+						<div class="col-lg-6">
+							<figure class="effect-terry">
+								<img src="img/news-news1.jpg" alt="news-news1.jpg" />
+								<figcaption>
+									<h2>90周年 <span>华诞</span></h2>
+									<p>
+										<a href="#"><i class="fa fa-fw fa-download"></i></a>
+										<a href="#"><i class="fa fa-fw fa-heart"></i></a>
+										<a href="#"><i class="fa fa-fw fa-share"></i></a>
+										<a href="#"><i class="fa fa-fw fa-tags"></i></a>
+									</p>
+									<a href="news_detail.html">View more</a>
+								</figcaption>
+							</figure>
+						</div>
+						<div class="col-lg-6">
+							<figure class="effect-terry">
+								<img src="img/news-news2.jpg" alt="news-news2.jpg" />
+								<figcaption>
+									<h2>Noisy <span>Terry</span></h2>
+									<p>
+										<a href="#"><i class="fa fa-fw fa-download"></i></a>
+										<a href="#"><i class="fa fa-fw fa-heart"></i></a>
+										<a href="#"><i class="fa fa-fw fa-share"></i></a>
+										<a href="#"><i class="fa fa-fw fa-tags"></i></a>
+									</p>
+									<a href="news_detail.html">View more</a>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+				<div class="news1-details3">
+					<div class="row">
+						<div class="col-lg-6">
+							<figure class="effect-terry">
+								<img src="img/news-news1.jpg" alt="news-news1.jpg" />
+								<figcaption>
+									<h2>90周年 <span>华诞</span></h2>
+									<p>
+										<a href="#"><i class="fa fa-fw fa-download"></i></a>
+										<a href="#"><i class="fa fa-fw fa-heart"></i></a>
+										<a href="#"><i class="fa fa-fw fa-share"></i></a>
+										<a href="#"><i class="fa fa-fw fa-tags"></i></a>
+									</p>
+									<a href="news_detail.html">View more</a>
+								</figcaption>
+							</figure>
+						</div>
+						<div class="col-lg-6">
+							<figure class="effect-terry">
+								<img src="img/news-news2.jpg" alt="news-news2.jpg" />
+								<figcaption>
+									<h2>Noisy <span>Terry</span></h2>
+									<p>
+										<a href="#"><i class="fa fa-fw fa-download"></i></a>
+										<a href="#"><i class="fa fa-fw fa-heart"></i></a>
+										<a href="#"><i class="fa fa-fw fa-share"></i></a>
+										<a href="#"><i class="fa fa-fw fa-tags"></i></a>
+									</p>
+									<a href="news_detail.html">View more</a>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+                <div class="news1-bottom">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="nextpage">
+                                <a href="#">
+                                    <div class="pre"><span>上一页</span></div>
+                                    <div class="next"><span>下一页</span></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="footer">
+					<div class="footer-main">
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="footer-page1">
+									<h3>关于我们</h3>
+									<ul class="footer-page1-1">
+										<li>
+											<a href="#">在这里，你可以share</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以remark</a>k</li>
+										<li>
+											<a href="#">在这里，你可以go shopping</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以learn</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以read</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-page2">
+									<h3>页面链接</h3>
+									<ul class="footer-page2-1">
+										<li>
+											<a href="#">传世书画</a>
+										</li>
+										<li>
+											<a href="#">当代书画</a>k</li>
+										<li>
+											<a href="#">书画展览</a>
+										</li>
+										<li>
+											<a href="#">书画拍卖</a>
+										</li>
+										<li>
+											<a href="#">新闻资讯</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-page3">
+									<h3>联系我们</h3>
+									<ul class="footer-page3-1">
+										<li>
+											<a href="#">电话：028-123456789</a>
+										</li>
+										<li>
+											<a href="#">手机：1234567890</a>k</li>
+										<li>
+											<a href="#">邮箱：1829978700@qq.com</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-img">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="social-info">
+									<a href="#" class="-facebook"><span class="ico ico-facebook" aria-hidden="true"></span></a>
+									<a href="#" class="-twitter"><span class="ico ico-twitter" aria-hidden="true"></span></a>
+									<a href="#" class="-dribbble"><span class="ico ico-dribbble" aria-hidden="true"></span></a>
+									<a href="#" class="-googleplus"><span class="ico ico-google-plus" aria-hidden="true"></span></a>
+									<a href="#" class="-youtube"><span class="ico ico-youtube" aria-hidden="true"></span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-copyright">
+						<div class="row">
+							<div class="col-lg-12">
+								<p>© 2018 - All Rights Reserved. 书画网</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--jQuery  使用bootstrap插件必须引入jQuery-->
+		<script src="/js/jquery.min.js"></script>
+		<!--使用bootstrap插件必须引入-->
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/jquery.scrollex.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/util.js"></script>
+		<script src="/js/main.js"></script>
+	</body>
+
+</html>

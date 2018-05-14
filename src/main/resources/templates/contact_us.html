@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<!--使得i内核使用更高的渲染效果展示-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--设置支持移动端的视窗-->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
+		<title>模板</title>
+		<!--Bootsttap-->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/contact.css" rel="stylesheet" />
+		<link href="/css/shop.css" rel="stylesheet">
+		<link href="/css/index.css" rel="stylesheet">
+		<link href="/css/chuanshishuhua.css" rel="stylesheet" />
+		<link href="/css/dangdaishuhua.css" rel="stylesheet" />
+		<link href="/css/show.css" rel="stylesheet" />
+		<link href="/css/news.css" rel="stylesheet" />
+		<link href="/css/gonex-icons.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1><a href="/">书画网</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+                                <ul>
+                                    <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                    <li>
+                                        <a href="/calligraphy">传世书法</a>
+                                    </li>
+                                    <li>
+                                        <a href="/painting">传世绘画</a>
+                                    </li>
+                                    <li>
+                                        <a href="/show">书画展览</a>
+                                    </li>
+                                    <li>
+                                        <a href="/auction">书画竞拍</a>
+                                    </li>
+                                    <li>
+                                        <a href="/share">书画共享</a>
+                                    </li>
+                                    <li>
+                                        <a href="/news">新闻资讯</a>
+                                    </li>
+                                    <li>
+                                        <a href="/contact-us">联系我们</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+				</nav>
+			</header>
+		</div>
+		<div class="container-fluid">
+			<div class="contact-main">
+				<div class="contact-top">
+					<div class="row">
+						<div class="col-lg-12">
+							<img src="img/call us.jpg" />
+						</div>
+					</div>
+				</div>
+				<div class="contact">
+					<div class="contactus">
+						<form>
+							<div class="contactus1">
+								<div class="row">
+									<div class="col-lg-4">
+										<label for="username">用户名：</label>
+										<input type="text" name="username" id="username" required="required" placeholder="请输入姓名" />
+									</div>
+									<div class="col-lg-4">
+										<label for="tel">电话号码：&nbsp;&nbsp;<span id="iphoneInfo"></span></label>
+										<input type="tel" name="tel" id="tel" onblur="phone()" placeholder="请输入电话号码" />
+									</div>
+									<div class="col-lg-4" >
+										<label for="emailnumber">邮箱：&nbsp;&nbsp;<span id="emailInfo"></span></label>
+										<input type="email" name="emailnumber" id="emailnumber" onblur="youxiang()" placeholder="请输入邮箱" />
+									</div>
+								</div>
+							</div>
+							<!--<div class="contactus2">
+								<div class="row">
+									<div class="col-lg-4" id="style1">
+										<label for="suggest"><span>建议：</span>
+													<select name="id">
+												        <option value="">赞扬</option>
+												        <option value="">建议</option>
+												        <option value="">投诉</option>
+												    </select>
+												</label>
+										<input type="text" name="suggest" id="suggest" placeholder="请输入建议" />
+									</div>
+									<div class="col-lg-4">
+										<label for="identity">身份：</label><br />
+										<input type="radio" name="identity" required="required" style="height:15px;width:7%;" /><span style="font-size: 18px;">普通会员</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<input type="radio" name="identity" required="required" style="height:15px;width:7%;" /><span style="font-size: 18px;">资深专家</span>
+									</div>
+									<div class="col-lg-4" id="style1">
+										<label for="date">日期：</label>
+										<input type="date" name="date" id="date" placeholder="请选择日期" />
+									</div>
+								</div>
+							</div>-->
+							<div class="contactus3">
+								<div class="row">
+									<div class="col-lg-12">
+
+										<label for="message">留言：</label><br />
+										<textarea name="message" id="message" required="required" placeholder="欢迎留言，我们将提供更加优质的服务！"></textarea>
+
+									</div>
+								</div>
+							</div>
+							<div class="contactus4">
+								<div class="row">
+									<div class="col-lg-12">
+										<input type="submit" value="提交" />
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="footer-main">
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="footer-page1">
+									<h3>关于我们</h3>
+									<ul class="footer-page1-1">
+										<li>
+											<a href="#">在这里，你可以share</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以remark</a>k</li>
+										<li>
+											<a href="#">在这里，你可以go shopping</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以learn</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以read</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-page2">
+									<h3>页面链接</h3>
+									<ul class="footer-page2-1">
+										<li>
+											<a href="#">传世书画</a>
+										</li>
+										<li>
+											<a href="#">当代书画</a>k</li>
+										<li>
+											<a href="#">书画展览</a>
+										</li>
+										<li>
+											<a href="#">书画拍卖</a>
+										</li>
+										<li>
+											<a href="#">新闻资讯</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-page3">
+									<h3>联系我们</h3>
+									<ul class="footer-page3-1">
+										<li>
+											<a href="#">电话：028-123456789</a>
+										</li>
+										<li>
+											<a href="#">手机：1234567890</a>k</li>
+										<li>
+											<a href="#">邮箱：1829978700@qq.com</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-img">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="social-info">
+									<a href="#" class="-facebook"><span class="ico ico-facebook" aria-hidden="true"></span></a>
+									<a href="#" class="-twitter"><span class="ico ico-twitter" aria-hidden="true"></span></a>
+									<a href="#" class="-dribbble"><span class="ico ico-dribbble" aria-hidden="true"></span></a>
+									<a href="#" class="-googleplus"><span class="ico ico-google-plus" aria-hidden="true"></span></a>
+									<a href="#" class="-youtube"><span class="ico ico-youtube" aria-hidden="true"></span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-copyright">
+						<div class="row">
+							<div class="col-lg-12">
+								<p>© 2018 - All Rights Reserved. 书画网</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--jQuery  使用bootstrap插件必须引入jQuery-->
+		<script src="/js/jquery.min.js"></script>
+		<!--使用bootstrap插件必须引入-->
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/jquery.scrollex.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/util.js"></script>
+		<script src="/js/main.js"></script>
+	</body>
+
+</html>

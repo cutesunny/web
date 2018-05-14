@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<!--使得i内核使用更高的渲染效果展示-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--设置支持移动端的视窗-->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
+		<title>展馆详情</title>
+		<!--Bootsttap-->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/contact.css" rel="stylesheet" />
+		<link href="/css/shop.css" rel="stylesheet">
+		<link href="/css/index.css" rel="stylesheet">
+		<link href="/css/chuanshishuhua.css" rel="stylesheet" />
+		<link href="/css/dangdaishuhua.css" rel="stylesheet" />
+		<link href="/css/show.css" rel="stylesheet" />
+		<link href="/css/news.css" rel="stylesheet" />
+		<link href="/css/gonex-icons.css" rel="stylesheet" />
+		<link href="/css/cssh-erji.css" rel="stylesheet" />
+		<link href="/css/remark.css" rel="stylesheet" />
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		ul li {
+			list-style: none;
+		}
+		
+		body,
+		html {
+			font-size: 18px;
+			font-family: "微软雅黑";
+		}
+		
+		.show3-main {
+			margin-left: 4%;
+			margin-right: 4%;
+		}
+		
+		.show3-top {
+			height: 100px;
+			/*border: 1px solid red;*/
+		}
+		
+		.show3-top .col-lg-12 {
+			height: 100px;
+			/*border: 1px solid white;*/
+		}
+		
+		.show3-top .col-lg-12 h2 {
+			text-align: center;
+			line-height: 100px;
+			color: white;
+			margin-top: -1px;
+		}
+		.show3-details{
+			/*height: 780px;*/
+			/*border: 1px solid red;*/
+		}
+		.show3-details .col-lg-12{
+			height: 1950px;
+			/*border: 1px solid white;*/
+		}
+		.show3-details-top{
+			/*height: 450px;*/
+			/*border: 1px solid red;*/
+		}
+		.show3-details-top img{
+			width: 70%;
+			height: 500px;
+			margin-left: 15%;
+			margin-top: 15px;
+		}
+		.show3-details-bottom{
+			/*height: 230px;*/
+			/*border: 1px solid green;*/
+		}
+		.show3-details p{
+			padding: 20px 15px;
+			line-height: 25px;
+			color: white;
+			font-size: 20px;
+		}
+		@media screen and (max-width: 1280px) {
+			.show3-details-top img{
+			width: 90%;
+			height: 480px;
+			margin-left: 5%;
+			margin-top: 15px;
+			}
+			.show3-details p{
+			padding: 20px 15px;
+			line-height: 25px;
+			color: white;
+			font-size: 19px;
+			}
+		
+		}
+		@media screen and (max-width: 980px) {
+			.show3-details-top img{
+			width: 70%;
+			height: 450px;
+			margin-left: 15%;
+			margin-top: 15px;
+			}
+			.show3-details p{
+			padding: 20px 15px;
+			line-height: 25px;
+			color: white;
+			font-size: 17px;
+			}
+		}
+		@media screen and (max-width: 736px) {
+			.show3-details-top img{
+			width: 80%;
+			height: 400px;
+			margin-left: 10%;
+			margin-top: 15px;
+			}
+			.show3-details p{
+			padding: 20px 15px;
+			line-height: 25px;
+			color: white;
+			font-size: 16px;
+			}
+		}
+		@media screen and (max-width: 500px) {
+			.show3-details-top img{
+			width: 90%;
+			height: 200px;
+			margin-left: 5%;
+			margin-top: 15px;
+			}
+			.show3-details p{
+			padding: 20px 15px;
+			line-height: 25px;
+			color: white;
+			font-size: 15px;
+			}
+		}
+		.show3-details-remark{
+			height: 300px;
+			/*border: 1px solid white;*/
+		}
+		.show3-details-remark .col-lg-12{
+			height: 300px;
+			/*border: 1px solid red;*/
+		}
+		.show3-details-remark label{
+			color: white;
+			font-size: 30px;
+			font-family: "楷体";
+		}
+		.show3-details-remark textarea{
+			/*outline: none;
+ 		 	border: none;*/
+  			background: beige;
+  			height: 200px;
+			width: 100%;
+		}
+		.show3-details-remark .submit{
+			/*border: 1px solid red;*/
+			padding: 10px 60px;
+  			background: royalblue;
+  			text-decoration: none;
+  			display: block;
+  			cursor: pointer;
+  			margin-left: 990px;
+  			color: white;
+  			/*margin-top: 0px;*/
+		}
+		.show3-details-remark .submit:hover {
+  			opacity: 0.6;
+		}
+	</style>
+
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1><a href="/">书画网</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+                                <ul>
+                                    <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                    <li>
+                                        <a href="/calligraphy">传世书法</a>
+                                    </li>
+                                    <li>
+                                        <a href="/painting">传世绘画</a>
+                                    </li>
+                                    <li>
+                                        <a href="/show">书画展览</a>
+                                    </li>
+                                    <li>
+                                        <a href="/auction">书画竞拍</a>
+                                    </li>
+                                    <li>
+                                        <a href="/share">书画共享</a>
+                                    </li>
+                                    <li>
+                                        <a href="/news">新闻资讯</a>
+                                    </li>
+                                    <li>
+                                        <a href="/contact-us">联系我们</a>
+                                    </li>
+                                </ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+		<div class="container-fluid">
+			<div class="show3-main">
+				<div class="show3-top">
+					<div class="row">
+						<div class="col-lg-12">
+							<h2>巴西·艺术城</h2>
+						</div>
+					</div>
+				</div>
+				<div class="show3-details">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="show3-details-top">
+								<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;巴西cidade das artes艺术馆位于里约热内卢，坐落在山海之间，在一个有着广阔平地的新城内。
+									这里的周边环境颇为单调，城市属性不强，公共空间亦无从谈起。两条高速路在此处交汇，形成了整个场地的主构架。而这座艺术馆未来将会是新城的中心。
+								</p>
+								<img src="img/show-2-1.jpg"/>
+								<img src="img/show3-details-2.jpg"/>
+								<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该建筑是用一座庞大的结构支撑起来的小型城市。这座“城市”建立在一个距离地面10米的大型平台之上，人们可以在这里远眺山和海。建筑如同悬浮于它脚下那片公共花园上方。这片富热带与海洋气息的花园出自费纳多•夏赛尔（fernando chacel）之手。艺术城中包含有各种各样的场所：
+									一个演奏厅、一个室内音乐及流行音乐厅、电影院、舞蹈工作坊、若干个排练厅、展览空间、餐厅以及一个媒体图书馆。
+								</p>
+								<img src="img/show3-details-3.jpg"/>
+								<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在谈到设计初衷时，portzamparc这样说：“我很快就想到这一综合性建筑需矗立于地面之上，人们在该建筑里能够看到大海、山脉和整个城市，因为目前从地面上可以看到的只有汽车。因此，这一建筑必须高于地面10米。所以，修建一个大型的户外平台的想法就产生了，这个平台用以承载所有设施和接待公众。从设计里约热内卢艺术城的首批小型模型开始，
+									我们就已经形成了这样的想法：将其建成多个独特、隔音、并具有各种不同的功能的单独体量，并把其建设成为可以“漂浮”的建筑。”
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="show3-details-remark">
+					<div class="row">
+						<div class="col-lg-12">
+							<form action="#" method="post" id="comment">
+								<label for="comment">发表观点:</label>
+								<textarea name="comment"  placeholder="来说两句吧..."></textarea>
+								<a class="submit" onclick="submit()">畅言一下</a>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="footer-main">
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="footer-page1">
+									<h3>关于我们</h3>
+									<ul class="footer-page1-1">
+										<li>
+											<a href="#">在这里，你可以share</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以remark</a>k</li>
+										<li>
+											<a href="#">在这里，你可以go shopping</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以learn</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以read</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-page2">
+									<h3>页面链接</h3>
+									<ul class="footer-page2-1">
+										<li>
+											<a href="#">传世书画</a>
+										</li>
+										<li>
+											<a href="#">当代书画</a>k</li>
+										<li>
+											<a href="#">书画展览</a>
+										</li>
+										<li>
+											<a href="#">书画拍卖</a>
+										</li>
+										<li>
+											<a href="#">新闻资讯</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-page3">
+									<h3>联系我们</h3>
+									<ul class="footer-page3-1">
+										<li>
+											<a href="#">电话：028-123456789</a>
+										</li>
+										<li>
+											<a href="#">手机：1234567890</a>k</li>
+										<li>
+											<a href="#">邮箱：1829978700@qq.com</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-img">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="social-info">
+									<a href="#" class="-facebook"><span class="ico ico-facebook" aria-hidden="true"></span></a>
+									<a href="#" class="-twitter"><span class="ico ico-twitter" aria-hidden="true"></span></a>
+									<a href="#" class="-dribbble"><span class="ico ico-dribbble" aria-hidden="true"></span></a>
+									<a href="#" class="-googleplus"><span class="ico ico-google-plus" aria-hidden="true"></span></a>
+									<a href="#" class="-youtube"><span class="ico ico-youtube" aria-hidden="true"></span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-copyright">
+						<div class="row">
+							<div class="col-lg-12">
+								<p>© 2018 - All Rights Reserved. 书画网</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--jQuery  使用bootstrap插件必须引入jQuery-->
+		<script src="/js/jquery.min.js"></script>
+		<!--使用bootstrap插件必须引入-->
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/jquery.scrollex.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/util.js"></script>
+		<script src="/js/main.js"></script>
+	</body>
+
+</html>

@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.querydsl.QPageRequest;
+import org.springframework.data.querydsl.QSort;
 import org.springframework.stereotype.Service;
 
 import javax.print.attribute.standard.PagesPerMinute;
@@ -33,11 +34,18 @@ public class PaintingService {
     /**
      * 分页
      */
-    public Page<Painting> findAll(Integer pageNum, Integer pageSize, Integer type) {
-        //OrderSpecifier sort = new OrderSpecifier(Sort.Direction.ASC, "id");
-        Pageable pageable1 = new QPageRequest(pageNum-1, pageSize);
-        return paintingDao.findAllByTypeOrderByIdAsc(type.toString(), pageable1);
+    public Page<Painting> findAll(Integer pageNum, Integer pageSize) {
+        Sort sort = Sort.by(Sort.Direction.DESC, "id");
+        Pageable pageable1 = PageRequest.of(pageNum-1, pageSize, sort);
+        return paintingDao.findAll(pageable1);
+
     }
-
-
+    /**
+     * 获取热门top8
+     */
+    public List<Painting> findHotTop8(){
+        Sort sort = Sort.by(Sort.Direction.DESC, "commentAmount");
+        Pageable pageable1 =  PageRequest.of(0, 8,sort);
+        return paintingDao.findAll(pageable1).getContent();
+    }
 }

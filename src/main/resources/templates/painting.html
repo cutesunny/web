@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN"  xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<!--使得i内核使用更高的渲染效果展示-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--设置支持移动端的视窗-->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
+		<title>书画</title>
+		<!--Bootsttap-->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="/css/dangdaishuhua.css" />
+		<link href="/css/index.css" rel="stylesheet">
+		<link href="/css/chuanshishuhua.css" rel="stylesheet" />
+		<link href="/css/show.css" rel="stylesheet" />
+		<link href="/css/shop.css" rel="stylesheet" />
+		<link href="/css/news.css" rel="stylesheet" />
+		<link href="/css/contact.css" rel="stylesheet" />
+		<link href="/css/gonex-icons.css" rel="stylesheet" />
+        <link href="/css/animation.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+				 <!--Header--> 
+		<header id="header">
+			<h1><a href="/">书画网</a></h1>
+			<nav id="nav">
+				<ul>
+					<li class="special">
+						<a href="#menu" class="menuToggle"><span>Menu</span></a>
+						<div id="menu">
+							<ul>
+								<li>
+									<a href="/">首页</a>
+								</li>
+								<li>
+									<a href="/calligraphy">传世书法</a>
+								</li>
+								<li>
+									<a href="/painting">传世绘画</a>
+								</li>
+								<li>
+									<a href="/show">书画展览</a>
+								</li>
+								<li>
+									<a href="/auction">书画竞拍</a>
+								</li>
+								<li>
+									<a href="/share">书画共享</a>
+								</li>
+								<li>
+									<a href="/news">新闻资讯</a>
+								</li>
+								<li>
+									<a href="/contact-us">联系我们</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<div class="container-fluid">
+			<div class="ddsh-main">
+				<div class="ddsh-top">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="ddsh-lunbo">
+								<div id="carousel1" class="carousel slide" data-ride="carousel">
+									<!--图片目录-->
+									<ol class="carousel-indicators">
+										<li data-target="#carousel1" data-slide-to="0" class="active"></li>
+										<li data-target="#carousel1" data-slide-to="1"></li>
+										<li data-target="#carousel1" data-slide-to="2"></li>
+										<li data-target="#carousel1" data-slide-to="3"></li>
+									</ol>
+									<!--图片详情-->
+									<div class="carousel-inner" role="listbox">
+										<div class="item active">
+											<img src="img/ddsh2.jpg" alt="..." style="height: 650px;">
+										</div>
+										<div class="item">
+											<img src="img/ddsh1.jpg" alt="..." style="height: 650px;">
+										</div>
+										<div class="item">
+											<img src="img/ddsh3.jpg" alt="..." style="height: 650px;">
+										</div>
+										<div class="item">
+											<img src="img/ddsh4.jpg" alt="..." style="height: 650px;">
+										</div>
+										<!--左右箭头-->
+										<a class="left carousel-control" href="#carousel1" role="button" data-slide="prev">
+											<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+											<span class="sr-only">Previous</span>
+										</a>
+										<a class="right carousel-control" href="#carousel1" role="button" data-slide="next">
+											<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+											<span class="sr-only">Next</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ddsh-middle">
+					<div class="ddsh-middle-tittle">
+						<div class="row">
+							<div class="col-lg-12">
+								<a href="/painting/list"><h2>最新作品</h2></a>
+							</div>
+						</div>
+					</div>
+					<div class="ddsh-middle-photo">
+						<div class="row" >
+							<div class="col-lg-3" th:each="item,state:${newPainting}" th:if="${state.index lt 4}">
+								<div class="ddsh-middle-show1">
+									<div class="ddsh-middle-top">
+										<img th:src="${item.path}" />
+									</div>
+									<div class="ddsh-middle-bottom">
+										<div class="title"><a th:href="|/painting/${item.id}|"><h3 th:text="${item.title}">傲雪迎春红梅图</h3></a></div>
+										<p th:text="${item.description}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本画作者是石开，号五莲居士、墨香山人，当代知名书画家，尤擅长写意花鸟。
+										</p>
+										<img src="/img/bigstar.png" style="width: 24px;height: 24px;" />
+										<img src="/img/bigstar.png" style="width: 24px;height: 24px;" />
+										<img src="/img/bigstar.png" style="width: 24px;height: 24px;" />
+										<img src="/img/bigstar.png" style="width: 24px;height: 24px;" />
+										<img src="/img/bigstar.png" style="width: 24px;height: 24px;" /> &nbsp;
+										<div class="remark"><a href="#" th:app><img src="/img/message.png" style="width: 24px;height: 24px;" th:text="|${item.commentAmount}条评论|"/></a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-3" th:each="item,state:${newPainting}" th:if="${state.index gt 3}">
+								<div class="ddsh-middle-show1">
+									<div class="ddsh-middle-top">
+										<img th:src="${item.path}"/>
+									</div>
+									<div class="ddsh-middle-bottom">
+										<div class="title"><a th:href="|/painting/${item.id}|" ><h3 th:text="${item.title}">傲雪迎春红梅图</h3></a></div>
+										<p th:text="${item.description}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本画作者是石开，号五莲居士、墨香山人，当代知名书画家，尤擅长写意花鸟。
+										</p>
+										<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+										<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+										<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+										<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+										<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
+										<div class="remark"><a ><img src="/img/message.png" style="width: 24px;height: 24px;"  th:text="|${item.commentAmount}条评论|" /></a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                    <div class="more">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <a href="/painting/list">查看更多&nbsp;&nbsp;→</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="ddsh-bottom">
+					<div class="ddsh-bottom-tittle">
+						<h2>热门作品</h2>
+					</div>
+					<div class="ddsh-bottom-show">
+						<div class="ddsh-bottom-show-1">
+						<div class="row">
+							<div class="col-lg-3" th:each="item,state:${hotPainting}" th:if="${state.index lt 4}">
+								<div class="ddsh-bottom-photoshow">
+                                    <figure class="effect-lily">
+                                        <img  th:src="${item.path}"/>
+                                        <figcaption>
+                                            <div>
+                                                <h2 th:text="${item.title}">Nice </h2>
+                                                <p th:text="${item.description}">Lily likes to play with crayons and pencils</p>
+                                            </div>
+                                            <a th:href="|/painting/${item.id}|">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+							</div>
+						</div>
+						</div>
+						<div class="ddsh-bottom-show-2">
+						<div class="row">
+							<div class="col-lg-3" th:each="item,state:${hotPainting}" th:if="${state.index gt 3}">
+								<div class="ddsh-bottom-photoshow">
+									<figure class="effect-lily">
+										<img  th:src="${item.path}"/>
+										<figcaption>
+											<div>
+												<h2 th:text="${item.title}">Nice </h2>
+												<p th:text="${item.description}">Lily likes to play with crayons and pencils</p>
+											</div>
+											<a th:href="|/painting/${item.id}|">View more</a>
+										</figcaption>
+									</figure>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="footer-main">
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="footer-page1">
+									<h3>关于我们</h3>
+									<ul class="footer-page1-1">
+										<li><a href="#">在这里，你可以share</a></li>
+										<li><a href="#">在这里，你可以remark</a>k</li>
+										<li><a href="#">在这里，你可以go shopping</a></li>
+										<li><a href="#">在这里，你可以learn</a></li>
+										<li><a href="#">在这里，你可以read</a></li>
+									</ul>
+								</div>	
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-page2">
+									<h3 >页面链接</h3>
+									<ul class="footer-page2-1">
+										<li><a href="#">传世书画</a></li>
+										<li><a href="#">当代书画</a>k</li>
+										<li><a href="#">书画展览</a></li>
+										<li><a href="#">书画拍卖</a></li>
+										<li><a href="#">新闻资讯</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-page3">
+									<h3>联系我们</h3>
+									<ul class="footer-page3-1">
+										<li><a href="#">电话：028-123456789</a></li>
+										<li><a href="#">手机：1234567890</a>k</li>
+										<li><a href="#">邮箱：1829978700@qq.com</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-img">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="social-info">
+									<a href="#" class="-facebook"><span class="ico ico-facebook" aria-hidden="true"></span></a>
+									<a href="#" class="-twitter"><span class="ico ico-twitter" aria-hidden="true"></span></a>
+									<a href="#" class="-dribbble"><span class="ico ico-dribbble" aria-hidden="true"></span></a>
+									<a href="#" class="-googleplus"><span class="ico ico-google-plus" aria-hidden="true"></span></a>
+									<a href="#" class="-youtube"><span class="ico ico-youtube" aria-hidden="true"></span></a>
+								</div>	
+							</div>
+						</div>
+					</div>
+					<div class="footer-copyright">
+						<div class="row">
+							<div class="col-lg-12">
+								<p>© 2018 - All Rights Reserved. 书画网</p>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+		</div>
+		<!--jQuery  使用bootstrap插件必须引入jQuery-->
+		<script src="/js/jquery.min.js"></script>
+		<!--使用bootstrap插件必须引入-->
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/jquery.scrollex.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/util.js"></script>
+		<script src="/js/main.js"></script>
+	</body>
+
+</html>

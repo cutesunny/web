@@ -22,8 +22,8 @@ public class NewsApi {
 
 
     @GetMapping(value = "/list")
-    public Page<News> getList(Integer type, Integer page, Integer size){
-        return newsService.findAll(page, size);
+    public Page<News> getList(Integer type, Integer pageNum, Integer pageSize){
+        return newsService.findAll(type, pageNum, pageSize);
     }
 
     @GetMapping

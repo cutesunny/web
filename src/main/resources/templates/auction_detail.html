@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<!--使得i内核使用更高的渲染效果展示-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--设置支持移动端的视窗-->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
+		<title>竞拍</title>
+		<!--Bootsttap-->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/shop.css" rel="stylesheet">
+		<link href="/css/index.css" rel="stylesheet">
+		<link href="/css/chuanshishuhua.css" rel="stylesheet" />
+		<link href="/css/dangdaishuhua.css" rel="stylesheet" />
+		<link href="/css/show.css" rel="stylesheet" />
+		<link href="/css/news.css" rel="stylesheet" />
+		<link href="/css/contact.css" rel="stylesheet" />
+		<link href="/css/gonex-icons.css" rel="stylesheet" />
+		<link href="/css/shopping.css" rel="stylesheet" />
+        <link href="/css/animation.css" rel="stylesheet" />
+	</head>
+	<style>
+
+	</style>
+
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1><a href="/">书画网</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+                                <ul>
+                                    <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                    <li>
+                                        <a href="/calligraphy">传世书法</a>
+                                    </li>
+                                    <li>
+                                        <a href="/painting">传世绘画</a>
+                                    </li>
+                                    <li>
+                                        <a href="/show">书画展览</a>
+                                    </li>
+                                    <li>
+                                        <a href="/auction">书画竞拍</a>
+                                    </li>
+                                    <li>
+                                        <a href="/share">书画共享</a>
+                                    </li>
+                                    <li>
+                                        <a href="/news">新闻资讯</a>
+                                    </li>
+                                    <li>
+                                        <a href="/contact-us">联系我们</a>
+                                    </li>
+                                </ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+		<div class="container-fluid">
+            <div class="shopping-bg">
+                <div class="shopping-main">
+                    <div class="shopping-top">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="col-lg-4-top">
+                                    <div id="smallBox">
+                                        <div id="floatBox"></div>
+                                        <img src="img/shufa1.jpg" id="img1">
+                                    </div>
+                                    <div id="bigBox">
+                                        <img src="img/shufa1.jpg" id="imgBox">
+                                    </div>
+                                    <div id="icon">
+                                        <div id="icon1">
+                                            <img src="img/shufa1.jpg" id="shufa1" alt="1" class="img2">
+                                        </div>
+
+                                        <div id="icon2">
+                                            <img src="img/shufa2.jpg" id="shufa2" alt="2" class="img3">
+                                        </div>
+                                        <div id="icon3">
+                                            <img src="img/shufa3.jpg" id="shufa3" alt="3" class="img4">
+                                        </div>
+                                        <div id="icon4">
+                                            <img src="img/shufa4.jpg" id="shufa4" alt="4" class="img5">
+                                        </div>
+                                        <div id="icon5">
+                                            <img src="img/shufa5.jpg" id="shufa5" alt="5" class="img6">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="col-lg-5-1">
+                                    <h3>舍得石玉书法作品字画已装裱挂画包邮</h3>
+                                </div>
+                                <div class="col-lg-5-2">
+                                    <div class="col-lg-5-2-left">
+                                        <h3>倒计时</h3>
+                                    </div>
+                                    <div class="col-lg-5-2-right">
+                                        <p>距结束(倒计时插件不会写)</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5-3">
+                                    <ul>
+                                        <li><span>当前价:￥430</span><dt>（第1次出价）</dt></li>
+                                        <li><span>保证金:￥200</span></li>
+                                        <li><div class="start-buy"><a href="#">参与竞拍</a></div></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-5-4">
+                                    <ul>
+                                        <li>起拍价：￥430 </li>
+                                        <li>加价幅：￥20</li>
+                                        <li>保证金：￥200</li>
+                                        <li>最高价：暂无</li>
+                                        <li>佣金：暂无 </li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-5-5 fenxiang">
+                                    <div class="bdsharebuttonbox">
+                                        <a class="bds_more" href="#" data-cmd="more"></a>
+                                        <a title="分享到QQ空间" class="bds_qzone" href="#" data-cmd="qzone"></a>
+                                        <a title="分享到新浪微博" class="bds_tsina" href="#" data-cmd="tsina"></a>
+                                        <a title="分享到腾讯微博" class="bds_tqq" href="#" data-cmd="tqq"></a>
+                                        <a title="分享到人人网" class="bds_renren" href="#" data-cmd="renren"></a>
+                                        <a title="分享到微信" class="bds_weixin" href="#" data-cmd="weixin"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <h3>出价记录（1）</h3>
+                                <ul class="col-lg-3-1">
+                                    <li>状态</li>
+                                    <li>竞拍人</li>
+                                    <li>价格</li>
+                                    <li>评论</li>
+                                </ul>
+                                <ul class="col-lg-3-2">
+                                    <li>领先</li>
+                                    <li>lxx</li>
+                                    <li>￥460</li>
+                                    <li>56条</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shopping-details">
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="details-flow">
+                                    <h2>竞拍流程:</h2>
+                                    <p>1.交保证金—2.出价竞拍—3.竞拍成功—4.支付货款—5.完成收货</p>
+                                </div>
+                                <div class="details-title">
+                                    <ul id="style1">
+                                        <li onclick="click1();" class="active">宝贝详情</li>
+                                        <li onclick="click2();">出价记录</li>
+                                        <li onclick="click3();">服务保障</li>
+                                        <li onclick="click4();">保证金须知</li>
+                                        <li class="move"></li>
+                                    </ul>
+                                </div>
+                                <div class="goods-details" id="goods-details">
+                                <div class="shopping-img1">
+                                    <div class="shopping-img1-top">
+                                        <a href="#"><img src="img/shufa-details1.jpg"></a>
+                                    </div>
+                                    <div class="shopping-img1-bottom">
+									<span>优质四尺白宣纸书写：68*138（㎝）<br/>
+								装裱卷轴尺寸： 80*175（㎝）</span>
+                                    </div>
+                                </div>
+                                <div class="shopping-img1">
+                                    <div class="shopping-img1-top">
+                                        <a href="#"><img src="img/shufa-details2.jpg"></a>
+                                    </div>
+                                    <div class="shopping-img1-bottom">
+							<span>
+								舍得<br/>
+							能舍者 天地不弃<br />
+							既得者 无愧于心</span>
+                                    </div>
+
+                                </div>
+                                <div class="shopping-img1">
+                                    <div class="shopping-img1-top">
+                                        <a href="#"><img src="img/shufa-details3.jpg"></a>
+                                    </div>
+                                    <div class="shopping-img1-bottom">
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作品是卷轴形式的装裱可以直接用于悬挂装饰，也可以改造成装镜框的镜芯装裱，
+                                            所有书法作品均为石玉老师亲笔书写，他的笔法大气端庄，法度严谨但不失飘逸流畅的洒脱，希望找到有缘收藏的您！</p>
+                                    </div>
+
+                                </div>
+                                <div class="shopping-img1">
+                                    <div class="shopping-img1-top">
+                                        <a href="#"><img src="img/shufa-details4.jpg"></a>
+                                    </div>
+                                    <div class="shopping-img1-bottom">
+									<span>能舍者，天地不弃<br/>
+										既得者，无愧于心
+									</span>
+                                    </div>
+                                </div>
+                                <div class="shopping-img1">
+                                    <div class="shopping-img1-top">
+                                        <a href="#"><img src="img/shufa-details5.jpg"></a>
+                                    </div>
+                                    <div class="shopping-img1-bottom">
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石玉，原名张宏军，1957年生于神笔王铎故里河南省孟津县。自幼酷爱书法绘画，四十年来坚持不懈，持之以恒习临古帖，
+                                            潜心研究王铎书体。又受到书法大家王俊生老师，九十岁段宝斋老先生的言传身教。师古溶今，博学众长，形成了自己独具一格的风格，
+                                            他的书法平正端庄，出规入矩，跌宕起伏，笔法大气，法度严谨而意态生动。</p>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="record" id="record">
+                                    <ul class="topy">
+                                        <li>状态</li>
+                                        <li>竞拍人</li>
+                                        <li>价格 </li>
+                                        <li>时间</li>
+                                        <li>评价</li>
+                                    </ul>
+                                    <ul class="bty">
+                                        <li>领先</li>
+                                        <li>Lxx</li>
+                                        <li>￥460 </li>
+                                        <li>2018-5-08 </li>
+                                        <li>56</li>
+                                    </ul>
+                                </div>
+                                <div class="service" id="service">
+                                    <div class="title">
+                                        <h1>拍卖服务保障</h1>
+                                    </div>
+                                    <div class="service1">
+                                        <h2>送拍机构服务及承诺</h2>
+                                        <p>1.送拍机构承诺如实描述拍品；</p>
+                                        <p>2.送拍机构成交不卖，则拍品保证金退一赔五（汽车/房产品类退一赔一）作为赔付给竞买成功
+                                            人；</p>
+                                        <p>3.关于运费：竞拍成功后，由送拍机构承担发货运费（港澳台除外）；其中拍卖行送拍的拍品，
+                                            以及房地产、新车/二手车、媒体广告、运输设备、资产、媒体名人、虚拟、活体、服务类
+                                            拍品，实物重50斤以上(大件家具30斤以上)或面积大于2个平方的拍品，以及类目有特别规
+                                            定的不包邮；</p>
+                                        <p>4.关于拍卖行佣金收取：依据《中华人民共和国拍卖法》的规定，竞买人在竞拍成功后，需根
+                                            据拍卖行约定（商品页面描述佣金额），缴纳约定比例、数额的佣金。</p>
+                                    </div>
+                                    <div class="service2">
+                                        <h2>送拍机构服务及承诺</h2>
+                                        <img src="img/pai7.png">
+                                    </div>
+                                    <div class="service3">
+                                        <h2>拍卖基础服务</h2>
+                                        <ul>
+                                            <li>
+                                            <div class="li1">
+                                                <div class="service1-left">
+                                                    <a href="#"><img src="img/pai1.png"></a>
+                                                </div>
+                                                <div class="service1-right">
+                                                    <dt>如实描述承诺</dt>
+                                                </div>
+                                            </div>
+                                            <div class="li2">
+                                                <p>送拍机构承诺如实描述，一旦发现描述不符的拍品，买家可在交易成功后指定
+                                                    期限内向拍卖会投诉送拍机构</p>
+                                            </div>
+                                            </li>
+                                            <li style="border-left: 1px solid #dcdcdc;border-right: 1px solid #dcdcdc;">
+                                                <div class="li1">
+                                                    <div class="service1-left">
+                                                        <a href="#"><img src="img/pai1.png"></a>
+                                                    </div>
+                                                    <div class="service1-right">
+                                                        <dt>如实描述承诺</dt>
+                                                    </div>
+                                                </div>
+                                                <div class="li2">
+                                                    <p>送拍机构承诺如实描述，一旦发现描述不符的拍品，买家可在交易成功后指定
+                                                        期限内向拍卖会投诉送拍机构</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="li1">
+                                                    <div class="service1-left">
+                                                        <a href="#"><img src="img/pai1.png"></a>
+                                                    </div>
+                                                    <div class="service1-right">
+                                                        <dt>如实描述承诺</dt>
+                                                    </div>
+                                                </div>
+                                                <div class="li2">
+                                                    <p>送拍机构承诺如实描述，一旦发现描述不符的拍品，买家可在交易成功后指定
+                                                        期限内向拍卖会投诉送拍机构</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="service4">
+                                        <h2>拍品特色服务</h2>
+                                        <ul>
+                                            <li>
+                                                <div class="li1">
+                                                    <div class="service1-left">
+                                                        <a href="#"><img src="img/pai1.png"></a>
+                                                    </div>
+                                                    <div class="service1-right">
+                                                        <dt>如实描述承诺</dt>
+                                                    </div>
+                                                </div>
+                                                <div class="li2">
+                                                    <p>送拍机构承诺如实描述，一旦发现描述不符的拍品，买家可在交易成功后指定
+                                                        期限内向拍卖会投诉送拍机构</p>
+                                                </div>
+                                            </li>
+                                            <li style="border-left: 1px solid #dcdcdc;border-right: 1px solid #dcdcdc;">
+                                                <div class="li1">
+                                                    <div class="service1-left">
+                                                        <a href="#"><img src="img/pai1.png"></a>
+                                                    </div>
+                                                    <div class="service1-right">
+                                                        <dt>如实描述承诺</dt>
+                                                    </div>
+                                                </div>
+                                                <div class="li2">
+                                                    <p>送拍机构承诺如实描述，一旦发现描述不符的拍品，买家可在交易成功后指定
+                                                        期限内向拍卖会投诉送拍机构</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="li1">
+                                                    <div class="service1-left">
+                                                        <a href="#"><img src="img/pai1.png"></a>
+                                                    </div>
+                                                    <div class="service1-right">
+                                                        <dt>如实描述承诺</dt>
+                                                    </div>
+                                                </div>
+                                                <div class="li2">
+                                                    <p>送拍机构承诺如实描述，一旦发现描述不符的拍品，买家可在交易成功后指定
+                                                        期限内向拍卖会投诉送拍机构</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="know" id="know">
+                                    <div class="know1">
+                                        <div class="know1-top">
+                                            <h2>保证金流程</h2>
+                                        </div>
+                                        <div class="know1-bottom">
+                                            <img src="img/know1.png">
+                                        </div>
+                                    </div>
+                                    <div class="know2">
+                                        <div class="know2-left">
+                                            <img src="img/know2.png">
+                                        </div>
+                                        <div class="know2-right">
+                                            <img src="img/know3.png">
+                                        </div>
+                                    </div>
+                                    <div class="know3">
+                                        <img src="img/know4.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <h2>猜你喜欢</h2>
+                                <figure class="effect-goliath">
+                                    <img src="img/shufa5.jpg" alt="img23"/>
+                                    <figcaption>
+                                        <p>价格：￥128.00</p>
+                                        <a href="#">View more</a>
+                                    </figcaption>
+                                </figure>
+                                <figure class="effect-goliath">
+                                    <img src="img/shufa5.jpg" alt="img23"/>
+                                    <figcaption>
+                                        <p>价格：￥128.00</p>
+                                        <a href="#">View more</a>
+                                    </figcaption>
+                                </figure>
+                                <figure class="effect-goliath">
+                                    <img src="img/shufa5.jpg" alt="img23"/>
+                                    <figcaption>
+                                        <p>价格：￥128.00</p>
+                                        <a href="#">View more</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="shopping-bottom">
+                    <div class="footer">
+                        <div class="footer-main">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="footer-page1">
+                                        <h3>关于我们</h3>
+                                        <ul class="footer-page1-1">
+                                            <li>
+                                                <a href="#">在这里，你可以share</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">在这里，你可以remark</a></li>
+                                            <li>
+                                                <a href="#">在这里，你可以go shopping</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">在这里，你可以learn</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">在这里，你可以read</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="footer-page2">
+                                        <h3>页面链接</h3>
+                                        <ul class="footer-page2-1">
+                                            <li>
+                                                <a href="#">传世书画</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">当代书画</a></li>
+                                            <li>
+                                                <a href="#">书画展览</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">书画拍卖</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">新闻资讯</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="footer-page3">
+                                        <h3>联系我们</h3>
+                                        <ul class="footer-page3-1">
+                                            <li>
+                                                <a href="#">电话：028-123456789</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">手机：1234567890</a></li>
+                                            <li>
+                                                <a href="#">邮箱：1829978700@qq.com</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-img">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="social-info">
+                                        <a href="#" class="-facebook"><span class="ico ico-facebook" aria-hidden="true"></span></a>
+                                        <a href="#" class="-twitter"><span class="ico ico-twitter" aria-hidden="true"></span></a>
+                                        <a href="#" class="-dribbble"><span class="ico ico-dribbble" aria-hidden="true"></span></a>
+                                        <a href="#" class="-googleplus"><span class="ico ico-google-plus" aria-hidden="true"></span></a>
+                                        <a href="#" class="-youtube"><span class="ico ico-youtube" aria-hidden="true"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-copyright">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p>© 2018 - All Rights Reserved. 书画网</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+		</div>
+		<!--jQuery  使用bootstrap插件必须引入jQuery-->
+		<script src="/js/jquery.min.js"></script>
+		<!--使用bootstrap插件必须引入-->
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/jquery.scrollex.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/util.js"></script>
+		<script src="/js/main.js"></script>
+		<script>
+			shufa1.onmouseover = function() {
+				img1.src = "img/shufa1.jpg"
+			};
+			shufa2.onmouseover = function() {
+				img1.src = "img/shufa2.jpg"
+			};
+			shufa3.onmouseover = function() {
+				img1.src = "img/shufa3.jpg"
+			};
+			shufa4.onmouseover = function() {
+				img1.src = "img/shufa4.jpg"
+			};
+			shufa5.onmouseover = function() {
+				img1.src = "img/shufa5.jpg"
+			};
+
+			smallBox.onmouseover = function() {
+				imgBox.src = img1.src;
+				floatBox.style.display = "block";
+				bigBox.style.display = "block";
+			}
+			smallBox.onmouseout = function() {
+				floatBox.style.display = "none";
+				bigBox.style.display = "none";
+			}
+			smallBox.onmousemove = function(e) {
+				var event = e || window.event;
+				var left = event.clientX - smallBox.offsetLeft - floatBox.offsetWidth / 2;
+				var top = event.clientY - smallBox.offsetTop - floatBox.offsetHeight / 2;
+				if(left < 0) left = 0;
+				else {
+					if(left > (smallBox.offsetWidth - floatBox.offsetWidth))
+						left = smallBox.offsetWidth - floatBox.offsetWidth;
+				}
+				if(top < 0) top = 0;
+				else {
+					if(top > (smallBox.offsetHeight - floatBox.offsetHeight))
+						top = smallBox.offsetHeight - floatBox.offsetHeight;
+				}
+				floatBox.style.left = left + "px";
+				floatBox.style.top = top + "px";
+				imgBox.style.left = -(left * imgBox.offsetWidth) / smallBox.offsetWidth + "px";
+				imgBox.style.top = -(top * imgBox.offsetHeight) / smallBox.offsetHeight + "px";
+
+			}
+			$(function() {
+				$('#collapseFour').collapse({
+					toggle: false
+				})
+			});
+			$(function() {
+				$('#collapseOne').collapse('show')
+			});
+			$(function() {
+				$('#collapseThree').collapse('toggle')
+			});
+			$(function() {
+				$('#collapseTwo').collapse('hide')
+			});
+			var key = false;
+
+			function removeBoder() {
+				shufa1.style.border = "none";
+				shufa2.style.border = "none";
+				shufa3.style.border = "none";
+				shufa4.style.border = "none";
+				shufa5.style.border = "none";
+			}
+
+			function tan() {
+				if(key) {} else {
+					chose.innerHTML = "请选择";
+					icon.style.border = "1px solid red";
+				}
+			}
+			var select = false;
+			shufa1.onclick = function() {
+				select = DoSelect("shufa1", select);
+			}
+			shufa2.onclick = function() {
+				select = DoSelect("shufa2", select);
+			}
+			shufa3.onclick = function() {
+
+				select = DoSelect("shufa3", select);
+			}
+			shufa4.onclick = function() {
+
+				select = DoSelect("shufa4", select);
+			}
+			shufa5.onclick = function() {
+				select = DoSelect("shufa5", select);
+			}
+			var oldId;
+		</script>
+		<!--<script type="text/javascript">
+$('.spinnerExample').spinner({});
+</script>-->
+		<script>
+			$(document).ready(function() {
+				//获得文本框对象
+				var t = $("#text_box");
+				//初始化数量为1,并失效减
+				$('#min').attr('disabled', true);
+				//数量增加操作
+				$("#add").click(function() {
+					// 给获取的val加上绝对值，避免出现负数
+					t.val(Math.abs(parseInt(t.val())) + 1);
+					if(parseInt(t.val()) != 1) {
+						$('#min').attr('disabled', false);
+					};
+				})
+				//数量减少操作
+				$("#min").click(function() {
+					t.val(Math.abs(parseInt(t.val())) - 1);
+					if(parseInt(t.val()) == 1) {
+						$('#min').attr('disabled', true);
+					};
+				})
+			});
+		</script>
+		<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+        <script>
+            function click1() {
+                var goods = document.getElementById('goods-details');
+                var record = document.getElementById('record');
+                var service = document.getElementById('service');
+                var know = document.getElementById('know');
+                goods.style.display = "block";
+                record.style.display = "none";
+                service.style.display = "none";
+                know.style.display = "none";
+            }
+
+            function click2() {
+                var goods = document.getElementById('goods-details');
+                var record = document.getElementById('record');
+                var service = document.getElementById('service');
+                var know = document.getElementById('know');
+                goods.style.display = "none";
+                record.style.display = "block";
+                service.style.display = "none";
+                know.style.display = "none";
+            }
+
+            function click3() {
+                var goods = document.getElementById('goods-details');
+                var record = document.getElementById('record');
+                var service = document.getElementById('service');
+                var know = document.getElementById('know');
+                goods.style.display = "none";
+                record.style.display = "none";
+                service.style.display = "block";
+                know.style.display = "none";
+            }
+            function click4() {
+                var goods = document.getElementById('goods-details');
+                var record = document.getElementById('record');
+                var service = document.getElementById('service');
+                var know = document.getElementById('know');
+                goods.style.display = "none";
+                record.style.display = "none";
+                service.style.display = "none";
+                know.style.display = "block";
+            }
+        </script>
+        <script type="text/javascript">
+
+            onload = function () {
+                function removeActiveClass(node) {
+                    node.className = '';
+                }
+
+                document.querySelector('ul[id=style1]').onclick = function (e) {
+                    Array.prototype.forEach.call(document.querySelectorAll('ul[id=style1] > li'), removeActiveClass);
+                    var target = e.target;
+                    target.className = 'li-active';
+                }
+            }
+        </script>
+    </body>
+
+</html>

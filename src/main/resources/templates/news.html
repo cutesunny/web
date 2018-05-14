@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<!--使得i内核使用更高的渲染效果展示-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--设置支持移动端的视窗-->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
+		<title>模板</title>
+		<!--Bootsttap-->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/news.css" rel="stylesheet">
+		<link href="/css/index.css" rel="stylesheet">
+		<link href="/css/chuanshishuhua.css" rel="stylesheet" />
+		<link href="/css/dangdaishuhua.css" rel="stylesheet" />
+		<link href="/css/show.css" rel="stylesheet" />
+		<link href="/css/shop.css" rel="stylesheet" />
+		<link href="/css/contact.css" rel="stylesheet" />
+		<link href="/css/gonex-icons.css" rel="stylesheet" />
+        <link href="/css/animation.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.2.0//css/font-awesome.min.css" />
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1><a href="/">书画网</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+                                <ul>
+                                    <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                    <li>
+                                        <a href="/calligraphy">传世书法</a>
+                                    </li>
+                                    <li>
+                                        <a href="/painting">传世绘画</a>
+                                    </li>
+                                    <li>
+                                        <a href="/show">书画展览</a>
+                                    </li>
+                                    <li>
+                                        <a href="/auction">书画竞拍</a>
+                                    </li>
+                                    <li>
+                                        <a href="/share">书画共享</a>
+                                    </li>
+                                    <li>
+                                        <a href="/news">新闻资讯</a>
+                                    </li>
+                                    <li>
+                                        <a href="/contact-us">联系我们</a>
+                                    </li>
+                                </ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+
+			<div class="container-fluid">
+				<div class="news-main">
+					<div class="news-top">
+						<div class="row">
+							<div class="col-lg-8">
+								<div class="news-top-left">
+									<div class="news-lunbo">
+										<div id="carousel1" class="carousel slide" data-ride="carousel">
+											<!--图片目录-->
+											<ol class="carousel-indicators">
+												<li data-target="#carousel1" data-slide-to="0" class="active"></li>
+												<li data-target="#carousel1" data-slide-to="1"></li>
+												<li data-target="#carousel1" data-slide-to="2"></li>
+											</ol>
+											<!--图片详情-->
+											<div class="carousel-inner" role="listbox">
+												<div class="item active">
+													<img src="img/news-news1.jpg" alt="..." style="height: 400px;">
+												</div>
+												<div class="item">
+													<img src="img/news-news2.jpg" alt="..." style="height: 400px;">
+												</div>
+												<div class="item">
+													<img src="img/news-news1.jpg" alt="..." style="height: 400px;">
+												</div>
+											</div>
+											<!--左右箭头-->
+											<a class="left carousel-control" href="#carousel1" role="button" data-slide="prev">
+												<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+												<span class="sr-only">Previous</span>
+											</a>
+											<a class="right carousel-control" href="#carousel1" role="button" data-slide="next">
+												<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+												<span class="sr-only">Next</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="news-top-right">
+									<ul>
+										<li style="height:70px">
+											<p>今日快讯</p>
+										</li>
+										<li><span style="color:red; font-size:40px;">1</span>
+											<a href="news_detail.html">学院精神的时代宣言</a>
+										</li>
+										<li><span style="color:orangered; font-size:35px;">2</span>
+											<a href="news_detail.html">学院精神的时代宣言</a>
+										</li>
+										<li><span style="color:orange; font-size:30px;">3</span>
+											<a href="news_detail.html">学院精神的时代宣言</a>
+										</li>
+										<li><span>4</span>
+											<a href="news_detail.html">学院精神的时代宣言</a>
+										</li>
+										<li><span>5</span>
+											<a href="news_detail.html">学院精神的时代宣言</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="news-1">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="col-lg-12-title">
+									<a href="news_list.html"><h2>焦点新闻</h2></a>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6">
+                                <figure class="effect-terry">
+                                    <img src="img/news-news1.jpg" alt="news-news1.jpg" />
+                                    <figcaption>
+                                        <h2>90周年 <span>华诞</span></h2>
+                                        <p>
+                                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
+                                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
+                                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
+                                            <a href="#"><i class="fa fa-fw fa-tags"></i></a>
+                                        </p>
+                                        <a href="news_detail.html">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+							<div class="col-lg-6">
+                                <figure class="effect-terry">
+                                    <img src="img/news-news2.jpg" alt="news-news2.jpg" />
+                                    <figcaption>
+                                        <h2>90周年 <span>华诞</span></h2>
+                                        <p>
+                                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
+                                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
+                                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
+                                            <a href="#"><i class="fa fa-fw fa-tags"></i></a>
+                                        </p>
+                                        <a href="news_detail.html">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+						</div>
+                        <div class="more">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="news_list.html">查看更多&nbsp;&nbsp;→</a>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div class="news-2">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="col-lg-12-title">
+									<a href="news_list.html"><h2>艺术专题</h2></a>
+								</div>
+							</div>
+                        </div>
+                        <div class="row">
+							<div class="col-lg-6">
+								<div class="col-lg-6-main">
+									<div class="col-lg-6-top">
+										<img src="img/news-news1.jpg">
+									</div>
+									<div class="col-lg-6-bottom">
+										<h3><a href="#">学院精神的时代宣言</a></h3><br>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;烽火艺程主题浮雕展览现场 3月24日下午，《国美之路大典》首发式暨中国美术学院大展 媒体导览在北京中国美术馆举行，由此揭开了中国美术学院90周年校庆北京系列活动...
+											<a href="#">[了解详情]</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="col-lg-6-main">
+									<div class="col-lg-6-top">
+										<img src="img/news-news2.jpg" />
+									</div>
+									<div class="col-lg-6-bottom">
+										<h3><a href="#">萨拉·莫里斯中国的首次大型个展即将来袭</a></h3><br>
+										<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;萨拉莫里斯：奥德赛 时间：2018.3.24 - 2018.6.17 地点：UCCA大展厅 尤伦 斯当代艺术中心(UCCA)于3月24日至6月17日呈现个展萨拉莫里斯：奥德赛。本次展览在全球范围内首次完整...
+											<a href="#">[了解详情]</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+                        <div class="more">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="news_list.html">查看更多&nbsp;&nbsp;→</a>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div class="news-3">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="col-lg-12-title">
+									<a href="news_list.html"><h2>艺术家</h2></a>
+								</div>
+							</div>
+                        </div>
+                        <div class="row">
+							<div class="col-lg-4">
+                                <figure class="effect-sarah">
+                                    <img src="img/part2-zhougang.jpg" alt="part2-zhougang.jpg"/>
+                                    <figcaption>
+                                        <h2>Free <span>Sarah</span></h2>
+                                        <p>Sarah likes to watch clouds. She's quite depressed.</p>
+                                        <a href="#">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+							<div class="col-lg-4">
+                                <figure class="effect-sarah">
+                                    <img src="img/part2-zhougang.jpg" alt="part2-zhougang.jpg"/>
+                                    <figcaption>
+                                        <h2>Free <span>Sarah</span></h2>
+                                        <p>Sarah likes to watch clouds. She's quite depressed.</p>
+                                        <a href="#">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+                            <div class="col-lg-4">
+                                <figure class="effect-sarah">
+                                    <img src="img/part2-zhougang.jpg" alt="part2-zhougang.jpg"/>
+                                    <figcaption>
+                                        <h2>Free <span>Sarah</span></h2>
+                                        <p>Sarah likes to watch clouds. She's quite depressed.</p>
+                                        <a href="#">View more</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+						</div>
+                        <div class="more">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="news3.html">查看更多&nbsp;&nbsp;→</a>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div class="footer">
+						<div class="footer-main">
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="footer-page1">
+										<h3>关于我们</h3>
+										<ul class="footer-page1-1">
+											<li>
+												<a href="#">在这里，你可以share</a>
+											</li>
+											<li>
+												<a href="#">在这里，你可以remark</a>k</li>
+											<li>
+												<a href="#">在这里，你可以go shopping</a>
+											</li>
+											<li>
+												<a href="#">在这里，你可以learn</a>
+											</li>
+											<li>
+												<a href="#">在这里，你可以read</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="footer-page2">
+										<h3>页面链接</h3>
+										<ul class="footer-page2-1">
+											<li>
+												<a href="#">传世书画</a>
+											</li>
+											<li>
+												<a href="#">当代书画</a>k</li>
+											<li>
+												<a href="#">书画展览</a>
+											</li>
+											<li>
+												<a href="#">书画拍卖</a>
+											</li>
+											<li>
+												<a href="#">新闻资讯</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="footer-page3">
+										<h3>联系我们</h3>
+										<ul class="footer-page3-1">
+											<li>
+												<a href="#">电话：028-123456789</a>
+											</li>
+											<li>
+												<a href="#">手机：1234567890</a>k</li>
+											<li>
+												<a href="#">邮箱：1829978700@qq.com</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="footer-img">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="social-info">
+										<a href="#" class="-facebook"><span class="ico ico-facebook" aria-hidden="true"></span></a>
+										<a href="#" class="-twitter"><span class="ico ico-twitter" aria-hidden="true"></span></a>
+										<a href="#" class="-dribbble"><span class="ico ico-dribbble" aria-hidden="true"></span></a>
+										<a href="#" class="-googleplus"><span class="ico ico-google-plus" aria-hidden="true"></span></a>
+										<a href="#" class="-youtube"><span class="ico ico-youtube" aria-hidden="true"></span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="footer-copyright">
+							<div class="row">
+								<div class="col-lg-12">
+									<p>© 2018 - All Rights Reserved. 书画网</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--jQuery  使用bootstrap插件必须引入jQuery-->
+		<script src="/js/jquery.min.js"></script>
+		<!--使用bootstrap插件必须引入-->
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/jquery.scrollex.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/util.js"></script>
+		<script src="/js/main.js"></script>
+	</body>
+
+</html>

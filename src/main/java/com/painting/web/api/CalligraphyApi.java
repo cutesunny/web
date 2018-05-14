@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * 书法
  */
@@ -24,4 +26,9 @@ public class CalligraphyApi {
     public Page<Calligraphy> getList(Integer pageNum, Integer pageSize, Integer type){
         return calligraphyService.findAll(pageNum, pageSize, type);
     }
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public List<Calligraphy> getList(){
+        return calligraphyService.getIndexData();
+    }
+
 }

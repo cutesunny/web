@@ -1,18 +1,737 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <script src="/js/jquery.min.js"></script>
-    <title>书画网</title>
-</head>
-<body class="landing">
-    <p>
-        hello
-    </p>
-</body>
-<script>
-    $.get("/test", function(result){
-        alert(result);
-    });
-</script>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--使得i内核使用更高的渲染效果展示-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--设置支持移动端的视窗-->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
+		<title>书画网</title>
+		<!--Bootstrap-->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/index.css" rel="stylesheet">
+		<link href="/css/chuanshishuhua.css" rel="stylesheet" />
+		<link href="/css/dangdaishuhua.css" rel="stylesheet" />
+		<link href="/css/show.css" rel="stylesheet" />
+		<link href="/css/shop.css" rel="stylesheet" />
+		<link href="/css/news.css" rel="stylesheet" />
+		<link href="/css/contact.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="/css/gonex-icons.css" />
+		<link href="/css/login.css" rel="stylesheet" />
+        <link href="/css/animation.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+		<!--jQuery  使用bootstrap插件必须引入jQuery-->
+		<script src="/js/jquery.min.js"></script>
+		<script src="/layer/layer.js"></script>
+		<script src="/js/base.js"></script>
+		<script src="/js/index.js"></script>
+		<!--HTML5 shim和Respond.js为了使得ie8更好的支持html5元素和媒体展示-->
+		<!--警告:Respond.js 当你使用file://这种访问时候是不支持的，支持http://访问模式-->
+		<!--[if it IE9]>
+		   <script src="/js/html5shiv.min.js"></script>
+		   <script src="/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="landing">
+
+		<!-- Page Wrapper -->
+		<div class="row">
+			<div id="page-wrapper">
+				<!-- Header -->
+				<header id="header" class="alt">
+					<h1><a href="/">书画网</a></h1>
+					<nav id="nav">
+						<ul>
+							<li class="special">
+								<a href="#menu" class="menuToggle"><span>Menu</span></a>
+								<div id="menu">
+									<ul>
+										<li><a href="/">首页</a></li>
+										<li><a href="/calligraphy">传世书法</a></li>
+										<li><a href="/painting">当代书画</a></li>
+										<li><a href="/show">书画展览</a></li>
+										<li><a href="/auction">书画竞拍</a></li>
+                                        <li><a href="/share">书画共享</a></li>
+										<li><a href="/news">新闻资讯</a></li>
+										<li><a href="/contact-us">联系我们</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</nav>
+				</header>
+
+				<!-- Banner -->
+				<section id="banner">
+					<div class="inner">
+						<h2>书画网</h2>
+						<p>
+							<form class="navbar-form navbar-collapse">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="想欣赏什么作品呢">
+								</div>
+								<button type="submit" class="btn btn-default">搜索</button>
+							</form>
+							<div class="collapse navbar-collapse" id="bs"></div>
+						</p>
+						<p>you can share<br /> you can remark<br /> you can shopping</p>
+						<p>
+							<ul>
+								<li>
+									<a href="#" onclick="login();">登录</a>
+								</li>
+								<li>
+									<a href="#" onclick="register();">注册</a>
+								</li>
+							</ul>
+						</p>
+					</div>
+                        <div class="login" id="login">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="log-in">
+                                        <div class="close-login" onclick="closelogin();">
+                                            <div class="exit">
+                                                <a href="#">X</a>
+                                            </div>
+                                        </div>
+                                        <div class="login-main">
+                                            <form action="#" method="post">
+                                                <h2>书画网</h2>
+                                                <div class="log">
+                                                    <input type="text" name="name" class="name" placeholder="&nbsp;用户名" required="">
+                                                    <input type="password" name="password" class="password" placeholder=" &nbsp;密码" required="">
+                                                </div>
+                                                <div class="mm">
+                                                    <label class="checkbox">
+                                                        <input type="checkbox" value="remember me" />
+                                                        记住密码&nbsp;&nbsp;|<a href="#">&nbsp;&nbsp;忘记密码?</a>
+                                                    </label>
+                                                </div>
+                                                <div class="log-bt">
+                                                    <input type="submit" value="登录">
+                                                    <input type="submit" value="注册" style="margin-left: 30px;">
+                                                </div>
+                                            </form>
+                                            <div class="login-1">
+                                                <span>第三方登录</span>
+                                            </div>
+                                            <div class="login-2">
+                                                <a href="#">
+                                                    <img src="img/qq.jpg" />
+                                                    <img src="img/wx.jpg" />
+                                                    <img src="img/wb.jpg" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					<div class="register" id="register">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="regist">
+                                    <div class="close-register" onclick="closeregister();">
+                                        <div class="exit">
+                                            <a href="#">X</a>
+                                        </div>
+                                    </div>
+                                    <div class="register-main">
+                                        <form action="#" method="post">
+                                            <h2>书画网</h2>
+                                            <div class="regist1">
+                                                <label for="reg_username"><span>用户名：</span></label>
+                                                <input type="text"  id="reg_username" class="name" placeholder="&nbsp;用户名" required="">
+                                                <label for="reg_password"><span>密码：</span></label>
+                                                <input type="password" id="reg_password"  class="password" placeholder=" &nbsp;密码" required="">
+                                                <label for="reg_password_"><span>确认密码：</span></label>
+                                                <input type="password" id="reg_password_" class="password" placeholder=" &nbsp;密码" required="">
+                                                <label for="reg_email"><span>邮箱：</span></label>
+                                                <input type="email"  id="reg_email" class="email" placeholder=" &nbsp;邮箱" required="">
+                                                <label for="reg_tel"><span>电话：</span></label>
+                                                <input type="tel" id="reg_tel" class="tel" placeholder=" &nbsp;电话" required="">
+                                            </div>
+                                            <div class="kind">
+                                                <label for="kind"><span>会员类型：</span></label>
+                                                    <input type="radio" name="reg_entity" class="radio1"/><span>普通会员</span>
+                                                    <input type="radio" name="identity" required="required" class="radio2"/><span>资深专家</span>
+                                            </div>
+                                            <div class="register-bt">
+                                                <p>
+                                                    <input type="submit" value="注册" class="submit1"/>
+                                                    <input type="submit" value="专家认证" class="submit2" onclick="certification();"/>
+                                                </p>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+                    <div class="certification" id="certification">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="certificate">
+                                    <div class="close-certification" onclick="closecertification();">
+                                        <div class="exit">
+                                            <a href="#">X</a>
+                                        </div>
+                                    </div>
+                                    <div class="certification-main">
+                                        <form action="#" method="post">
+                                            <h2>书画网</h2>
+                                            <div class="certificate1">
+                                                <label for="cer_username"><span>真实姓名：</span></label>
+                                                <input type="text"  id="cer_username" class="name" placeholder="&nbsp;姓名" required="">
+                                                <label for="cer_nubmer"><span>身份证号码：</span></label>
+                                                <input type="number" id="cer_nubmer"  class="cer_nubmer" placeholder=" &nbsp;证件号" required="">
+                                                <label for="cer_sex"><span>性别：</span></label>
+                                                <input type="text"  id="cer_sex" class="cer_sex" placeholder="&nbsp;性别" required="">
+                                            </div>
+                                                <div class="select1">
+                                                <label for="cer-lever"><span>专家等级：</span></label>
+                                                <select name="id"  id="cer-lever" class="cer-lever" placeholder=" &nbsp;等级" required="">
+                                                    <option value="">国家级</option>
+                                                    <option value="">省级</option>
+                                                    <option value="">市级</option>
+                                                </select>
+                                                </div>
+                                            <div class="describe">
+                                                <label>获得荣誉：</label>
+                                                <textarea name="describe" id="describe" required="required" placeholder="介绍一下您的获奖情况吧！"></textarea>
+                                            </div>
+                                            <div class="cer-bt">
+                                                <p>
+                                                    <input type="submit" value="专家认证" class="submit1"/>
+                                                    <input type="submit" value="注册" class="submit2"/>
+                                                </p>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<a href="#index-main" class="more scrolly" style="color: white;">Know More</a>
+				</section>
+			</div>
+		</div>
+		</div>
+		<div class="container-fluid">
+			<div class="index-main" id="index-main">
+				<div class="index-main-top">
+					<div class=row>
+						<div class="col-lg-12">
+							<div class="index-lunbo">
+								<div id="carousel1" class="carousel slide" data-ride="carousel">
+									<!--图片目录-->
+									<ol class="carousel-indicators" id="slider_index">
+									</ol>
+									<!--图片详情-->
+									<div class="carousel-inner" role="listbox" id="slider_image">
+									</div>
+									<!--左右箭头-->
+									<a class="left carousel-control" href="#carousel1" role="button" data-slide="prev">
+										<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+										<span class="sr-only">Previous</span>
+									</a>
+									<a class="right carousel-control" href="#carousel1" role="button" data-slide="next">
+										<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+										<span class="sr-only">Next</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="index-part1">
+					<div class="index-part1-title">
+						<div class="row">
+							<div class="col-lg-12">
+								<h2>书法展览</h2>
+							</div>
+						</div>
+					</div>
+					<div class="index-part1-top">
+						<div class="row">
+							<div class="col-lg-6">
+                                <figure class="effect-dexter">
+                                    <img name="calligraphy_path" />
+                                    <figcaption>
+                                        <h2 name="calligraphy_title">loading...</h2>
+                                        <p  name="calligraphy_description">loading...</p>
+                                        <a name="calligraphy_url">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+							<div class="col-lg-3">
+                                <figure class="effect-dexter">
+                                    <img name="calligraphy_path"  />
+                                    <figcaption>
+                                        <h2 name="calligraphy_title">loading...</h2>
+                                        <p  name="calligraphy_description">loading...</p>
+                                        <a name="calligraphy_url">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+							<div class="col-lg-3">
+                                <figure class="effect-dexter">
+                                    <img name="calligraphy_path"  />
+                                    <figcaption>
+                                        <h2 name="calligraphy_title">loading...</h2>
+                                        <p  name="calligraphy_description">loading...</p>
+                                        <a  name="calligraphy_url">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+						</div>
+					</div>
+					<div class="index-part1-bottom">
+						<div class="row">
+							<div class="col-lg-3">
+                                <figure class="effect-dexter">
+                                    <img name="calligraphy_path"/>
+                                    <figcaption>
+                                        <h2 name="calligraphy_title">loading...</h2>
+                                        <p  name="calligraphy_description">loading...</p>
+                                        <a name="calligraphy_url">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+                            <div class="col-lg-3">
+                                <figure class="effect-dexter">
+                                    <img name="calligraphy_path" />
+                                    <figcaption>
+                                        <h2 name="calligraphy_title">loading...</h2>
+                                        <p  name="calligraphy_description">loading...</p>
+                                        <a name="calligraphy_url">View more</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+							<div class="col-lg-6">
+                                <figure class="effect-dexter">
+                                    <img name="calligraphy_path"/>
+                                    <figcaption>
+                                        <h2 name="calligraphy_title">loading...</h2>
+                                        <p name="calligraphy_description">loading...</p>
+                                        <a name="calligraphy_url">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+						</div>
+					</div>
+					<div class="index-part1-more">
+						<div class="row">
+							<div class="col-lg-12">
+								<a href="/calligraphy">查看更多&nbsp;&nbsp;→</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--<hr />-->
+				<div class="index-part2" >
+					<div class="index-part1-title">
+						<div class="row">
+							<div class="col-lg-12">
+								<h2>绘画展览</h2>
+							</div>
+						</div>
+					</div>
+					<div class="index-part2-top">
+						<div class="row" id="contemporary_painting">
+<!--							<div class="col-lg-4">
+                                <figure class="effect-roxy">
+                                    <img src="img/part2-wudayu.jpg" alt="part2-wudayu.jpg" />
+                                    <figcaption>
+                                        <h2>吴大羽 <span>风景画</span></h2>
+                                        <p>吴大羽，宜兴宜城镇人，我国杰出的油画家，艺术教育家，中国现代画事业的奠基人之一。</p>
+                                        <a href="ddsh-details1.html">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+							<div class="col-lg-4">
+								<figure class="effect-roxy">
+									<img src="img/part2-sajinte.jpg" alt="part2-zhougang.jpg" />
+									<figcaption>
+										<h2>萨金特<span>水彩画</span></h2>
+										<p>约翰·辛格·萨金特John Singer Sargent(1856—1925)美国画家。生于意大利佛罗伦萨。 1874年在卡罗律斯—迪朗的巴黎画室学画，受印象派影响。</p>
+										<a href="ddsh-details1.html">View more</a>
+									</figcaption>
+								</figure>
+							</div>
+							<div class="col-lg-4">
+								<figure class="effect-roxy">
+									<img src="img/part2-songyonghong.jpg" alt="part2-zhougang.jpg" />
+									<figcaption>
+										<h2>宋永红 <span>人物画</span></h2>
+										<p>宋永红1966年生于河北省曲阳县1988年毕业于浙江美术学院版画系（现为中国美术学院）。</p>
+                                        <a href="ddsh-details1.html">View more</a>
+									</figcaption>
+								</figure>
+							</div>-->
+						</div>
+					</div>
+					<div class="index-part1-more">
+						<div class="row">
+							<div class="col-lg-12">
+								<a href="/painting">查看更多&nbsp;&nbsp;→</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--<hr />-->
+				<div class="index-part3">
+					<div class="index-part1-title">
+						<div class="row">
+							<div class="col-lg-12">
+								<h2>书画展览</h2>
+							</div>
+						</div>
+					</div>
+					<div class="index-part3-top">
+						<div class="row">
+							<div class="col-lg-8">
+								<figure class="effect-ming">
+									<img name="gallery_thumb" />
+									<figcaption>
+										<h2 name="gallery_title" >loading...</h2>
+										<p name="gallery_description" >loading...</p>
+										<a href="show_detail.html" name="gallery_url">View more</a>
+									</figcaption>
+								</figure>
+							</div>
+							<div class="col-lg-4">
+								<figure class="effect-ming">
+									<img name="gallery_thumb" />
+									<figcaption>
+										<h2 name="gallery_title" >loading...</h2>
+										<p name="gallery_description">loading...</p>
+										<a href="show_detail.html" name="gallery_url">View more</a>
+									</figcaption>
+								</figure>
+							</div>
+						</div>
+					</div>
+					<div class="index-part3-bottom">
+						<div class="row">
+							<div class="col-lg-4">
+								<figure class="effect-ming">
+									<img name="gallery_thumb" />
+									<figcaption>
+										<h2 name="gallery_title" >loading...</h2>
+										<p name="gallery_description">loading...</p>
+										<a href="show_detail.html" name="gallery_url">View more</a>
+									</figcaption>
+								</figure>
+							</div>
+							<div class="col-lg-4">
+								<figure class="effect-ming">
+									<img name="gallery_thumb"/>
+									<figcaption>
+										<h2 name="gallery_title" >loading...</h2>
+										<p name="gallery_description">loading...</p>
+										<a href="show_detail.html" name="gallery_url">View more</a>
+									</figcaption>
+								</figure>
+							</div>
+							<div class="col-lg-4">
+								<figure class="effect-ming">
+									<img name="gallery_thumb" />
+									<figcaption>
+										<h2 name="gallery_title" >loading...</h2>
+										<p name="gallery_description">loading...</p>
+										<a href="show_detail.html" name="gallery_url">View more</a>
+									</figcaption>
+								</figure>
+							</div>
+						</div>
+					</div>
+					<div class="index-part1-more">
+						<div class="row">
+							<div class="col-lg-12">
+								<a href="/show">查看更多&nbsp;&nbsp;→</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--<hr />-->
+				<div class="index-part4">
+					<div class="index-part1-title">
+						<div class="row">
+							<div class="col-lg-12">
+								<h2>书画竞拍</h2>
+							</div>
+						</div>
+					</div>
+					<div class="index-part4-top">
+						<div class="row">
+							<div class="col-lg-3">
+                                <figure class="effect-jazz">
+                                    <img src="img/shufa1.jpg" alt="shufa1.jpg" />
+                                    <figcaption>
+                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
+                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
+                                        <a href="auction_detail.html">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+							<div class="col-lg-3">
+                                <figure class="effect-jazz">
+                                    <img src="img/goods2.jpg" alt="goods2.jpg" />
+                                    <figcaption>
+                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
+                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
+                                        <a href="auction_detail.html">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+							<div class="col-lg-3">
+                                <figure class="effect-jazz">
+                                    <img src="img/goods3.jpg" alt="goods3.jpg" />
+                                    <figcaption>
+                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
+                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
+                                        <a href="auction_detail.html">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+							<div class="col-lg-3">
+                                <figure class="effect-jazz">
+                                    <img src="img/goods4.jpg" alt="goods4.jpg" />
+                                    <figcaption>
+                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
+                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
+                                        <a href="auction_detail.html">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+						</div>
+					</div>
+					<div class="index-part4-bottom">
+						<div class="row">
+							<div class="col-lg-3">
+                                <figure class="effect-jazz">
+                                    <img src="img/goods5.jpg" alt="goods5.jpg" />
+                                    <figcaption>
+                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
+                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
+                                        <a href="auction_detail.html">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+							<div class="col-lg-3">
+                                <figure class="effect-jazz">
+                                    <img src="img/goods6.jpg" alt="goods6.jpg" />
+                                    <figcaption>
+                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
+                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
+                                        <a href="auction_detail.html">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+							<div class="col-lg-3">
+                                <figure class="effect-jazz">
+                                    <img src="img/goods7.jpg" alt="goods7.jpg" />
+                                    <figcaption>
+                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
+                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
+                                        <a href="auction_detail.html">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+							<div class="col-lg-3">
+                                <figure class="effect-jazz">
+                                    <img src="img/goods8.jpg" alt="goods.8jpg" />
+                                    <figcaption>
+                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
+                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
+                                        <a href="auction_detail.html">View more</a>
+                                    </figcaption>
+                                </figure>
+							</div>
+						</div>
+					</div>
+					<div class="index-part1-more">
+						<div class="row">
+							<div class="col-lg-12">
+								<a href="/auction">查看更多&nbsp;&nbsp;→</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--<hr />-->
+				<div class="index-part5">
+					<div class="index-part1-title">
+						<div class="row">
+							<div class="col-lg-12">
+								<h2>新闻资讯</h2>
+							</div>
+						</div>
+					</div>
+					<div class="index-part5-top">
+						<div class="row">
+							<div class="col-lg-6">
+								<figure class="effect-terry">
+									<img name="news_thumb"  />
+									<figcaption>
+										<h2 name="news_title">loading...</h2>
+										<p>
+											<a href="#"><i class="fa fa-fw fa-download"></i></a>
+											<a href="#"><i class="fa fa-fw fa-heart"></i></a>
+											<a href="#"><i class="fa fa-fw fa-share"></i></a>
+											<a href="#"><i class="fa fa-fw fa-tags"></i></a>
+										</p>
+										<a  name="news_url">View more</a>
+									</figcaption>
+								</figure>
+							</div>
+							<div class="col-lg-6">
+								<figure class="effect-terry">
+                                    <img name="news_thumb"  />
+									<figcaption>
+										<h2 name="news_title">loading...</h2>
+										<p>
+											<a href="#"><i class="fa fa-fw fa-download"></i></a>
+											<a href="#"><i class="fa fa-fw fa-heart"></i></a>
+											<a href="#"><i class="fa fa-fw fa-share"></i></a>
+											<a href="#"><i class="fa fa-fw fa-tags"></i></a>
+										</p>
+										<a  name="news_url">View more</a>
+									</figcaption>
+								</figure>
+							</div>
+						</div>
+					</div>
+					<div class="index-part1-more">
+						<div class="row">
+							<div class="col-lg-12">
+								<a href="/news">查看更多&nbsp;&nbsp;→</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--<hr />-->
+				<div class="footer">
+					<div class="footer-main">
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="footer-page1">
+									<h3>关于我们</h3>
+									<ul class="footer-page1-1">
+										<li>
+											<a href="#">在这里，你可以share</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以remark</a>k</li>
+										<li>
+											<a href="#">在这里，你可以go shopping</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以learn</a>
+										</li>
+										<li>
+											<a href="#">在这里，你可以read</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-page2">
+									<h3>页面链接</h3>
+									<ul class="footer-page2-1">
+										<li>
+											<a href="#">传世书画</a>
+										</li>
+										<li>
+											<a href="#">当代书画</a>k</li>
+										<li>
+											<a href="#">书画展览</a>
+										</li>
+										<li>
+											<a href="#">书画拍卖</a>
+										</li>
+										<li>
+											<a href="#">新闻资讯</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-page3">
+									<h3>联系我们</h3>
+									<ul class="footer-page3-1">
+										<li>
+											<a href="#">电话：028-123456789</a>
+										</li>
+										<li>
+											<a href="#">手机：1234567890</a>k</li>
+										<li>
+											<a href="#">邮箱：1829978700@qq.com</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-img">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="social-info">
+									<a href="#" class="-facebook"><span class="ico ico-facebook" aria-hidden="true"></span></a>
+									<a href="#" class="-twitter"><span class="ico ico-twitter" aria-hidden="true"></span></a>
+									<a href="#" class="-dribbble"><span class="ico ico-dribbble" aria-hidden="true"></span></a>
+									<a href="#" class="-googleplus"><span class="ico ico-google-plus" aria-hidden="true"></span></a>
+									<a href="#" class="-youtube"><span class="ico ico-youtube" aria-hidden="true"></span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-copyright">
+						<div class="row">
+							<div class="col-lg-12">
+								<p>© 2018 - All Rights Reserved. 书画网</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--使用bootstrap插件必须引入-->
+		<script src="/js/bootstrap.min.js"></script>
+		<!--<script src="js/jquery.min.js"></script>-->
+		<script src="/js/jquery.scrollex.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/util.js"></script>
+		<script src="/js/main.js"></script>
+		<script>
+			function login() {
+                $('#login').css('display', 'block');
+			}
+			function closelogin() {
+                $('#login').css('display', 'none');
+			}
+			function register() {
+                $('#register').css('display', 'block');
+			}
+
+			function closeregister() {
+                $('#register').css('display', 'none');
+			}
+            function certification() {
+                $('#certification').css('display', 'block');
+            }
+
+            function closecertification() {
+                $('#certification').css('display', 'none');
+            }
+		</script>
+	</body>
+
 </html>

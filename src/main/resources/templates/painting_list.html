@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<!--使得i内核使用更高的渲染效果展示-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--设置支持移动端的视窗-->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
+		<title>作品欣赏</title>
+		<!--Bootsttap-->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/contact.css" rel="stylesheet" />
+		<link href="/css/shop.css" rel="stylesheet">
+		<link href="/css/index.css" rel="stylesheet">
+		<link href="/css/chuanshishuhua.css" rel="stylesheet" />
+		<link href="/css/dangdaishuhua.css" rel="stylesheet" />
+		<link href="/css/show.css" rel="stylesheet" />
+		<link href="/css/news.css" rel="stylesheet" />
+		<link href="/css/gonex-icons.css" rel="stylesheet" />
+		<link href="/css/cssh-erji.css" rel="stylesheet" />
+        <link href="/css/animation.css" rel="stylesheet" />
+	</head>
+	<style>
+		* {
+	margin: 0;
+	padding: 0;
+}
+		
+a{
+	text-decoration: none;
+}
+		
+ul li {
+	list-style: none;
+}
+		
+body,html {
+	font-size: 18px;
+	font-family: "微软雅黑";
+}
+.ddsh-details2-main{
+	margin-left: 4%;
+	margin-right: 4%;
+}
+.ddsh-details2-top{
+	/*margin-top: 20px;*/
+	height: 100px;
+	/*border: 1px solid red;*/
+}
+.ddsh-details2-top .col-lg-12{
+	height: 100px;
+	/*border: 1px solid green;*/
+}
+.ddsh-details2-top .col-lg-12 h2{
+	text-align: center;
+	color: white;
+	line-height: 100px;
+	margin-top: -1px;
+}
+.ddsh-details2-photo1{
+	/*height: 300px;*/
+	/*border: 1px solid red;*/
+}
+.ddsh-details2-photo .col-lg-4{
+	height: 300px;
+	/*border: 1px solid white;*/
+}
+.ddsh-details2-photo .col-lg-4 img{
+	height: 300px;
+	width: 100%;
+}
+        figure.effect-chico img {
+            -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+            transition: opacity 0.35s, transform 0.35s;
+            -webkit-transform: scale(1.12);
+            transform: scale(1.12);
+        }
+
+        figure.effect-chico:hover img {
+            opacity: 0.5;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        figure.effect-chico figcaption {
+            padding: 3em;
+        }
+
+        figure.effect-chico figcaption::before {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            bottom: 30px;
+            left: 30px;
+            border: 1px solid #fff;
+            content: '';
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        figure.effect-chico figcaption::before,
+        figure.effect-chico p {
+            opacity: 0;
+            -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+            transition: opacity 0.35s, transform 0.35s;
+        }
+
+        figure.effect-chico h2 {
+            padding: 20% 0 20px 0;
+        }
+
+        figure.effect-chico p {
+            margin: 0 auto;
+            max-width: 200px;
+            -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+        }
+
+        figure.effect-chico:hover figcaption::before,
+        figure.effect-chico:hover p {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        @media screen and (max-width: 50em) {
+            .content {
+                padding: 0 10px;
+                text-align: center;
+            }
+            .grid figure {
+                display: inline-block;
+                float: none;
+                margin: 10px auto;
+                width: 100%;
+            }
+        }
+.ddsh-details2-photo2{
+	margin-top: 20px;
+	/*height: 300px;*/
+	/*border: 1px solid red;*/
+}
+.ddsh-details2-photo3{
+	margin-top: 20px;
+	/*height: 300px;*/
+	/*border: 1px solid red;*/
+}
+.ddsh-details2-photo4{
+	margin-top: 20px;
+	/*height: 300px;*/
+	/*border: 1px solid red;*/
+}
+        .ddsh-details2-bottom {
+            height: 100px;
+            /*border: 1px solid red;*/
+        }
+
+         .ddsh-details2-bottom .col-lg-12 {
+            height: 100px;
+            /*border: 1px solid green;*/
+        }
+
+        .ddsh-details2-bottom .nextpage {
+            height: 40px;
+            width: 300px;
+            /*border: 1px solid red;*/
+            /*background: gold;*/
+            margin: 30px auto;
+        }
+
+        .ddsh-details2-bottom .nextpage a {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            line-height: 40px;
+        }
+        .ddsh-details2-bottom .nextpage a span {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            padding:0 30px;
+            background: gold;
+            float: left;
+            line-height: 40px;
+        }
+        .ddsh-details2-bottom .nextpage .next span{
+            margin-left: 70px;
+        }
+        @media screen and (max-width: 500px) {
+            .ddsh-details2-bottom .nextpage a span {
+                text-decoration: none;
+                display: block;
+                text-align: center;
+                padding:0 20px;
+                background: gold;
+                float: left;
+                line-height: 40px;
+            }
+            .ddsh-details2-bottom .nextpage .next span{
+                margin-left: 10px;
+            }
+        }
+	</style>
+
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1><a href="index.html">书画网</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+                                <ul>
+                                    <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                    <li>
+                                        <a href="/calligraphy">传世书法</a>
+                                    </li>
+                                    <li>
+                                        <a href="/painting">传世绘画</a>
+                                    </li>
+                                    <li>
+                                        <a href="/show">书画展览</a>
+                                    </li>
+                                    <li>
+                                        <a href="auction">书画竞拍</a>
+                                    </li>
+                                    <li>
+                                        <a href="/share">书画共享</a>
+                                    </li>
+                                    <li>
+                                        <a href="/news">新闻资讯</a>
+                                    </li>
+                                    <li>
+                                        <a href="/contact-us">联系我们</a>
+                                    </li>
+                                </ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+		</div>	
+			<div class="container-fluid">
+				<div class="cssh-erji-main">
+					<div class="cssh-erji-top">
+						<div class="row">
+							<div class="col-lg-12">
+								<h2>作品欣赏</h2>
+							</div>
+						</div>
+					</div>
+					<div class="cssh-erji-photo">
+						<div class="cssh-erji-photo1">
+							<div class="row">
+								<div class="col-lg-4">
+                                    <figure class="effect-chico">
+                                        <img src="img/ddsh-banhua.jpg" alt="ddsh-banhua.jpg"/>
+                                        <figcaption>
+                                            <h2>Silly <span>Chico</span></h2>
+                                            <p>Chico's main fear was missing the morning bus.</p>
+                                            <a href="ddsh-details1.html">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+								<div class="col-lg-4">
+                                    <figure class="effect-chico">
+                                        <img src="img/ddsh-banhua.jpg" alt="ddsh-banhua.jpg"/>
+                                        <figcaption>
+                                            <h2>Silly <span>Chico</span></h2>
+                                            <p>Chico's main fear was missing the morning bus.</p>
+                                            <a href="ddsh-details1.html">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+								<div class="col-lg-4">
+                                    <figure class="effect-chico">
+                                        <img src="img/ddsh-banhua.jpg" alt="ddsh-banhua.jpg"/>
+                                        <figcaption>
+                                            <h2>Silly <span>Chico</span></h2>
+                                            <p>Chico's main fear was missing the morning bus.</p>
+                                            <a href="ddsh-details1.html">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+							</div>
+						</div>
+						<div class="cssh-erji-photo2">
+							<div class="row">
+								<div class="col-lg-4">
+                                    <figure class="effect-chico">
+                                        <img src="img/ddsh-banhua.jpg" alt="ddsh-banhua.jpg"/>
+                                        <figcaption>
+                                            <h2>Silly <span>Chico</span></h2>
+                                            <p>Chico's main fear was missing the morning bus.</p>
+                                            <a href="ddsh-details1.html">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+								<div class="col-lg-4">
+                                    <figure class="effect-chico">
+                                        <img src="img/ddsh-banhua.jpg" alt="ddsh-banhua.jpg"/>
+                                        <figcaption>
+                                            <h2>Silly <span>Chico</span></h2>
+                                            <p>Chico's main fear was missing the morning bus.</p>
+                                            <a href="ddsh-details1.html">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+								<div class="col-lg-4">
+                                    <figure class="effect-chico">
+                                        <img src="img/ddsh-banhua.jpg" alt="ddsh-banhua.jpg"/>
+                                        <figcaption>
+                                            <h2>Silly <span>Chico</span></h2>
+                                            <p>Chico's main fear was missing the morning bus.</p>
+                                            <a href="ddsh-details1.html">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+							</div>
+						</div>
+						<div class="cssh-erji-photo3">
+							<div class="row">
+								<div class="col-lg-4">
+                                    <figure class="effect-chico">
+                                        <img src="img/ddsh-banhua.jpg" alt="ddsh-banhua.jpg"/>
+                                        <figcaption>
+                                            <h2>Silly <span>Chico</span></h2>
+                                            <p>Chico's main fear was missing the morning bus.</p>
+                                            <a href="ddsh-details1.html">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+								<div class="col-lg-4">
+                                    <figure class="effect-chico">
+                                        <img src="img/ddsh-banhua.jpg" alt="ddsh-banhua.jpg"/>
+                                        <figcaption>
+                                            <h2>Silly <span>Chico</span></h2>
+                                            <p>Chico's main fear was missing the morning bus.</p>
+                                            <a href="ddsh-details1.html">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+								<div class="col-lg-4">
+                                    <figure class="effect-chico">
+                                        <img src="img/ddsh-banhua.jpg" alt="ddsh-banhua.jpg"/>
+                                        <figcaption>
+                                            <h2>Silly <span>Chico</span></h2>
+                                            <p>Chico's main fear was missing the morning bus.</p>
+                                            <a href="ddsh-details1.html">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+							</div>
+						</div>
+						<div class="cssh-erji-photo4">
+							<div class="row">
+								<div class="col-lg-4">
+                                    <figure class="effect-chico">
+                                        <img src="img/ddsh-banhua.jpg" alt="ddsh-banhua.jpg"/>
+                                        <figcaption>
+                                            <h2>Silly <span>Chico</span></h2>
+                                            <p>Chico's main fear was missing the morning bus.</p>
+                                            <a href="ddsh-details1.html">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+								<div class="col-lg-4">
+                                    <figure class="effect-chico">
+                                        <img src="img/ddsh-banhua.jpg" alt="ddsh-banhua.jpg"/>
+                                        <figcaption>
+                                            <h2>Silly <span>Chico</span></h2>
+                                            <p>Chico's main fear was missing the morning bus.</p>
+                                            <a href="ddsh-details1.html">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+								<div class="col-lg-4">
+                                    <figure class="effect-chico">
+                                        <img src="img/ddsh-banhua.jpg" alt="ddsh-banhua.jpg"/>
+                                        <figcaption>
+                                            <h2>Silly <span>Chico</span></h2>
+                                            <p>Chico's main fear was missing the morning bus.</p>
+                                            <a href="ddsh-details1.html">View more</a>
+                                        </figcaption>
+                                    </figure>
+								</div>
+							</div>
+						</div>
+					</div>
+                    <div class="ddsh-details2-bottom">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="nextpage">
+                                    <a href="#">
+                                        <div class="pre"><span>上一页</span></div>
+                                        <div class="next"><span>下一页</span></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<div class="footer">
+						<div class="footer-main">
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="footer-page1">
+										<h3>关于我们</h3>
+										<ul class="footer-page1-1">
+											<li>
+												<a href="#">在这里，你可以share</a>
+											</li>
+											<li>
+												<a href="#">在这里，你可以remark</a>k</li>
+											<li>
+												<a href="#">在这里，你可以go shopping</a>
+											</li>
+											<li>
+												<a href="#">在这里，你可以learn</a>
+											</li>
+											<li>
+												<a href="#">在这里，你可以read</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="footer-page2">
+										<h3>页面链接</h3>
+										<ul class="footer-page2-1">
+											<li>
+												<a href="#">传世书画</a>
+											</li>
+											<li>
+												<a href="#">当代书画</a>k</li>
+											<li>
+												<a href="#">书画展览</a>
+											</li>
+											<li>
+												<a href="#">书画拍卖</a>
+											</li>
+											<li>
+												<a href="#">新闻资讯</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="footer-page3">
+										<h3>联系我们</h3>
+										<ul class="footer-page3-1">
+											<li>
+												<a href="#">电话：028-123456789</a>
+											</li>
+											<li>
+												<a href="#">手机：1234567890</a>k</li>
+											<li>
+												<a href="#">邮箱：1829978700@qq.com</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="footer-img">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="social-info">
+										<a href="#" class="-facebook"><span class="ico ico-facebook" aria-hidden="true"></span></a>
+										<a href="#" class="-twitter"><span class="ico ico-twitter" aria-hidden="true"></span></a>
+										<a href="#" class="-dribbble"><span class="ico ico-dribbble" aria-hidden="true"></span></a>
+										<a href="#" class="-googleplus"><span class="ico ico-google-plus" aria-hidden="true"></span></a>
+										<a href="#" class="-youtube"><span class="ico ico-youtube" aria-hidden="true"></span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="footer-copyright">
+							<div class="row">
+								<div class="col-lg-12">
+									<p>© 2018 - All Rights Reserved. 书画网</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		<!--jQuery  使用bootstrap插件必须引入jQuery-->
+		<script src="/js/jquery.min.js"></script>
+		<!--使用bootstrap插件必须引入-->
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/jquery.scrollex.min.js"></script>
+		<script src="/js/jquery.scrolly.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/util.js"></script>
+		<script src="/js/main.js"></script>
+	</body>
+
+</html>

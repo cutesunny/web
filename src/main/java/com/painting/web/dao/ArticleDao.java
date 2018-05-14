@@ -6,6 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * 展馆
  */
@@ -14,4 +16,7 @@ public interface ArticleDao extends JpaRepository<Article, Integer> {
 
 
     Page<Article> findAllByTypeOrderByIdDesc(String type, Pageable pageable);
+
+    List<Article> findAllByTypeOrderByIdAsc(String type);
+
 }

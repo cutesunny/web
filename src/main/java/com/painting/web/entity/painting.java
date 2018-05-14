@@ -1,5 +1,6 @@
 package com.painting.web.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 //绘画
@@ -10,15 +11,17 @@ public class Painting extends AbstractEntity{
     private String title;
     private String description;
     private String content;
-    private String type;
+    @Column(name = "comment_amount")
+    private String commentAmount;
 
-    public String getType() {
-        return type;
+    public String getCommentAmount() {
+        return commentAmount;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCommentAmount(String commentAmount) {
+        this.commentAmount = commentAmount;
     }
+
 
     public String getPath() {
         return path;
