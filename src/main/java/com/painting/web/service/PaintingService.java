@@ -35,6 +35,8 @@ public class PaintingService {
      * 分页
      */
     public Page<Painting> findAll(Integer pageNum, Integer pageSize) {
+        pageNum= pageNum==null?1:pageNum;
+        pageSize= pageSize==null?12:pageSize;
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
         Pageable pageable1 = PageRequest.of(pageNum-1, pageSize, sort);
         return paintingDao.findAll(pageable1);

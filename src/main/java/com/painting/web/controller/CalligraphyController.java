@@ -25,7 +25,7 @@ public class CalligraphyController {
         model.addAttribute("xingshu", calligraphyService.findAll(1, 4, Calligraphy.XING_SHU).getContent());
         model.addAttribute("caoshu", calligraphyService.findAll(1, 4, Calligraphy.CAO_SHU).getContent());
         model.addAttribute("kaishu", calligraphyService.findAll(1, 4, Calligraphy.KAI_SHU).getContent());
-        return "/calligraphy";
+        return "calligraphy";
     }
 
     @GetMapping(value = "/{id}")
@@ -36,7 +36,7 @@ public class CalligraphyController {
 
     @GetMapping(value = "/list")
     public String list(Integer type, Integer pageNum, Integer pageSize, Model model){
-        //model.addAttribute("page",calligraphyService.findAll(pageNum, pageSize, type));
-        return "/calligraphy_list";
+        model.addAttribute("page",calligraphyService.findAll(pageNum, pageSize, type));
+        return "calligraphy_list";
     }
 }

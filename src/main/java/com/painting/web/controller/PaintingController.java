@@ -41,7 +41,7 @@ public class PaintingController {
 
     @GetMapping(value = "/list")
     public String list(Integer pageNum, Integer pageSize, Model model){
-        model.addAttribute("paintingList", service.findAll(pageNum, pageSize));
-        return "/painting_list";
+        model.addAttribute("page", service.findAll(pageNum, pageSize));
+        return "painting_list";
     }
 }
