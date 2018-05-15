@@ -78,137 +78,16 @@
 						</div>
 					</div>
 					<div class="cssh-erji-photo">
-						<div class="cssh-erji-photo2">
+						<div class="cssh-erji-photo2" th:each="num:${#numbers.sequence(0,3)}">
 							<div class="row">
-								<div class="col-lg-4">
+								<div class="col-lg-4" th:each="item,state:${page.content}"
+									 th:if="${state.index >= (num*3) && state.index < (num*3+3)}">
                                     <figure class="effect-sadie">
-                                        <img src="/img/cssh-erji1.jpg" alt="cssh-erji1.jpg"/>
+                                        <img th:src="${item.path}" />
                                         <figcaption>
-                                            <h2>Holy <span>Sadie</span></h2>
-                                            <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-                                            <a href="cssh-details1.html">View more</a>
-                                        </figcaption>
-                                    </figure>
-								</div>
-								<div class="col-lg-4">
-                                    <figure class="effect-sadie">
-                                        <img src="/img/cssh-erji1.jpg" alt="cssh-erji1.jpg"/>
-                                        <figcaption>
-                                            <h2>Holy <span>Sadie</span></h2>
-                                            <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-                                            <a href="cssh-details1.html">View more</a>
-                                        </figcaption>
-                                    </figure>
-								</div>
-								<div class="col-lg-4">
-                                    <figure class="effect-sadie">
-                                        <img src="/img/cssh-erji1.jpg" alt="cssh-erji1.jpg"/>
-                                        <figcaption>
-                                            <h2>Holy <span>Sadie</span></h2>
-                                            <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-                                            <a href="cssh-details1.html">View more</a>
-                                        </figcaption>
-                                    </figure>
-								</div>
-							</div>
-						</div>
-						<div class="cssh-erji-photo2">
-							<div class="row">
-								<div class="col-lg-4">
-                                    <figure class="effect-sadie">
-                                        <img src="/img/cssh-erji1.jpg" alt="cssh-erji1.jpg"/>
-                                        <figcaption>
-                                            <h2>Holy <span>Sadie</span></h2>
-                                            <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-                                            <a href="cssh-details1.html">View more</a>
-                                        </figcaption>
-                                    </figure>
-								</div>
-								<div class="col-lg-4">
-                                    <figure class="effect-sadie">
-                                        <img src="/img/cssh-erji2.jpg" alt="cssh-erji2.jpg"/>
-                                        <figcaption>
-                                            <h2>Holy <span>Sadie</span></h2>
-                                            <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-                                            <a href="cssh-details1.html">View more</a>
-                                        </figcaption>
-                                    </figure>
-								</div>
-								<div class="col-lg-4">
-                                    <figure class="effect-sadie">
-                                        <img src="/img/cssh-erji3.jpg" alt="cssh-erji3.jpg"/>
-                                        <figcaption>
-                                            <h2>Holy <span>Sadie</span></h2>
-                                            <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-                                            <a href="cssh-details1.html">View more</a>
-                                        </figcaption>
-                                    </figure>
-								</div>
-							</div>
-						</div>
-						<div class="cssh-erji-photo3">
-							<div class="row">
-								<div class="col-lg-4">
-                                    <figure class="effect-sadie">
-                                        <img src="/img/cssh-erji1.jpg" alt="cssh-erji1.jpg"/>
-                                        <figcaption>
-                                            <h2>Holy <span>Sadie</span></h2>
-                                            <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-                                            <a href="/cssh-details1.html">View more</a>
-                                        </figcaption>
-                                    </figure>
-								</div>
-								<div class="col-lg-4">
-                                    <figure class="effect-sadie">
-                                        <img src="/img/cssh-erji2.jpg" alt="cssh-erji2.jpg"/>
-                                        <figcaption>
-                                            <h2>Holy <span>Sadie</span></h2>
-                                            <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-                                            <a href="cssh-details1.html">View more</a>
-                                        </figcaption>
-                                    </figure>
-								</div>
-								<div class="col-lg-4">
-                                    <figure class="effect-sadie">
-                                        <img src="/img/cssh-erji3.jpg" alt="cssh-erji3.jpg"/>
-                                        <figcaption>
-                                            <h2>Holy <span>Sadie</span></h2>
-                                            <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-                                            <a href="cssh-details1.html">View more</a>
-                                        </figcaption>
-                                    </figure>
-								</div>
-							</div>
-						</div>
-						<div class="cssh-erji-photo4">
-							<div class="row">
-								<div class="col-lg-4">
-                                    <figure class="effect-sadie">
-                                        <img src="/img/cssh-erji1.jpg"/>
-                                        <figcaption>
-                                            <h2>Holy <span>Sadie</span></h2>
-                                            <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-                                            <a href="cssh-details1.html">View more</a>
-                                        </figcaption>
-                                    </figure>
-								</div>
-								<div class="col-lg-4">
-                                    <figure class="effect-sadie">
-                                        <img src="/img/cssh-erji2.jpg" alt="cssh-erji2.jpg"/>
-                                        <figcaption>
-                                            <h2>Holy <span>Sadie</span></h2>
-                                            <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-                                            <a href="cssh-details1.html">View more</a>
-                                        </figcaption>
-                                    </figure>
-								</div>
-								<div class="col-lg-4">
-                                    <figure class="effect-sadie">
-                                        <img src="/img/cssh-erji3.jpg" alt="cssh-erji3.jpg"/>
-                                        <figcaption>
-                                            <h2>Holy <span>Sadie</span></h2>
-                                            <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
-                                            <a href="cssh-details1.html">View more</a>
+                                            <h2 th:text="${item.title}"></h2>
+                                            <p th:text="${item.description}"></p>
+                                            <a th:href="|/calligraphy/${item.id}|">View more</a>
                                         </figcaption>
                                     </figure>
 								</div>
@@ -218,10 +97,10 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="nextpage">
-                                        <a href="#">
+<!--                                        <a href="#">
                                             <div class="pre"><span>上一页</span></div>
                                             <div class="next"><span>下一页</span></div>
-                                        </a>
+                                        </a>-->
                                     </div>
                                 </div>
                             </div>
