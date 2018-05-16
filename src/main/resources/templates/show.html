@@ -1,5 +1,5 @@
  <!DOCTYPE html>
-<html lang="zh-CN">
+ <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
 		<!--使得i内核使用更高的渲染效果展示-->
@@ -111,40 +111,20 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-4">
+						<div class="col-lg-4" th:each="item:${data1}">
                             <figure class="effect-layla">
-                                <img src="img/show-1-1.jpg" alt="show-1-1.jpg"/>
+                                <img th:src="${item.thumb}" />
                                 <figcaption>
-                                    <h2>Crazy <span>Layla</span></h2>
-                                    <p>When Layla appears, she brings an eternal summer along.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-						</div>
-						<div class="col-lg-4">
-                            <figure class="effect-layla">
-                                <img src="img/show-1-1.jpg" alt="show-1-1.jpg"/>
-                                <figcaption>
-                                    <h2>Crazy <span>Layla</span></h2>
-                                    <p>When Layla appears, she brings an eternal summer along.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-						</div>
-						<div class="col-lg-4">
-                            <figure class="effect-layla">
-                                <img src="img/show-1-1.jpg" alt="show-1-1.jpg"/>
-                                <figcaption>
-                                    <h2>Crazy <span>Layla</span></h2>
-                                    <p>When Layla appears, she brings an eternal summer along.</p>
-                                    <a href="#">View more</a>
+                                    <h2 th:text="${item.title}">Crazy Layla</h2>
+                                    <p th:text="${item.description}">When Layla appears, she brings an eternal summer along.</p>
+                                    <a th:href="|/show/${item.id}|">View more</a>
                                 </figcaption>
                             </figure>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-12">
-							<div class="more"><a href="show_list.html">查看更多&nbsp;&nbsp;→</a></div>
+							<div class="more"><a href="/show/list?type=1">查看更多&nbsp;&nbsp;→</a></div>
 						</div>
 					</div>
 				</div>
@@ -158,63 +138,43 @@
 						<div class="row">
 							<div class="col-lg-8">
                                 <figure class="effect-ming">
-                                    <img src="img/show-2-1.jpg" alt="img/show-2-1" />
-                                    <figcaption>
-                                        <h2>巴西 <span>艺术城</span></h2>
-                                        <p>Cidade das Artes艺术城坐落于大海和群山之间，是里约地区一处新的地标建筑，也会是漂浮在平原中极为醒目的城市标志。</p>
-                                        <a href="show_detail.html">View more</a>
-                                    </figcaption>
+                                    <img th:src="${data2.thumb}" />
+									<figcaption>
+										<h2 th:text="${data2.title}">Crazy Layla</h2>
+										<p th:text="${data2.description}">When Layla appears, she brings an eternal summer along.</p>
+										<a th:href="|/show/${data2.id}|">View more</a>
+									</figcaption>
                                 </figure>
-							</div>		
+							</div>
 							<div class="col-lg-4">
                                 <figure class="effect-ming">
-                                    <img src="img/show-2-2.jpg" alt="img/show-2-2" />
-                                    <figcaption>
-                                        <h2>范曾 <span>艺术馆</span></h2>
-                                        <p>南通大学范曾艺术馆是中国第一家范曾艺术馆，位于公立南通大学主校区，收藏了范曾先生为艺术馆专门创作的精品佳作。</p>
-                                        <a href="show_detail.html">View more</a>
-                                    </figcaption>
+									<img th:src="${data3.thumb}" />
+									<figcaption>
+										<h2 th:text="${data3.title}">Crazy Layla</h2>
+										<p th:text="${data3.description}">When Layla appears, she brings an eternal summer along.</p>
+										<a th:href="|/show/${data3.id}|">View more</a>
+									</figcaption>
                                 </figure>
 							</div>
 						</div>
 					</div>	
 					<div class="show-gallery-bottom">
 						<div class="row">
-							<div class="col-lg-4">
-                                <figure class="effect-ming">
-                                    <img src="img/show-2-3.jpg" alt="img/show-2-3" />
-                                    <figcaption>
-                                        <h2>南京 <span>艺术馆</span></h2>
-                                        <p>南京3d魔幻艺术馆</p>
-                                        <a href="show_detail.html">View more</a>
-                                    </figcaption>
-                                </figure>
-							</div>
-							<div class="col-lg-4">
-                                <figure class="effect-ming">
-                                    <img src="img/show-2-4.jpg" alt="img/show-2-4" />
-                                    <figcaption>
-                                        <h2>成都 <span>美术馆</span></h2>
-                                        <p>成都.知美术馆地处四川成都 新津县 老君山下。</p>
-                                        <a href="show_detail.html">View more</a>
-                                    </figcaption>
-                                </figure>
-							</div>
-							<div class="col-lg-4">
-                                <figure class="effect-ming">
-                                    <img src="img/show-2-5.jpg" alt="img/show-2-5" />
-                                    <figcaption>
-                                        <h2>余德耀 <span>美术馆</span></h2>
-                                        <p>余德耀在他的故乡雅加达创立了一家私人博物馆——余德耀美术馆，并称计划在全亚洲建立同类博物馆网络。</p>
-                                        <a href="show_detail.html">View more</a>
-                                    </figcaption>
-                                </figure>
+							<div class="col-lg-4" th:each="item:${data4}">
+                                 <figure class="effect-ming">
+									<img th:src="${item.thumb}" />
+									<figcaption>
+										<h2 th:text="${item.title}">Crazy Layla</h2>
+										<p th:text="${item.description}">When Layla appears, she brings an eternal summer along.</p>
+										<a th:href="|/show/${item.id}|">View more</a>
+									</figcaption>
+								</figure>
 							</div>
 						</div>
 					</div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="more"><a href="show_list.html">查看更多&nbsp;&nbsp;→</a></div>
+                            <div class="more"><a href="/show/list?type=2">查看更多&nbsp;&nbsp;→</a></div>
                         </div>
                     </div>
                 </div>
@@ -223,40 +183,20 @@
 						<div class="col-lg-12">
 							<div class="show1-col-lg-12"><h2>在线展览</h2></div>
 						</div>
-						<div class="col-lg-4">
-                            <figure class="effect-chico">
-                                <img src="img/show-1-1.jpg" alt="show-1-1.jpg"/>
-                                <figcaption>
-                                    <h2>Silly <span>Chico</span></h2>
-                                    <p>Chico's main fear was missing the morning bus.</p>
-                                    <a href="online-/show">View more</a>
-                                </figcaption>
-                            </figure>
-						</div>
-						<div class="col-lg-4">
-                            <figure class="effect-chico">
-                                <img src="img/show-1-1.jpg" alt="show-1-1.jpg"/>
-                                <figcaption>
-                                    <h2>Silly <span>Chico</span></h2>
-                                    <p>Chico's main fear was missing the morning bus.</p>
-                                    <a href="online-/show">View more</a>
-                                </figcaption>
-                            </figure>
-						</div>
-						<div class="col-lg-4">
-                            <figure class="effect-chico">
-                                <img src="img/show-1-1.jpg" alt="show-1-1.jpg"/>
-                                <figcaption>
-                                    <h2>Silly <span>Chico</span></h2>
-                                    <p>Chico's main fear was missing the morning bus.</p>
-                                    <a href="online-/show">View more</a>
-                                </figcaption>
-                            </figure>
+						<div class="col-lg-4" th:each="item:${data5}">
+							<figure class="effect-ming">
+								<img th:src="${item.thumb}" />
+								<figcaption>
+									<h2 th:text="${item.title}">Crazy Layla</h2>
+									<p th:text="${item.description}">When Layla appears, she brings an eternal summer along.</p>
+									<a th:href="|/show/${item.id}|">View more</a>
+								</figcaption>
+							</figure>
 						</div>
 					</div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="more"><a href="show_list.html">查看更多&nbsp;&nbsp;→</a></div>
+                            <div class="more"><a href="/show/list?type=3">查看更多&nbsp;&nbsp;→</a></div>
                         </div>
                     </div>
 				</div>

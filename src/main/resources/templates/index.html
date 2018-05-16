@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<meta charset="UTF-8">
@@ -78,13 +78,21 @@
 							<div class="collapse navbar-collapse" id="bs"></div>
 						</p>
 						<p>you can share<br /> you can remark<br /> you can shopping</p>
-						<p>
-							<ul>
+						<p >
+							<ul th:if="${session.user == null}">
 								<li>
 									<a href="#" onclick="login();">登录</a>
 								</li>
 								<li>
 									<a href="#" onclick="register();">注册</a>
+								</li>
+							</ul>
+							<ul th:if="${session.user != null}">
+								<li>
+									<a href="#" th:text="|欢迎你:${session.user?.username}|"></a>
+								</li>
+								<li>
+									<a href="/logout" >注销登陆</a>
 								</li>
 							</ul>
 						</p>
@@ -102,8 +110,8 @@
                                             <form action="#" method="post">
                                                 <h2>书画网</h2>
                                                 <div class="log">
-                                                    <input type="text" name="name" class="name" placeholder="&nbsp;用户名" required="">
-                                                    <input type="password" name="password" class="password" placeholder=" &nbsp;密码" required="">
+                                                    <input type="text" id="l_username" name="name" class="name" placeholder="&nbsp;用户名" required="">
+                                                    <input type="password" id="l_password" name="password" class="password" placeholder=" &nbsp;密码" required="">
                                                 </div>
                                                 <div class="mm">
                                                     <label class="checkbox">
@@ -112,7 +120,7 @@
                                                     </label>
                                                 </div>
                                                 <div class="log-bt">
-                                                    <input type="submit" value="登录">
+                                                    <input type="button" onclick="doLogin()"  value="登录">
                                                     <input type="submit" value="注册" style="margin-left: 30px;">
                                                 </div>
                                             </form>
@@ -121,9 +129,9 @@
                                             </div>
                                             <div class="login-2">
                                                 <a href="#">
-                                                    <img src="img/qq.jpg" />
-                                                    <img src="img/wx.jpg" />
-                                                    <img src="img/wb.jpg" />
+                                                    <img src="/img/qq.jpg" />
+                                                    <img src="/img/wx.jpg" />
+                                                    <img src="/img/wb.jpg" />
                                                 </a>
                                             </div>
                                         </div>
@@ -153,17 +161,17 @@
                                                 <label for="reg_email"><span>邮箱：</span></label>
                                                 <input type="email"  id="reg_email" class="email" placeholder=" &nbsp;邮箱" required="">
                                                 <label for="reg_tel"><span>电话：</span></label>
-                                                <input type="tel" id="reg_tel" class="tel" placeholder=" &nbsp;电话" required="">
+                                                <input type="tel" id="reg_phone" class="tel" placeholder=" &nbsp;电话" required="">
                                             </div>
                                             <div class="kind">
-                                                <label for="kind"><span>会员类型：</span></label>
-                                                    <input type="radio" name="reg_entity" class="radio1"/><span>普通会员</span>
-                                                    <input type="radio" name="identity" required="required" class="radio2"/><span>资深专家</span>
+                                                <label><span>会员类型：</span></label>
+                                                    <input type="radio" name="reg_type" class="radio1" value="1" checked/><span>普通会员</span>
+                                                    <input type="radio" name="reg_type" value="2" class="radio2"/><span>资深专家</span>
                                             </div>
                                             <div class="register-bt">
                                                 <p>
-                                                    <input type="submit" value="注册" class="submit1"/>
-                                                    <input type="submit" value="专家认证" class="submit2" onclick="certification();"/>
+                                                    <input type="button" value="注册" class="submit1" onclick="doRegister()"/>
+                                                    <input type="button" value="专家认证" class="submit2" onclick="certification();"/>
                                                 </p>
                                             </div>
                                         </form>
@@ -207,8 +215,8 @@
                                             </div>
                                             <div class="cer-bt">
                                                 <p>
-                                                    <input type="submit" value="专家认证" class="submit1"/>
-                                                    <input type="submit" value="注册" class="submit2"/>
+                                                    <input type="button" value="返回" class="submit1"/>
+                                                    <input type="button" value="注册" class="submit2" onclick="doRegister()"/>
                                                 </p>
                                             </div>
                                         </form>
@@ -345,36 +353,6 @@
 					</div>
 					<div class="index-part2-top">
 						<div class="row" id="contemporary_painting">
-<!--							<div class="col-lg-4">
-                                <figure class="effect-roxy">
-                                    <img src="img/part2-wudayu.jpg" alt="part2-wudayu.jpg" />
-                                    <figcaption>
-                                        <h2>吴大羽 <span>风景画</span></h2>
-                                        <p>吴大羽，宜兴宜城镇人，我国杰出的油画家，艺术教育家，中国现代画事业的奠基人之一。</p>
-                                        <a href="ddsh-details1.html">View more</a>
-                                    </figcaption>
-                                </figure>
-							</div>
-							<div class="col-lg-4">
-								<figure class="effect-roxy">
-									<img src="img/part2-sajinte.jpg" alt="part2-zhougang.jpg" />
-									<figcaption>
-										<h2>萨金特<span>水彩画</span></h2>
-										<p>约翰·辛格·萨金特John Singer Sargent(1856—1925)美国画家。生于意大利佛罗伦萨。 1874年在卡罗律斯—迪朗的巴黎画室学画，受印象派影响。</p>
-										<a href="ddsh-details1.html">View more</a>
-									</figcaption>
-								</figure>
-							</div>
-							<div class="col-lg-4">
-								<figure class="effect-roxy">
-									<img src="img/part2-songyonghong.jpg" alt="part2-zhougang.jpg" />
-									<figcaption>
-										<h2>宋永红 <span>人物画</span></h2>
-										<p>宋永红1966年生于河北省曲阳县1988年毕业于浙江美术学院版画系（现为中国美术学院）。</p>
-                                        <a href="ddsh-details1.html">View more</a>
-									</figcaption>
-								</figure>
-							</div>-->
 						</div>
 					</div>
 					<div class="index-part1-more">
@@ -711,6 +689,7 @@
 		<script src="/js/util.js"></script>
 		<script src="/js/main.js"></script>
 		<script>
+
 			function login() {
                 $('#login').css('display', 'block');
 			}

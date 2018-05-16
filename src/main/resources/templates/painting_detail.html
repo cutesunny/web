@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<meta charset="UTF-8">
@@ -8,7 +8,7 @@
 		<!--设置支持移动端的视窗-->
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
-		<title>绘画详情</title>
+		<title th:text="${item.title}"></title>
 		<!--Bootsttap-->
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/css/contact.css" rel="stylesheet" />
@@ -139,7 +139,10 @@
   			opacity: 0.6;
 		}
 	</style>
-
+	<script th:inline="javascript">
+        var type = 2;
+        var materialId = /*[[${item.id}]]*/ null;
+	</script>
 	<body>
 		<div id="page-wrapper">
 
@@ -188,7 +191,7 @@
 				<div class="cssh-details1-top">
 					<div class="row">
 						<div class="col-lg-12">
-							<h2>王羲之《兰亭集序》</h2>
+							<h2 th:text="${item.title}">王羲之《兰亭集序》</h2>
 						</div>
 					</div>
 				</div>
@@ -197,24 +200,10 @@
 						<div class="col-lg-12">
 							<div class="cssh-details1-content-top">
 								<figure class="cssh1-1">
-									<img src="img/p1-wangxizhi.jpg" alt="p1-wangxizhi.jpg"/>
-									<figcaption>
-										<p>图一</p>
-									</figcaption>
+									<img th:src="${item.path}"/>
 								</figure>
 							</div>
-							<div class="cssh-details1-content-bottom">
-								<p>兰亭序，又名《兰亭集序》、《兰亭宴集序》、《临河序》、《禊序》、《禊帖》。晋代书法家王羲之
-                                    撰写，《兰亭序》中记叙兰亭周围山水之美和聚会的欢乐之情，抒发作者好景不长，生死无常的感慨。
-                                    法帖相传之本，共二十八行，三百二十四字，章法、结构、笔法都很完美，是他中年时的得意之作。
-                                    其文书法具有极高的艺术价值，王羲之与颜真卿《祭侄季明文稿》、苏轼《寒食帖》并称三大行书书法帖。
-                                    王羲之与他的《兰亭集序》早已成为中国文人的精神福祉，成了千百年来人们说不尽的话题，历久而弥新。</p>
-								<p>《兰亭序》是王羲之最重要的一件行书作品，在技法上，几臻完美，成为后来行书法的典范，有“天下第一
-                                    行书”之誉。王羲之（303—361）字逸少，号澹斋，原籍琅琊临沂（今属山东），后迁居山阴（今浙江绍兴），
-                                    官至右军将军，会稽内史，是东晋伟大的书法家，被后人尊为“书圣”。他的儿子王献之书法也很好，人们称
-                                    他们两为“二王”，另一个儿子王凝之官至左将军，因曾任右军将军，世称“王右军”、“王会稽”。
-                                    代表作品有：楷书《乐毅论》、《黄庭经》、草书《十七帖》、行书《姨母帖》、《快雪时晴帖》、《丧乱帖》、行楷《兰亭集序》等。
-								</p>
+							<div class="cssh-details1-content-bottom" th:utext="${item.content}">
 							</div>
 						</div>
 					</div>
@@ -222,10 +211,10 @@
 				<div class="cssh-details1-remark">
 					<div class="row">
 						<div class="col-lg-12">
-							<form action="#" method="post" id="comment">
-								<label for="comment">发表观点:</label>
-								<textarea name="comment"  placeholder="来说两句吧..."></textarea>
-								<a class="submit" onclick="submit()">畅言一下</a>
+							<form action="#" method="post" >
+								<label >发表观点:</label>
+								<textarea id="content"  placeholder="来说两句吧..."></textarea>
+								<a class="submit" id="content">畅言一下</a>
 							</form>
 						</div>
 					</div>
@@ -326,6 +315,9 @@
 		<script src="/js/skel.min.js"></script>
 		<script src="/js/util.js"></script>
 		<script src="/js/main.js"></script>
+		<script src="/layer/layer.js"></script>
+		<script src="/js/base.js"></script>
+		<script src="/js/content.js"></script>
 	</body>
 
 </html>

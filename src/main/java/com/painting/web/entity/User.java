@@ -5,6 +5,16 @@ import javax.persistence.Entity;
 @Entity(name = "user")
 public class User extends AbstractEntity{
 
+    /**
+     * 专家
+     */
+    public static final int NORMAL = 1;
+
+    /**
+     * 专家
+     */
+    public static final int SPECIALIST = 2;
+
     private String username;
     private String password;
     private String email;

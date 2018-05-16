@@ -1,36 +1,35 @@
 package com.painting.web.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
+import java.util.Date;
 
 /**
- * 图片评论
+ * 评论
  */
 @Entity(name = "comment")
 public class Comment extends AbstractEntity{
 
     public static final Integer CALLIGRAPHY = 1;
-    public static final Integer PAINTING = 1;
+    public static final Integer PAINTING = 2;
 
     @Column(name = "material_id")
     private Integer materialId;
-    private String comment;
+    private String content;
     private Integer star;
     private String username;
 
     @Column(name = "create_time")
-    private String createTime;
+    private Date createTime;
 
     private String type;
 
 
-    public String getComment() {
-        return comment;
+    public String getContent() {
+        return content;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Integer getStar() {
@@ -49,11 +48,11 @@ public class Comment extends AbstractEntity{
         this.username = username;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 

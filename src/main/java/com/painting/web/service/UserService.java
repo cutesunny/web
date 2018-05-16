@@ -6,6 +6,7 @@ import com.painting.web.entity.User;
 import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
@@ -21,8 +22,11 @@ public class UserService {
      * @param user
      * @return
      */
-    public void register(User user){
-        user.setPassword(MD5Encoder.encode(user.getPassword().getBytes()));
+    public void register(User user) throws IException {
+        if(userDao.findByUsername(user.getUsername()) != null){
+            throw new IException("用户已存在");
+        }
+        user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
         userDao.save(user);
     }
 
@@ -34,13 +38,16 @@ public class UserService {
      * @throws IException
      */
     public void login(String username, String password, HttpSession session) throws IException {
-        User user = userDao.findByUsername(username);
-        password = MD5Encoder.encode(password.getBytes());
-        if(password.equals(user.getPassword())){
-            session.setAttribute("user", user);
-        }else{
-            throw new IException("用户名或密码错误");
+        if(username !=null && password != null){
+            User user = userDao.findByUsername(username);
+            password = DigestUtils.md5DigestAsHex(password.getBytes());
+            if(user != null && password.equals(user.getPassword())){
+                session.setAttribute("user", user);
+            }else{
+                throw new IException("用户名或密码错误");
+            }
         }
+
     }
 
 

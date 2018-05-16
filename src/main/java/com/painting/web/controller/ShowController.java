@@ -1,6 +1,9 @@
 package com.painting.web.controller;
 
+import com.painting.web.service.ArticleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/show")
 public class ShowController {
 
-    @GetMapping()
-    public String show() {
+    @Autowired
+    private ArticleService articleService;
+
+    @GetMapping
+    public String show(Model model) {
+        articleService.setShowData(model);
         return "/show";
     }
 

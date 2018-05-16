@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<meta charset="UTF-8">
@@ -8,7 +8,7 @@
 		<!--设置支持移动端的视窗-->
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
-		<title>新闻详情</title>
+		<title th:text="|${data.title}评论列表|"></title>
 		<!--Bootsttap-->
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/css/contact.css" rel="stylesheet" />
@@ -22,119 +22,13 @@
 		<link href="/css/cssh-erji.css" rel="stylesheet" />
 		<link href="/css/remark.css" rel="stylesheet" />
 	</head>
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-		}
-		
-		a {
-			text-decoration: none;
-		}
-		
-		ul li {
-			list-style: none;
-		}
-		
-		body,
-		html {
-			font-size: 18px;
-			font-family: "微软雅黑";
-		}
-		
-		.news-details-main{
-			margin-left: 50px;
-			margin-right: 50px;
-		}
-		.news-details-top {
-			height: 100px;
-			/*border: 1px solid red;*/
-		}
-		
-		.news-details-top .col-lg-12 {
-			height: 100px;
-			border-bottom: 1px solid white;
-		}
-		
-		.news-details-top .col-lg-12 h3 {
-			text-align: center;
-			line-height: 30px;
-			color: white;
-			/*margin-top: -1px;*/
-		}
-		.news-details-top .col-lg-12 p{
-			text-align: center;
-			line-height: 30px;
-			color: white;
-		}
-		.news-details{
-			height: 900px;
-			/*border: 1px solid red;*/
-		}
-		.news-details .col-lg-12{
-			height: 900px;
-			/*border: 1px solid white;*/
-		}
-		.news-details img{
-			width: 800px;
-			height: 300px;
-			margin-left: 200px;
-			margin-top: 50px;
-		}
-		.news-details span{
-			text-decoration: none;
-			display: block;
-			text-align: center;
-			color: white;
-			margin-top: 10px;
-		}
-		.news-details p{
-			line-height: 30px;
-			color: white;
-			margin-top: 50px;
-		}
-		.news-details-remark{
-			height: 300px;
-			/*border: 1px solid white;*/
-		}
-		.news-details-remark .col-lg-12{
-			height: 300px;
-			/*border: 1px solid red;*/
-		}
-		.news-details-remark label{
-			color: white;
-			font-size: 30px;
-			font-family: "楷体";
-		}
-		.news-details-remark textarea{
-			/*outline: none;
- 		 	border: none;*/
-  			background: beige;
-  			height: 200px;
-			width: 1200px;
-		}
-		.news-details-remark .submit{
-			/*border: 1px solid red;*/
-			padding: 10px 60px;
-  			background: royalblue;
-  			text-decoration: none;
-  			display: block;
-  			cursor: pointer;
-  			margin-left: 990px;
-  			color: white;
-  			/*margin-top: 0px;*/
-		}
-		.news-details-remark .submit:hover {
-  			opacity: 0.6;
-		}
-	</style>
 
 	<body>
 		<div id="page-wrapper">
 
 			<!-- Header -->
 			<header id="header">
-				<h1><a href="/">书画网</a></h1>
+				<h1><a href="index.html">书画网</a></h1>
 				<nav id="nav">
 					<ul>
 						<li class="special">
@@ -173,38 +67,83 @@
 			</header>
 		</div>
 		<div class="container-fluid">
-			<div class="news-details-main">
-				<div class="news-details-top">
+			<div class="remark-main">
+				<div class="remark-top">
 					<div class="row">
 						<div class="col-lg-12">
-							<h3>2018巴塞尔艺术展在香港举行</h3>
-							<p>来源：中国书画网 作者：编辑-jane</p>
+							<h2 th:text="|(共${data.commentAmount}条)|"></h2>
 						</div>
 					</div>
 				</div>
-				<div class="news-details">
-					<div class="row">
-						<div class="col-lg-12">
-							<img src="img/news-details1.jpg"/>
-							<span>图为该展览内的大型艺术装置，将丝绸漂浮于半空中。 中新社记者 谢光磊 摄</span>
-							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3月27日，第六届巴塞尔艺术展香港展会在香港会议展览中心举行，本次艺术展览呈献
-								248间来自32个国家及地区的顶尖艺廊参与，展出的艺术品横跨20世纪初的现代时期至最近期的当代作品。</p>
-							<img src="img/news-details2.jpg"/>
-							<span>图为展出的3D艺术品。 中新社记者 谢光磊 摄</span>
+				<div class="remark-2" th:each="item:${page.content}">
+					<div class="remark-1-top">
+						<div class="row">
+							<div class="col-lg-3">
+								<div class="remark-1-top-1">
+									<img src="/img/touxiang1.jpg" />
+								</div>
+								<div class="remark-1-top-2">
+									<p th:text="${item.username}"></p>
+									<p>
+										<img src="/img/star.png" />
+										<img src="/img/star.png" />
+										<img src="/img/star.png" />
+										<img src="/img/star.png" />
+									</p>
+									<p th:text="${item.createTime}"></p>
+								</div>
+							</div>
+							<div class="col-lg-9">
+								<div class="remark-1-top-3">
+									<a href="#">
+										<div class="re-1">
+											<span>9</span>
+											<img src="/img/heart1.jpg" />
+										</div>
+										<div class="re-2">
+											<img src="/img/heart2.jpg" />
+											<span>5</span>
+										</div>
+										<div class="re-3">
+											<img src="/img/jubao.jpg" />
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="remark-1-bottom">
+						<div class="row">
+							<div class="col-lg-12">
+								<p th:text="${item.content}">宽巷子是“闲生活”区，以旅游休闲为主题。改造后的宽 巷子是老成都生活的再现，在这条巷子中游览，能走进老成都生活体验馆，感受成都的风土人情和几乎要失传了 的一些老成都的民俗生活场景。而四合院中可以品上盖碗茶，吃上正宗的川菜。宽巷子唤起了人们对老成都的亲 切回忆。新建的宅院式精品酒店等各具特色的建筑群落给富有传统气息的巷子点缀上了时尚的气息，是老成都的 “闲生活”。
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="news-details-remark">
+				<div class="remark-bottom">
 					<div class="row">
 						<div class="col-lg-12">
-							<form action="#" method="post" id="content">
-								<label for="content">发表观点:</label>
-								<textarea name="content"  placeholder="来说两句吧..."></textarea>
+							<div class="nextpage">
+<!--                                <a href="#">
+                                    <div class="pre"><span>上一页</span></div>
+                                    <div class="next"><span>下一页</span></div>
+                                </a>-->
+							</div>
+						</div>
+					</div>
+				</div>
+<!--				<div class="news-details-remark">
+					<div class="row">
+						<div class="col-lg-12">
+							<form action="#" method="post" id="comment">
+								<label for="comment">发表观点:</label>
+								<textarea name="comment" placeholder="来说两句吧..."></textarea>
 								<a class="submit" onclick="submit()">畅言一下</a>
 							</form>
 						</div>
 					</div>
-				</div>
+				</div>-->
 				<div class="footer">
 					<div class="footer-main">
 						<div class="row">

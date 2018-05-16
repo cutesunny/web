@@ -14,16 +14,19 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 
-@RestControllerAdvice//(annotations = { RestController.class })
+@RestControllerAdvice(annotations = { RestController.class })
 public class ResponseWrapper implements ResponseBodyAdvice<Object> {
 
     @Override
-    public Object beforeBodyWrite(@Nullable Object data,
+    public Object beforeBodyWrite(Object data,
                                   @Nullable MethodParameter methodParameter,
                                   @Nullable MediaType mediaType,
                                   @Nullable Class<? extends HttpMessageConverter<?>> aClass,
                                   @Nullable ServerHttpRequest serverHttpRequest,
                                   @Nullable ServerHttpResponse serverHttpResponse) {
+        if(data instanceof ResponseVO){
+            return data;
+        }
         //null表示该controller没有返回值
         if (null == data) {
              return new ResponseVO().setCode(ResponseVO.SUCCESS);

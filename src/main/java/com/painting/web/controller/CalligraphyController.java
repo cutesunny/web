@@ -1,7 +1,9 @@
 package com.painting.web.controller;
 
 import com.painting.web.entity.Calligraphy;
+import com.painting.web.entity.Comment;
 import com.painting.web.service.CalligraphyService;
+import com.painting.web.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,8 @@ public class CalligraphyController {
 
     @Autowired
     private CalligraphyService calligraphyService;
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping
     public String index(Model model){
@@ -38,5 +42,11 @@ public class CalligraphyController {
     public String list(Integer type, Integer pageNum, Integer pageSize, Model model){
         model.addAttribute("page",calligraphyService.findAll(pageNum, pageSize, type));
         return "calligraphy_list";
+    }
+    @GetMapping(value = "/{id}/comment-list")
+    public String commentList(@PathVariable Integer id, Integer pageNum, Integer pageSize,Model model){
+        model.addAttribute("data", calligraphyService.getById(id));
+        model.addAttribute("page", commentService.page(Comment.CALLIGRAPHY, id, pageNum, pageSize ));
+        return "comment";
     }
 }
