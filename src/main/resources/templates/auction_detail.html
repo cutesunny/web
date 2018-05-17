@@ -8,7 +8,7 @@
 		<!--设置支持移动端的视窗-->
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
-		<title>竞拍</title>
+		<title th:text="${auction.title}">竞拍</title>
 		<!--Bootsttap-->
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/css/shop.css" rel="stylesheet">
@@ -78,57 +78,43 @@
                                 <div class="col-lg-4-top">
                                     <div id="smallBox">
                                         <div id="floatBox"></div>
-                                        <img src="img/shufa1.jpg" id="img1">
+                                        <img th:src="${auction.thumb}" id="img1">
                                     </div>
                                     <div id="bigBox">
-                                        <img src="img/shufa1.jpg" id="imgBox">
+                                        <img th:src="${auction.thumb}" id="imgBox">
                                     </div>
                                     <div id="icon">
-                                        <div id="icon1">
-                                            <img src="img/shufa1.jpg" id="shufa1" alt="1" class="img2">
-                                        </div>
-
-                                        <div id="icon2">
-                                            <img src="img/shufa2.jpg" id="shufa2" alt="2" class="img3">
-                                        </div>
-                                        <div id="icon3">
-                                            <img src="img/shufa3.jpg" id="shufa3" alt="3" class="img4">
-                                        </div>
-                                        <div id="icon4">
-                                            <img src="img/shufa4.jpg" id="shufa4" alt="4" class="img5">
-                                        </div>
-                                        <div id="icon5">
-                                            <img src="img/shufa5.jpg" id="shufa5" alt="5" class="img6">
+                                        <div id="icon1" th:each="pic:${auction.pics}">
+                                            <img th:src="${pic.path}" id="shufa1" alt="1" class="img2">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
                                 <div class="col-lg-5-1">
-                                    <h3>舍得石玉书法作品字画已装裱挂画包邮</h3>
+                                    <h3 th:text="${auction.title}">舍得石玉书法作品字画已装裱挂画包邮</h3>
                                 </div>
                                 <div class="col-lg-5-2">
                                     <div class="col-lg-5-2-left">
                                         <h3>倒计时</h3>
                                     </div>
                                     <div class="col-lg-5-2-right">
-                                        <p>距结束(倒计时插件不会写)</p>
+                                        <p th:text="|结束日期:${auction.endTime}|"></p>
                                     </div>
                                 </div>
                                 <div class="col-lg-5-3">
                                     <ul>
-                                        <li><span>当前价:￥430</span><dt>（第1次出价）</dt></li>
-                                        <li><span>保证金:￥200</span></li>
+                                        <li><span th:text="|当前价:￥${acution.currentPrice}|">当前价:￥430</span></li>
+                                        <li><span th:text="|保证金:￥${acution.deposit}|">保证金:￥200</span></li>
                                         <li><div class="start-buy"><a href="#">参与竞拍</a></div></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-5-4">
                                     <ul>
-                                        <li>起拍价：￥430 </li>
-                                        <li>加价幅：￥20</li>
-                                        <li>保证金：￥200</li>
-                                        <li>最高价：暂无</li>
-                                        <li>佣金：暂无 </li>
+                                        <li th:text="|起拍价：￥${auction.basePrice}|">起拍价：￥430 </li>
+                                        <li th:text="|加价幅：￥${auction.increasePrice}|">加价幅：￥20</li>
+                                        <li th:text="|保证金：￥${auction.deposit}|">保证金：￥200</li>
+                                        <li th:text="|最高价：￥${auction.currentPrice}|">最高价：暂无</li>
                                         <li></li>
                                     </ul>
                                 </div>
@@ -149,13 +135,13 @@
                                     <li>状态</li>
                                     <li>竞拍人</li>
                                     <li>价格</li>
-                                    <li>评论</li>
+                                    <li>时间</li>
                                 </ul>
-                                <ul class="col-lg-3-2">
-                                    <li>领先</li>
-                                    <li>lxx</li>
-                                    <li>￥460</li>
-                                    <li>56条</li>
+                                <ul class="col-lg-3-2" th:each="item:${auction.logs}">
+                                    <li>正常</li>
+                                    <li th:text="${item.username}">lxx</li>
+                                    <li th:text="|￥${item.price}|">￥460</li>
+                                    <li th:text="${#dates.format(item.time,'MM-dd HH:mm:ss')}"></li>
                                 </ul>
                             </div>
                         </div>
@@ -176,58 +162,8 @@
                                         <li class="move"></li>
                                     </ul>
                                 </div>
-                                <div class="goods-details" id="goods-details">
-                                <div class="shopping-img1">
-                                    <div class="shopping-img1-top">
-                                        <a href="#"><img src="img/shufa-details1.jpg"></a>
-                                    </div>
-                                    <div class="shopping-img1-bottom">
-									<span>优质四尺白宣纸书写：68*138（㎝）<br/>
-								装裱卷轴尺寸： 80*175（㎝）</span>
-                                    </div>
-                                </div>
-                                <div class="shopping-img1">
-                                    <div class="shopping-img1-top">
-                                        <a href="#"><img src="img/shufa-details2.jpg"></a>
-                                    </div>
-                                    <div class="shopping-img1-bottom">
-							<span>
-								舍得<br/>
-							能舍者 天地不弃<br />
-							既得者 无愧于心</span>
-                                    </div>
+                                <div class="goods-details" id="goods-details" th:utext="${auction.content}">
 
-                                </div>
-                                <div class="shopping-img1">
-                                    <div class="shopping-img1-top">
-                                        <a href="#"><img src="img/shufa-details3.jpg"></a>
-                                    </div>
-                                    <div class="shopping-img1-bottom">
-                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作品是卷轴形式的装裱可以直接用于悬挂装饰，也可以改造成装镜框的镜芯装裱，
-                                            所有书法作品均为石玉老师亲笔书写，他的笔法大气端庄，法度严谨但不失飘逸流畅的洒脱，希望找到有缘收藏的您！</p>
-                                    </div>
-
-                                </div>
-                                <div class="shopping-img1">
-                                    <div class="shopping-img1-top">
-                                        <a href="#"><img src="img/shufa-details4.jpg"></a>
-                                    </div>
-                                    <div class="shopping-img1-bottom">
-									<span>能舍者，天地不弃<br/>
-										既得者，无愧于心
-									</span>
-                                    </div>
-                                </div>
-                                <div class="shopping-img1">
-                                    <div class="shopping-img1-top">
-                                        <a href="#"><img src="img/shufa-details5.jpg"></a>
-                                    </div>
-                                    <div class="shopping-img1-bottom">
-                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石玉，原名张宏军，1957年生于神笔王铎故里河南省孟津县。自幼酷爱书法绘画，四十年来坚持不懈，持之以恒习临古帖，
-                                            潜心研究王铎书体。又受到书法大家王俊生老师，九十岁段宝斋老先生的言传身教。师古溶今，博学众长，形成了自己独具一格的风格，
-                                            他的书法平正端庄，出规入矩，跌宕起伏，笔法大气，法度严谨而意态生动。</p>
-                                    </div>
-                                </div>
                                 </div>
                                 <div class="record" id="record">
                                     <ul class="topy">
@@ -235,14 +171,12 @@
                                         <li>竞拍人</li>
                                         <li>价格 </li>
                                         <li>时间</li>
-                                        <li>评价</li>
                                     </ul>
                                     <ul class="bty">
-                                        <li>领先</li>
-                                        <li>Lxx</li>
-                                        <li>￥460 </li>
-                                        <li>2018-5-08 </li>
-                                        <li>56</li>
+                                        <li>正常</li>
+                                        <li th:text="${item.username}">lxx</li>
+                                        <li th:text="|￥${item.price}|">￥460</li>
+                                        <li th:text="${#dates.format(item.time,'MM-dd HH:mm:ss')}"></li>
                                     </ul>
                                 </div>
                                 <div class="service" id="service">

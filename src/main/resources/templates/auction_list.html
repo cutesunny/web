@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,12 @@
     <!--设置支持移动端的视窗-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
-    <title>近期展览</title>
+    <title th:if="${type eq 1}" >书法</title>
+    <title th:if="${type eq 2}" >国画</title>
+    <title th:if="${type eq 3}" >油画</title>
+    <title th:if="${type eq 4}" >版画</title>
+    <title th:if="${type eq 5}" >水粉</title>
+    <title th:if="${type eq 6}" >艺术品</title>
     <!--Bootsttap-->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/contact.css" rel="stylesheet" />
@@ -242,336 +247,25 @@
                 </div>
             </div>
         </div>
-        <div class="shop1-1">
+        <div class="shop1-2" th:each="num:${#numbers.sequence(0,3)}">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-3" th:each="item,state:${page.content}"
+                     th:if="${state.index >= (num*4) && state.index < (num*4+4)}">
                     <div class="col-lg-3-main">
                         <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
+                            <a th:href="|/auction/${item.id}|"><img th:src="${item.thumb}"/></a>
                         </div>
                         <div class="col-lg-3-bottom">
                             <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
+                                <a th:href="|/auction/${item.id}|"><p th:text="${item.title}}">书法作品</p></a>
                             </div>
                             <div class="col-lg-3-2">
                                 <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
+                                    <span th:text="|起拍价：¥${item.basePrice}|">起拍价：¥500.00</span>
                                 </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="shop1-2">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="shop1-3">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="shop1-4">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col-lg-3-main">
-                        <div class="col-lg-3-top">
-                            <a href="auction_detail.html"><img src="img/shop-1-2.jpg"/></a>
-                        </div>
-                        <div class="col-lg-3-bottom">
-                            <div class="col-lg-3-1">
-                                <a href="auction_detail.html"><p>书法作品</p></a>
-                            </div>
-                            <div class="col-lg-3-2">
-                                <div class="col-lg-3-bottom-left">
-                                    <span>起拍价：¥500.00</span>
-                                </div>
-                                <div class="col-lg-3-bottom-right">
-                                    <a href="remark.html"><img src="img/message.png"/></a>
-                                </div>
+<!--                                <div class="col-lg-3-bottom-right">
+                                    <a th:href="|/auction/${item.id}|"><img src="img/message.png"/></a>
+                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -582,10 +276,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="nextpage">
-                        <a href="#">
+  <!--                      <a href="#">
                             <div class="pre"><span>上一页</span></div>
                             <div class="next"><span>下一页</span></div>
-                        </a>
+                        </a>-->
                     </div>
                 </div>
             </div>

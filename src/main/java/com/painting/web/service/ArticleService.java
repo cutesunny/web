@@ -27,6 +27,8 @@ public class ArticleService {
      * 分页
      */
     public Page<Article> findAll(Integer page, Integer size, Integer type) {
+        page = page==null?1:page;
+        size = size==null?12:size;
         Pageable pageable1 = new QPageRequest(page-1, size);
         return articleDao.findAllByTypeOrderByIdDesc(type.toString(), pageable1);
     }

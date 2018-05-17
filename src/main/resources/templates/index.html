@@ -449,43 +449,13 @@
 					</div>
 					<div class="index-part4-top">
 						<div class="row">
-							<div class="col-lg-3">
+							<div class="col-lg-3" th:each="item,state:${auctions}" th:if="${state.index < 4}">
                                 <figure class="effect-jazz">
-                                    <img src="img/shufa1.jpg" alt="shufa1.jpg" />
+                                    <img th:src="${item.thumb}"/>
                                     <figcaption>
-                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
+                                        <h2 th:text="|${item.title} ￥${item.currentPrice}|">舍得书法作品 <span>￥128.00</span></h2>
                                         <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
-                                        <a href="auction_detail.html">View more</a>
-                                    </figcaption>
-                                </figure>
-							</div>
-							<div class="col-lg-3">
-                                <figure class="effect-jazz">
-                                    <img src="img/goods2.jpg" alt="goods2.jpg" />
-                                    <figcaption>
-                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
-                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
-                                        <a href="auction_detail.html">View more</a>
-                                    </figcaption>
-                                </figure>
-							</div>
-							<div class="col-lg-3">
-                                <figure class="effect-jazz">
-                                    <img src="img/goods3.jpg" alt="goods3.jpg" />
-                                    <figcaption>
-                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
-                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
-                                        <a href="auction_detail.html">View more</a>
-                                    </figcaption>
-                                </figure>
-							</div>
-							<div class="col-lg-3">
-                                <figure class="effect-jazz">
-                                    <img src="img/goods4.jpg" alt="goods4.jpg" />
-                                    <figcaption>
-                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
-                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
-                                        <a href="auction_detail.html">View more</a>
+                                        <a th:href="|/aution/${item.id}|">detail</a>
                                     </figcaption>
                                 </figure>
 							</div>
@@ -493,45 +463,15 @@
 					</div>
 					<div class="index-part4-bottom">
 						<div class="row">
-							<div class="col-lg-3">
-                                <figure class="effect-jazz">
-                                    <img src="img/goods5.jpg" alt="goods5.jpg" />
-                                    <figcaption>
-                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
-                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
-                                        <a href="auction_detail.html">View more</a>
-                                    </figcaption>
-                                </figure>
-							</div>
-							<div class="col-lg-3">
-                                <figure class="effect-jazz">
-                                    <img src="img/goods6.jpg" alt="goods6.jpg" />
-                                    <figcaption>
-                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
-                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
-                                        <a href="auction_detail.html">View more</a>
-                                    </figcaption>
-                                </figure>
-							</div>
-							<div class="col-lg-3">
-                                <figure class="effect-jazz">
-                                    <img src="img/goods7.jpg" alt="goods7.jpg" />
-                                    <figcaption>
-                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
-                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
-                                        <a href="auction_detail.html">View more</a>
-                                    </figcaption>
-                                </figure>
-							</div>
-							<div class="col-lg-3">
-                                <figure class="effect-jazz">
-                                    <img src="img/goods8.jpg" alt="goods.8jpg" />
-                                    <figcaption>
-                                        <h2>舍得书法作品 <span>￥128.00</span></h2>
-                                        <!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
-                                        <a href="auction_detail.html">View more</a>
-                                    </figcaption>
-                                </figure>
+							<div class="col-lg-3" th:each="item,state:${auctions}" th:if="${state.index > 3}">
+								<figure class="effect-jazz">
+									<img th:src="${item.thumb}"/>
+									<figcaption>
+										<h2 th:text="|${item.title} ￥${item.currentPrice}|">舍得书法作品 <span>￥128.00</span></h2>
+										<!--<p>When Jazz starts to chase cars, the whole world stands still.</p>-->
+										<a th:href="|/aution/${item.id}|">detail</a>
+									</figcaption>
+								</figure>
 							</div>
 						</div>
 					</div>

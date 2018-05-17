@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<meta charset="UTF-8">
@@ -8,7 +8,7 @@
 		<!--设置支持移动端的视窗-->
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
-		<title>模板</title>
+		<title>新闻</title>
 		<!--Bootsttap-->
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/css/news.css" rel="stylesheet">
@@ -111,20 +111,9 @@
 										<li style="height:70px">
 											<p>今日快讯</p>
 										</li>
-										<li><span style="color:red; font-size:40px;">1</span>
-											<a href="news_detail.html">学院精神的时代宣言</a>
-										</li>
-										<li><span style="color:orangered; font-size:35px;">2</span>
-											<a href="news_detail.html">学院精神的时代宣言</a>
-										</li>
-										<li><span style="color:orange; font-size:30px;">3</span>
-											<a href="news_detail.html">学院精神的时代宣言</a>
-										</li>
-										<li><span>4</span>
-											<a href="news_detail.html">学院精神的时代宣言</a>
-										</li>
-										<li><span>5</span>
-											<a href="news_detail.html">学院精神的时代宣言</a>
+										<li th:each="item,state:${data1}">
+											<span  th:text="${state.index+1}"></span>
+											<a th:href="|/new/${item.id}|" th:text="${item.title}">学院精神的时代宣言</a>
 										</li>
 									</ul>
 								</div>
@@ -136,38 +125,23 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="col-lg-12-title">
-									<a href="news_list.html"><h2>焦点新闻</h2></a>
+									<a href="/news/list?type=1"><h2>焦点新闻</h2></a>
 								</div>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-6">
+							<div class="col-lg-6" th:each="item:${data2}">
                                 <figure class="effect-terry">
-                                    <img src="img/news-news1.jpg" alt="news-news1.jpg" />
+                                    <img th:src="${item.thumb}" />
                                     <figcaption>
-                                        <h2>90周年 <span>华诞</span></h2>
+                                        <h2 th:text="${item.title}">90周年 </h2>
                                         <p>
                                             <a href="#"><i class="fa fa-fw fa-download"></i></a>
                                             <a href="#"><i class="fa fa-fw fa-heart"></i></a>
                                             <a href="#"><i class="fa fa-fw fa-share"></i></a>
                                             <a href="#"><i class="fa fa-fw fa-tags"></i></a>
                                         </p>
-                                        <a href="news_detail.html">View more</a>
-                                    </figcaption>
-                                </figure>
-							</div>
-							<div class="col-lg-6">
-                                <figure class="effect-terry">
-                                    <img src="img/news-news2.jpg" alt="news-news2.jpg" />
-                                    <figcaption>
-                                        <h2>90周年 <span>华诞</span></h2>
-                                        <p>
-                                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
-                                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-                                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
-                                            <a href="#"><i class="fa fa-fw fa-tags"></i></a>
-                                        </p>
-                                        <a href="news_detail.html">View more</a>
+                                        <a th:href="|/news/${item.id}|">detail</a>
                                     </figcaption>
                                 </figure>
 							</div>
@@ -175,7 +149,7 @@
                         <div class="more">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <a href="news_list.html">查看更多&nbsp;&nbsp;→</a>
+                                    <a href="/news/list?type=1">查看更多&nbsp;&nbsp;→</a>
                                 </div>
                             </div>
                         </div>
@@ -184,34 +158,22 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="col-lg-12-title">
-									<a href="news_list.html"><h2>艺术专题</h2></a>
+									<a href="/news/list?type=2"><h2>艺术专题</h2></a>
 								</div>
 							</div>
                         </div>
                         <div class="row">
-							<div class="col-lg-6">
+							<div class="col-lg-6" th:each="item:${data3}">
 								<div class="col-lg-6-main">
 									<div class="col-lg-6-top">
-										<img src="img/news-news1.jpg">
+										<img th:src="${item.thumb}">
 									</div>
 									<div class="col-lg-6-bottom">
-										<h3><a href="#">学院精神的时代宣言</a></h3><br>
-										<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;烽火艺程主题浮雕展览现场 3月24日下午，《国美之路大典》首发式暨中国美术学院大展 媒体导览在北京中国美术馆举行，由此揭开了中国美术学院90周年校庆北京系列活动...
-											<a href="#">[了解详情]</a>
+										<h3><a th:href="|news/${item.id}|" th:text="${item.title}">学院精神的时代宣言</a></h3><br>
+										<p th:text="${item.description}">
+
 										</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="col-lg-6-main">
-									<div class="col-lg-6-top">
-										<img src="img/news-news2.jpg" />
-									</div>
-									<div class="col-lg-6-bottom">
-										<h3><a href="#">萨拉·莫里斯中国的首次大型个展即将来袭</a></h3><br>
-										<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;萨拉莫里斯：奥德赛 时间：2018.3.24 - 2018.6.17 地点：UCCA大展厅 尤伦 斯当代艺术中心(UCCA)于3月24日至6月17日呈现个展萨拉莫里斯：奥德赛。本次展览在全球范围内首次完整...
-											<a href="#">[了解详情]</a>
-										</p>
+										<a th:href="|news/${item.id}|">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[了解详情]</a>
 									</div>
 								</div>
 							</div>
@@ -219,7 +181,7 @@
                         <div class="more">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <a href="news_list.html">查看更多&nbsp;&nbsp;→</a>
+                                    <a href="/news/list?type=2">查看更多&nbsp;&nbsp;→</a>
                                 </div>
                             </div>
                         </div>
@@ -228,46 +190,26 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="col-lg-12-title">
-									<a href="news_list.html"><h2>艺术家</h2></a>
+									<a href="/news/list?type=3"><h2>艺术家</h2></a>
 								</div>
 							</div>
                         </div>
                         <div class="row">
-							<div class="col-lg-4">
+							<div class="col-lg-4" th:each="item:${data4}">
                                 <figure class="effect-sarah">
-                                    <img src="img/part2-zhougang.jpg" alt="part2-zhougang.jpg"/>
+                                    <img th:src="${item.thumb}" />
                                     <figcaption>
-                                        <h2>Free <span>Sarah</span></h2>
-                                        <p>Sarah likes to watch clouds. She's quite depressed.</p>
-                                        <a href="#">View more</a>
+                                        <h2 th:text="${item.title}">Free </h2>
+                                        <p th:text="${item.description}">Sarah likes to watch clouds. She's quite depressed.</p>
+                                        <a th:href="|/news/${item.id}|">detail</a>
                                     </figcaption>
                                 </figure>
 							</div>
-							<div class="col-lg-4">
-                                <figure class="effect-sarah">
-                                    <img src="img/part2-zhougang.jpg" alt="part2-zhougang.jpg"/>
-                                    <figcaption>
-                                        <h2>Free <span>Sarah</span></h2>
-                                        <p>Sarah likes to watch clouds. She's quite depressed.</p>
-                                        <a href="#">View more</a>
-                                    </figcaption>
-                                </figure>
-							</div>
-                            <div class="col-lg-4">
-                                <figure class="effect-sarah">
-                                    <img src="img/part2-zhougang.jpg" alt="part2-zhougang.jpg"/>
-                                    <figcaption>
-                                        <h2>Free <span>Sarah</span></h2>
-                                        <p>Sarah likes to watch clouds. She's quite depressed.</p>
-                                        <a href="#">View more</a>
-                                    </figcaption>
-                                </figure>
-                            </div>
 						</div>
                         <div class="more">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <a href="news3.html">查看更多&nbsp;&nbsp;→</a>
+                                    <a href="/news/list?type=2">查看更多&nbsp;&nbsp;→</a>
                                 </div>
                             </div>
                         </div>

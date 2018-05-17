@@ -26,12 +26,15 @@ public class ShowController {
 
 
     @GetMapping(value = "/{id}")
-    public String detail(@PathVariable Integer id){
-        return"/show_detail";
+    public String detail(@PathVariable Integer id, Model model){
+        model.addAttribute("item", articleService.getById(id));
+        return"show_detail";
     }
 
     @GetMapping(value = "/list")
-    public String list(Integer type, Integer pageSize, Integer pageNo){
-        return"/show_list";
+    public String list(Integer type, Integer pageSize, Integer pageNo, Model model){
+        model.addAttribute("type", type);
+        model.addAttribute("page", articleService.findAll(pageNo, pageSize, type));
+        return"show_list";
     }
 }

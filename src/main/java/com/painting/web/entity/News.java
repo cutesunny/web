@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Entity(name = "news")
 public class News extends AbstractEntity{
 
+
     /**
      * 焦点
      */
@@ -22,11 +23,14 @@ public class News extends AbstractEntity{
     /**
      * 艺术家
      */
-    public static final Integer ARTIST = 2;
+    public static final Integer ARTIST = 3;
+    /**
+     * 快讯
+     */
+    public static final Integer FLASH = 4;
+
     //标题
     private String title;
-    //来源
-    private String source;
     //作者
     private String author;
     //封面
@@ -56,14 +60,6 @@ public class News extends AbstractEntity{
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
     }
 
     public String getAuthor() {

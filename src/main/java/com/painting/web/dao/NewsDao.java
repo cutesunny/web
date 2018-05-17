@@ -15,7 +15,7 @@ public interface NewsDao extends JpaRepository<News, Integer> {
     @Override
     Page<News> findAll(Pageable pageable);
 
-    Page<News> findAllByTypeOrderByIdDesc(String type, Pageable pageable);
+    Page<News> findAllByTypeOrderByIdDesc(Integer type, Pageable pageable);
 
     @Override
     News getOne(Integer integer);

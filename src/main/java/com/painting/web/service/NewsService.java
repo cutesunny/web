@@ -32,9 +32,11 @@ public class NewsService {
      * 分页
      */
     public Page<News> findAll(Integer type, Integer pageNum, Integer pageSize) {
+        pageNum=pageNum==null?1:pageNum;
+        pageSize=pageSize==null?12:pageSize;
         Pageable pageable1 = new QPageRequest(pageNum-1, pageSize);
         if(type != null){
-            return newsDao.findAllByTypeOrderByIdDesc(type.toString(), pageable1);
+            return newsDao.findAllByTypeOrderByIdDesc(type, pageable1);
         }else{
             return newsDao.findAll(pageable1);
         }

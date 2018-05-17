@@ -19,4 +19,5 @@ public interface ArticleDao extends JpaRepository<Article, Integer> {
 
     List<Article> findAllByTypeOrderByIdAsc(String type);
 
+
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<meta charset="UTF-8">
@@ -8,7 +8,9 @@
 		<!--设置支持移动端的视窗-->
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
-		<title>近期展览</title>
+		<title th:if="${type eq 1}">近期展会</title>
+		<title th:if="${type eq 2}">画廊展馆</title>
+		<title th:if="${type eq 3}">在线展览</title>
 		<!--Bootsttap-->
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/css/contact.css" rel="stylesheet" />
@@ -229,137 +231,16 @@
 						</div>
 					</div>
 				</div>
-				<div class="show1-1">
-					<div class="row">
-						<div class="col-lg-4">
-                            <figure class="effect-ruby">
-                                <img src="img/show-2-1.jpg" alt="show-2-1.jpg"/>
-                                <figcaption>
-                                    <h2>Glowing <span>Ruby</span></h2>
-                                    <p>Ruby did not need any help. Everybody knew that.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-						</div>
-						<div class="col-lg-4">
-                            <figure class="effect-ruby">
-                                <img src="img/show-2-2.jpg" alt="show-2-2.jpg"/>
-                                <figcaption>
-                                    <h2>Glowing <span>Ruby</span></h2>
-                                    <p>Ruby did not need any help. Everybody knew that.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-						</div>
-						<div class="col-lg-4">
-                            <figure class="effect-ruby">
-                                <img src="img/show-2-3.jpg" alt="show-2-3.jpg"/>
-                                <figcaption>
-                                    <h2>Glowing <span>Ruby</span></h2>
-                                    <p>Ruby did not need any help. Everybody knew that.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-						</div>
-					</div>
-				</div>
-				<div class="show1-2">
+				<div class="show1-2" th:each="num:${#numbers.sequence(0,3)}">
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-4" th:each="item,state:${page.content}"
+                             th:if="${state.index >= (num*3) && state.index < (num*3+3)}">
                             <figure class="effect-ruby">
-                                <img src="img/show-2-1.jpg" alt="show-2-1.jpg"/>
+                                <img th:src="${item.thumb}" />
                                 <figcaption>
-                                    <h2>Glowing <span>Ruby</span></h2>
-                                    <p>Ruby did not need any help. Everybody knew that.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-lg-4">
-                            <figure class="effect-ruby">
-                                <img src="img/show-2-2.jpg" alt="show-2-2.jpg"/>
-                                <figcaption>
-                                    <h2>Glowing <span>Ruby</span></h2>
-                                    <p>Ruby did not need any help. Everybody knew that.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-lg-4">
-                            <figure class="effect-ruby">
-                                <img src="img/show-2-3.jpg" alt="show-2-3.jpg"/>
-                                <figcaption>
-                                    <h2>Glowing <span>Ruby</span></h2>
-                                    <p>Ruby did not need any help. Everybody knew that.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-				</div>
-				<div class="show1-3">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <figure class="effect-ruby">
-                                <img src="img/show-2-1.jpg" alt="show-2-1.jpg"/>
-                                <figcaption>
-                                    <h2>Glowing <span>Ruby</span></h2>
-                                    <p>Ruby did not need any help. Everybody knew that.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-lg-4">
-                            <figure class="effect-ruby">
-                                <img src="img/show-2-2.jpg" alt="show-2-2.jpg"/>
-                                <figcaption>
-                                    <h2>Glowing <span>Ruby</span></h2>
-                                    <p>Ruby did not need any help. Everybody knew that.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-lg-4">
-                            <figure class="effect-ruby">
-                                <img src="img/show-2-3.jpg" alt="show-2-3.jpg"/>
-                                <figcaption>
-                                    <h2>Glowing <span>Ruby</span></h2>
-                                    <p>Ruby did not need any help. Everybody knew that.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-				</div>
-				<div class="show1-4">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <figure class="effect-ruby">
-                                <img src="img/show-2-1.jpg" alt="show-2-1.jpg"/>
-                                <figcaption>
-                                    <h2>Glowing <span>Ruby</span></h2>
-                                    <p>Ruby did not need any help. Everybody knew that.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-lg-4">
-                            <figure class="effect-ruby">
-                                <img src="img/show-2-2.jpg" alt="show-2-2.jpg"/>
-                                <figcaption>
-                                    <h2>Glowing <span>Ruby</span></h2>
-                                    <p>Ruby did not need any help. Everybody knew that.</p>
-                                    <a href="#">View more</a>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-lg-4">
-                            <figure class="effect-ruby">
-                                <img src="img/show-2-3.jpg" alt="show-2-3.jpg"/>
-                                <figcaption>
-                                    <h2>Glowing <span>Ruby</span></h2>
-                                    <p>Ruby did not need any help. Everybody knew that.</p>
-                                    <a href="#">View more</a>
+                                    <h2 th:text="${item.title}">Glowing </h2>
+                                    <p th:text="${item.description}"></p>
+                                    <a th:href="|/show/${item.id}|">View more</a>
                                 </figcaption>
                             </figure>
                         </div>
@@ -369,10 +250,10 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="nextpage">
-                                <a href="#">
+<!--                                <a href="#">
                                     <div class="pre"><span>上一页</span></div>
                                     <div class="next"><span>下一页</span></div>
-                                </a>
+                                </a>-->
                             </div>
                         </div>
                     </div>

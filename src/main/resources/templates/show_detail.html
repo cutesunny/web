@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<meta charset="UTF-8">
@@ -8,7 +8,7 @@
 		<!--设置支持移动端的视窗-->
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
-		<title>展馆详情</title>
+		<title th:text="${item.title}">展馆详情</title>
 		<!--Bootsttap-->
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/css/contact.css" rel="stylesheet" />
@@ -232,31 +232,19 @@
 				<div class="show3-top">
 					<div class="row">
 						<div class="col-lg-12">
-							<h2>巴西·艺术城</h2>
+							<h2 th:text="${item.title}">巴西·艺术城</h2>
 						</div>
 					</div>
 				</div>
 				<div class="show3-details">
 					<div class="row">
 						<div class="col-lg-12">
-							<div class="show3-details-top">
-								<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;巴西cidade das artes艺术馆位于里约热内卢，坐落在山海之间，在一个有着广阔平地的新城内。
-									这里的周边环境颇为单调，城市属性不强，公共空间亦无从谈起。两条高速路在此处交汇，形成了整个场地的主构架。而这座艺术馆未来将会是新城的中心。
-								</p>
-								<img src="img/show-2-1.jpg"/>
-								<img src="img/show3-details-2.jpg"/>
-								<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该建筑是用一座庞大的结构支撑起来的小型城市。这座“城市”建立在一个距离地面10米的大型平台之上，人们可以在这里远眺山和海。建筑如同悬浮于它脚下那片公共花园上方。这片富热带与海洋气息的花园出自费纳多•夏赛尔（fernando chacel）之手。艺术城中包含有各种各样的场所：
-									一个演奏厅、一个室内音乐及流行音乐厅、电影院、舞蹈工作坊、若干个排练厅、展览空间、餐厅以及一个媒体图书馆。
-								</p>
-								<img src="img/show3-details-3.jpg"/>
-								<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在谈到设计初衷时，portzamparc这样说：“我很快就想到这一综合性建筑需矗立于地面之上，人们在该建筑里能够看到大海、山脉和整个城市，因为目前从地面上可以看到的只有汽车。因此，这一建筑必须高于地面10米。所以，修建一个大型的户外平台的想法就产生了，这个平台用以承载所有设施和接待公众。从设计里约热内卢艺术城的首批小型模型开始，
-									我们就已经形成了这样的想法：将其建成多个独特、隔音、并具有各种不同的功能的单独体量，并把其建设成为可以“漂浮”的建筑。”
-								</p>
+							<div class="show3-details-top" th:utext="${item.content}">
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="show3-details-remark">
+<!--				<div class="show3-details-remark">
 					<div class="row">
 						<div class="col-lg-12">
 							<form action="#" method="post" id="content">
@@ -266,7 +254,7 @@
 							</form>
 						</div>
 					</div>
-				</div>
+				</div>-->
 				<div class="footer">
 					<div class="footer-main">
 						<div class="row">

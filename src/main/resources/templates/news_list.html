@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<meta charset="UTF-8">
@@ -8,7 +8,10 @@
 		<!--设置支持移动端的视窗-->
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
-		<title>more新闻</title>
+		<title th:if="${type eq 4}" >快讯新闻</title>
+		<title th:if="${type eq 1}" >焦点新闻</title>
+		<title th:if="${type eq 2}" >艺术</title>
+		<title th:if="${type eq 3}" >艺术家</title>
 		<!--Bootsttap-->
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/css/contact.css" rel="stylesheet" />
@@ -328,107 +331,28 @@
 				<div class="news1-top">
 					<div class="row">
 						<div class="col-lg-12">
-							<h2>焦点新闻</h2>
+							<h2 th:if="${type eq 4}" >快讯新闻</h2>
+							<h2 th:if="${type eq 1}" >焦点新闻</h2>
+							<h2 th:if="${type eq 2}" >艺术</h2>
+							<h2 th:if="${type eq 3}" >艺术家</h2>
 						</div>
 					</div>
 				</div>
-				<div class="news1-details1">
+				<div class="news1-details2"  th:each="num:${#numbers.sequence(0,2)}">
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-lg-6"  th:each="item,state:${page.content}"
+							 th:if="${state.index >= (num*2) && state.index < (num*2+2)}">
 							<figure class="effect-terry">
-								<img src="img/news-news1.jpg" alt="news-news1.jpg" />
+								<img th:src="${item.thumb}"  />
 								<figcaption>
-									<h2>90周年 <span>华诞</span></h2>
+									<h2 th:text="${item.title}">90周年 </h2>
 									<p>
 										<a href="#"><i class="fa fa-fw fa-download"></i></a>
 										<a href="#"><i class="fa fa-fw fa-heart"></i></a>
 										<a href="#"><i class="fa fa-fw fa-share"></i></a>
 										<a href="#"><i class="fa fa-fw fa-tags"></i></a>
 									</p>
-									<a href="news_detail.html">View more</a>
-								</figcaption>
-							</figure>
-						</div>
-						<div class="col-lg-6">
-							<figure class="effect-terry">
-								<img src="img/news-news2.jpg" alt="news-news2.jpg" />
-								<figcaption>
-									<h2>Noisy <span>Terry</span></h2>
-									<p>
-										<a href="#"><i class="fa fa-fw fa-download"></i></a>
-										<a href="#"><i class="fa fa-fw fa-heart"></i></a>
-										<a href="#"><i class="fa fa-fw fa-share"></i></a>
-										<a href="#"><i class="fa fa-fw fa-tags"></i></a>
-									</p>
-									<a href="news_detail.html">View more</a>
-								</figcaption>
-							</figure>
-						</div>
-					</div>
-				</div>
-				<div class="news1-details2">
-					<div class="row">
-						<div class="col-lg-6">
-							<figure class="effect-terry">
-								<img src="img/news-news1.jpg" alt="news-news1.jpg" />
-								<figcaption>
-									<h2>90周年 <span>华诞</span></h2>
-									<p>
-										<a href="#"><i class="fa fa-fw fa-download"></i></a>
-										<a href="#"><i class="fa fa-fw fa-heart"></i></a>
-										<a href="#"><i class="fa fa-fw fa-share"></i></a>
-										<a href="#"><i class="fa fa-fw fa-tags"></i></a>
-									</p>
-									<a href="news_detail.html">View more</a>
-								</figcaption>
-							</figure>
-						</div>
-						<div class="col-lg-6">
-							<figure class="effect-terry">
-								<img src="img/news-news2.jpg" alt="news-news2.jpg" />
-								<figcaption>
-									<h2>Noisy <span>Terry</span></h2>
-									<p>
-										<a href="#"><i class="fa fa-fw fa-download"></i></a>
-										<a href="#"><i class="fa fa-fw fa-heart"></i></a>
-										<a href="#"><i class="fa fa-fw fa-share"></i></a>
-										<a href="#"><i class="fa fa-fw fa-tags"></i></a>
-									</p>
-									<a href="news_detail.html">View more</a>
-								</figcaption>
-							</figure>
-						</div>
-					</div>
-				</div>
-				<div class="news1-details3">
-					<div class="row">
-						<div class="col-lg-6">
-							<figure class="effect-terry">
-								<img src="img/news-news1.jpg" alt="news-news1.jpg" />
-								<figcaption>
-									<h2>90周年 <span>华诞</span></h2>
-									<p>
-										<a href="#"><i class="fa fa-fw fa-download"></i></a>
-										<a href="#"><i class="fa fa-fw fa-heart"></i></a>
-										<a href="#"><i class="fa fa-fw fa-share"></i></a>
-										<a href="#"><i class="fa fa-fw fa-tags"></i></a>
-									</p>
-									<a href="news_detail.html">View more</a>
-								</figcaption>
-							</figure>
-						</div>
-						<div class="col-lg-6">
-							<figure class="effect-terry">
-								<img src="img/news-news2.jpg" alt="news-news2.jpg" />
-								<figcaption>
-									<h2>Noisy <span>Terry</span></h2>
-									<p>
-										<a href="#"><i class="fa fa-fw fa-download"></i></a>
-										<a href="#"><i class="fa fa-fw fa-heart"></i></a>
-										<a href="#"><i class="fa fa-fw fa-share"></i></a>
-										<a href="#"><i class="fa fa-fw fa-tags"></i></a>
-									</p>
-									<a href="news_detail.html">View more</a>
+									<a th:href="|/news/${item.id}|">detail</a>
 								</figcaption>
 							</figure>
 						</div>
@@ -437,12 +361,12 @@
                 <div class="news1-bottom">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="nextpage">
+<!--                            <div class="nextpage">
                                 <a href="#">
                                     <div class="pre"><span>上一页</span></div>
                                     <div class="next"><span>下一页</span></div>
                                 </a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
