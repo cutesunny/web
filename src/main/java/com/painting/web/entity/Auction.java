@@ -3,6 +3,7 @@ package com.painting.web.entity;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by wangxiaodong on 2018/5/14.
@@ -35,16 +36,37 @@ public class Auction extends AbstractEntity{
      */
     public static final Integer YISHUPING = 6;
 
+    /**
+     * 状态 正常
+     */
+    public static final Integer NORMAL = 1;
+    /**
+     * 完成
+     */
+    public static final Integer DONE = 2;
+
+    /**
+     * 流拍
+     */
+    public static final Integer CLOSED = 3;
+
+
 
     private String title;
     private String thumb;
-    @OneToMany(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
-    @JoinColumn(name = "id")
-    private List<AuctionPic> pics;
 
-    @OneToMany(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
-    @JoinColumn(name = "id")
-    private List<AuctionLog> logs;
+
+
+    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @OrderBy("rank asc")
+    @JoinColumn(name = "auction_id")
+    private Set<AuctionPic> pics;
+
+
+    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @OrderBy("time desc")
+    @JoinColumn(name = "auction_id")
+    private Set<AuctionLog> logs;
     /**
      * 底价
      */
@@ -80,6 +102,62 @@ public class Auction extends AbstractEntity{
      */
     public Integer type;
 
+    /**
+     * 状态
+     * @return
+     */
+    public Integer status;
+
+    /**
+     * 成交用户
+     */
+    public String finalUsername;
+    /**
+     * 成交价格
+     */
+    public Double finalPrice;
+
+
+    public String getFinalUsername() {
+        return finalUsername;
+    }
+
+    public void setFinalUsername(String finalUsername) {
+        this.finalUsername = finalUsername;
+    }
+
+    public Double getFinalPrice() {
+        return finalPrice;
+    }
+
+    public void setFinalPrice(Double finalPrice) {
+        this.finalPrice = finalPrice;
+    }
+
+    public Set<AuctionPic> getPics() {
+        return pics;
+    }
+
+    public void setPics(Set<AuctionPic> pics) {
+        this.pics = pics;
+    }
+
+    public Set<AuctionLog> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(Set<AuctionLog> logs) {
+        this.logs = logs;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     public String getThumb() {
         return thumb;
     }
@@ -104,21 +182,7 @@ public class Auction extends AbstractEntity{
         this.title = title;
     }
 
-    public List<AuctionPic> getPics() {
-        return pics;
-    }
 
-    public void setPics(List<AuctionPic> pics) {
-        this.pics = pics;
-    }
-
-    public List<AuctionLog> getLogs() {
-        return logs;
-    }
-
-    public void setLogs(List<AuctionLog> logs) {
-        this.logs = logs;
-    }
 
     public Double getBasePrice() {
         return basePrice;
@@ -167,4 +231,5 @@ public class Auction extends AbstractEntity{
     public void setContent(String content) {
         this.content = content;
     }
+
 }

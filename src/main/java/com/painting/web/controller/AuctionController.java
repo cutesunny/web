@@ -27,15 +27,15 @@ public class AuctionController {
         model.addAttribute("data4", auctionService.page(Auction.BANHUA,1,4).getContent());
         model.addAttribute("data5", auctionService.page(Auction.SHUIFEN,1,4).getContent());
         model.addAttribute("data6", auctionService.page(Auction.YISHUPING,1,4).getContent());
-        return "/auction";
+        return "auction";
     }
     @GetMapping(value = "/{id}")
     public String detail(@PathVariable Integer id, Model model){
         model.addAttribute("auction", auctionService.getOne(id));
-        return "/auction_detail";
+        return "auction_detail";
     }
     @GetMapping(value = "/list")
     public String list(Integer type ,Integer pageNum, Integer pageSize){
-        return "/auction_list";
+        return "auction_list";
     }
 }

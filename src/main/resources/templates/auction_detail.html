@@ -22,10 +22,9 @@
 		<link href="/css/shopping.css" rel="stylesheet" />
         <link href="/css/animation.css" rel="stylesheet" />
 	</head>
-	<style>
-
-	</style>
-
+    <script th:inline="javascript">
+        var id = /*[[${auction.id}]]*/ null;
+    </script>
 	<body>
 		<div id="page-wrapper">
 
@@ -84,8 +83,8 @@
                                         <img th:src="${auction.thumb}" id="imgBox">
                                     </div>
                                     <div id="icon">
-                                        <div id="icon1" th:each="pic:${auction.pics}">
-                                            <img th:src="${pic.path}" id="shufa1" alt="1" class="img2">
+                                        <div id="icon1" th:each="item:${auction.pics}">
+                                            <img th:src="${item.path}" onclick="onMove(this)" alt="1" class="img2">
                                         </div>
                                     </div>
                                 </div>
@@ -99,14 +98,14 @@
                                         <h3>倒计时</h3>
                                     </div>
                                     <div class="col-lg-5-2-right">
-                                        <p th:text="|结束日期:${auction.endTime}|"></p>
+                                        <p th:text="|结束日期:${#dates.format(auction.endTime,'MM-dd HH:mm:ss')}|"></p>
                                     </div>
                                 </div>
                                 <div class="col-lg-5-3">
                                     <ul>
-                                        <li><span th:text="|当前价:￥${acution.currentPrice}|">当前价:￥430</span></li>
-                                        <li><span th:text="|保证金:￥${acution.deposit}|">保证金:￥200</span></li>
-                                        <li><div class="start-buy"><a href="#">参与竞拍</a></div></li>
+                                        <li><span th:text="|当前价：￥${auction.currentPrice}|">当前价:￥430</span></li>
+                                        <li><span th:text="|保证金：￥${auction.deposit}|">保证金:￥200</span></li>
+                                        <li><div class="start-buy"><a href="#" id="order">参与竞拍</a></div></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-5-4">
@@ -130,18 +129,19 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <h3>出价记录（1）</h3>
+                                <h3>出价记录</h3>
                                 <ul class="col-lg-3-1">
                                     <li>状态</li>
                                     <li>竞拍人</li>
                                     <li>价格</li>
-                                    <li>时间</li>
+                                    <li >时间</li>
                                 </ul>
-                                <ul class="col-lg-3-2" th:each="item:${auction.logs}">
-                                    <li>正常</li>
+                                <ul class="col-lg-3-2" th:each="item,state:${auction.logs}">
+                                    <li th:if="${state.index eq 0}">领先</li>
+                                    <li th:if="${state.index != 0}">淘汰</li>
                                     <li th:text="${item.username}">lxx</li>
                                     <li th:text="|￥${item.price}|">￥460</li>
-                                    <li th:text="${#dates.format(item.time,'MM-dd HH:mm:ss')}"></li>
+                                    <li style="font-size:14px" th:text="${#dates.format(item.time,'MM-dd HH:mm:ss')}"></li>
                                 </ul>
                             </div>
                         </div>
@@ -172,8 +172,9 @@
                                         <li>价格 </li>
                                         <li>时间</li>
                                     </ul>
-                                    <ul class="bty">
-                                        <li>正常</li>
+                                    <ul class="bty" th:each="item,state:${auction.logs}">
+                                        <li th:if="${state.index eq 0}">领先</li>
+                                        <li th:if="${state.index != 0}">淘汰</li>
                                         <li th:text="${item.username}">lxx</li>
                                         <li th:text="|￥${item.price}|">￥460</li>
                                         <li th:text="${#dates.format(item.time,'MM-dd HH:mm:ss')}"></li>
@@ -197,7 +198,7 @@
                                     </div>
                                     <div class="service2">
                                         <h2>送拍机构服务及承诺</h2>
-                                        <img src="img/pai7.png">
+                                        <img src="/img/pai7.png">
                                     </div>
                                     <div class="service3">
                                         <h2>拍卖基础服务</h2>
@@ -205,7 +206,7 @@
                                             <li>
                                             <div class="li1">
                                                 <div class="service1-left">
-                                                    <a href="#"><img src="img/pai1.png"></a>
+                                                    <a href="#"><img src="/img/pai1.png"></a>
                                                 </div>
                                                 <div class="service1-right">
                                                     <dt>如实描述承诺</dt>
@@ -219,7 +220,7 @@
                                             <li style="border-left: 1px solid #dcdcdc;border-right: 1px solid #dcdcdc;">
                                                 <div class="li1">
                                                     <div class="service1-left">
-                                                        <a href="#"><img src="img/pai1.png"></a>
+                                                        <a href="#"><img src="/img/pai1.png"></a>
                                                     </div>
                                                     <div class="service1-right">
                                                         <dt>如实描述承诺</dt>
@@ -233,7 +234,7 @@
                                             <li>
                                                 <div class="li1">
                                                     <div class="service1-left">
-                                                        <a href="#"><img src="img/pai1.png"></a>
+                                                        <a href="#"><img src="/img/pai1.png"></a>
                                                     </div>
                                                     <div class="service1-right">
                                                         <dt>如实描述承诺</dt>
@@ -252,7 +253,7 @@
                                             <li>
                                                 <div class="li1">
                                                     <div class="service1-left">
-                                                        <a href="#"><img src="img/pai1.png"></a>
+                                                        <a href="#"><img src="/img/pai1.png"></a>
                                                     </div>
                                                     <div class="service1-right">
                                                         <dt>如实描述承诺</dt>
@@ -266,7 +267,7 @@
                                             <li style="border-left: 1px solid #dcdcdc;border-right: 1px solid #dcdcdc;">
                                                 <div class="li1">
                                                     <div class="service1-left">
-                                                        <a href="#"><img src="img/pai1.png"></a>
+                                                        <a href="#"><img src="/img/pai1.png"></a>
                                                     </div>
                                                     <div class="service1-right">
                                                         <dt>如实描述承诺</dt>
@@ -280,7 +281,7 @@
                                             <li>
                                                 <div class="li1">
                                                     <div class="service1-left">
-                                                        <a href="#"><img src="img/pai1.png"></a>
+                                                        <a href="#"><img src="/img/pai1.png"></a>
                                                     </div>
                                                     <div class="service1-right">
                                                         <dt>如实描述承诺</dt>
@@ -300,40 +301,40 @@
                                             <h2>保证金流程</h2>
                                         </div>
                                         <div class="know1-bottom">
-                                            <img src="img/know1.png">
+                                            <img src="/img/know1.png">
                                         </div>
                                     </div>
                                     <div class="know2">
                                         <div class="know2-left">
-                                            <img src="img/know2.png">
+                                            <img src="/img/know2.png">
                                         </div>
                                         <div class="know2-right">
-                                            <img src="img/know3.png">
+                                            <img src="/img/know3.png">
                                         </div>
                                     </div>
                                     <div class="know3">
-                                        <img src="img/know4.png">
+                                        <img src="/img/know4.png">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <h2>猜你喜欢</h2>
                                 <figure class="effect-goliath">
-                                    <img src="img/shufa5.jpg" alt="img23"/>
+                                    <img src="/img/shufa5.jpg" alt="img23"/>
                                     <figcaption>
                                         <p>价格：￥128.00</p>
                                         <a href="#">View more</a>
                                     </figcaption>
                                 </figure>
                                 <figure class="effect-goliath">
-                                    <img src="img/shufa5.jpg" alt="img23"/>
+                                    <img src="/img/shufa5.jpg" alt="img23"/>
                                     <figcaption>
                                         <p>价格：￥128.00</p>
                                         <a href="#">View more</a>
                                     </figcaption>
                                 </figure>
                                 <figure class="effect-goliath">
-                                    <img src="img/shufa5.jpg" alt="img23"/>
+                                    <img src="/img/shufa5.jpg" alt="img23"/>
                                     <figcaption>
                                         <p>价格：￥128.00</p>
                                         <a href="#">View more</a>
@@ -441,186 +442,11 @@
 		<script src="/js/skel.min.js"></script>
 		<script src="/js/util.js"></script>
 		<script src="/js/main.js"></script>
+		<script src="/js/base.js"></script>
+		<script src="/layer/layer.js"></script>
+		<script src="/js/auction.js"></script>
 		<script>
-			shufa1.onmouseover = function() {
-				img1.src = "img/shufa1.jpg"
-			};
-			shufa2.onmouseover = function() {
-				img1.src = "img/shufa2.jpg"
-			};
-			shufa3.onmouseover = function() {
-				img1.src = "img/shufa3.jpg"
-			};
-			shufa4.onmouseover = function() {
-				img1.src = "img/shufa4.jpg"
-			};
-			shufa5.onmouseover = function() {
-				img1.src = "img/shufa5.jpg"
-			};
 
-			smallBox.onmouseover = function() {
-				imgBox.src = img1.src;
-				floatBox.style.display = "block";
-				bigBox.style.display = "block";
-			}
-			smallBox.onmouseout = function() {
-				floatBox.style.display = "none";
-				bigBox.style.display = "none";
-			}
-			smallBox.onmousemove = function(e) {
-				var event = e || window.event;
-				var left = event.clientX - smallBox.offsetLeft - floatBox.offsetWidth / 2;
-				var top = event.clientY - smallBox.offsetTop - floatBox.offsetHeight / 2;
-				if(left < 0) left = 0;
-				else {
-					if(left > (smallBox.offsetWidth - floatBox.offsetWidth))
-						left = smallBox.offsetWidth - floatBox.offsetWidth;
-				}
-				if(top < 0) top = 0;
-				else {
-					if(top > (smallBox.offsetHeight - floatBox.offsetHeight))
-						top = smallBox.offsetHeight - floatBox.offsetHeight;
-				}
-				floatBox.style.left = left + "px";
-				floatBox.style.top = top + "px";
-				imgBox.style.left = -(left * imgBox.offsetWidth) / smallBox.offsetWidth + "px";
-				imgBox.style.top = -(top * imgBox.offsetHeight) / smallBox.offsetHeight + "px";
-
-			}
-			$(function() {
-				$('#collapseFour').collapse({
-					toggle: false
-				})
-			});
-			$(function() {
-				$('#collapseOne').collapse('show')
-			});
-			$(function() {
-				$('#collapseThree').collapse('toggle')
-			});
-			$(function() {
-				$('#collapseTwo').collapse('hide')
-			});
-			var key = false;
-
-			function removeBoder() {
-				shufa1.style.border = "none";
-				shufa2.style.border = "none";
-				shufa3.style.border = "none";
-				shufa4.style.border = "none";
-				shufa5.style.border = "none";
-			}
-
-			function tan() {
-				if(key) {} else {
-					chose.innerHTML = "请选择";
-					icon.style.border = "1px solid red";
-				}
-			}
-			var select = false;
-			shufa1.onclick = function() {
-				select = DoSelect("shufa1", select);
-			}
-			shufa2.onclick = function() {
-				select = DoSelect("shufa2", select);
-			}
-			shufa3.onclick = function() {
-
-				select = DoSelect("shufa3", select);
-			}
-			shufa4.onclick = function() {
-
-				select = DoSelect("shufa4", select);
-			}
-			shufa5.onclick = function() {
-				select = DoSelect("shufa5", select);
-			}
-			var oldId;
-		</script>
-		<!--<script type="text/javascript">
-$('.spinnerExample').spinner({});
-</script>-->
-		<script>
-			$(document).ready(function() {
-				//获得文本框对象
-				var t = $("#text_box");
-				//初始化数量为1,并失效减
-				$('#min').attr('disabled', true);
-				//数量增加操作
-				$("#add").click(function() {
-					// 给获取的val加上绝对值，避免出现负数
-					t.val(Math.abs(parseInt(t.val())) + 1);
-					if(parseInt(t.val()) != 1) {
-						$('#min').attr('disabled', false);
-					};
-				})
-				//数量减少操作
-				$("#min").click(function() {
-					t.val(Math.abs(parseInt(t.val())) - 1);
-					if(parseInt(t.val()) == 1) {
-						$('#min').attr('disabled', true);
-					};
-				})
-			});
-		</script>
-		<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-        <script>
-            function click1() {
-                var goods = document.getElementById('goods-details');
-                var record = document.getElementById('record');
-                var service = document.getElementById('service');
-                var know = document.getElementById('know');
-                goods.style.display = "block";
-                record.style.display = "none";
-                service.style.display = "none";
-                know.style.display = "none";
-            }
-
-            function click2() {
-                var goods = document.getElementById('goods-details');
-                var record = document.getElementById('record');
-                var service = document.getElementById('service');
-                var know = document.getElementById('know');
-                goods.style.display = "none";
-                record.style.display = "block";
-                service.style.display = "none";
-                know.style.display = "none";
-            }
-
-            function click3() {
-                var goods = document.getElementById('goods-details');
-                var record = document.getElementById('record');
-                var service = document.getElementById('service');
-                var know = document.getElementById('know');
-                goods.style.display = "none";
-                record.style.display = "none";
-                service.style.display = "block";
-                know.style.display = "none";
-            }
-            function click4() {
-                var goods = document.getElementById('goods-details');
-                var record = document.getElementById('record');
-                var service = document.getElementById('service');
-                var know = document.getElementById('know');
-                goods.style.display = "none";
-                record.style.display = "none";
-                service.style.display = "none";
-                know.style.display = "block";
-            }
-        </script>
-        <script type="text/javascript">
-
-            onload = function () {
-                function removeActiveClass(node) {
-                    node.className = '';
-                }
-
-                document.querySelector('ul[id=style1]').onclick = function (e) {
-                    Array.prototype.forEach.call(document.querySelectorAll('ul[id=style1] > li'), removeActiveClass);
-                    var target = e.target;
-                    target.className = 'li-active';
-                }
-            }
         </script>
     </body>
 
