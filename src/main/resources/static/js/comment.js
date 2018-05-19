@@ -25,7 +25,7 @@ $('#comment').click(function () {
             }
         },
         error:function () {
-            layer.msg(response.errMsg, {icon: 2});
+            layer.msg('网络繁忙', {icon: 2});
         }
     });
 });
