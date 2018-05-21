@@ -65,7 +65,7 @@ public class AuctionService {
         if(tmpLog != null && tmpLog.getUsername().equals(user.getUsername())){
             throw new IException("目前你排第一位,无需再竞拍");
         }
-        //log.setAuction(auction);
+        log.setAuction(auction);
         log.setPrice(auction.getCurrentPrice());
         log.setTime(new Date());
         log.setUsername(user.getUsername());
