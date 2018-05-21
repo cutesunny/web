@@ -35,7 +35,9 @@ public class AuctionController {
         return "auction_detail";
     }
     @GetMapping(value = "/list")
-    public String list(Integer type ,Integer pageNum, Integer pageSize){
+    public String list(Integer type ,Integer pageNum, Integer pageSize, Model model){
+        model.addAttribute("page", auctionService.page(type, pageNum, pageSize));
+        model.addAttribute("type", type);
         return "auction_list";
     }
 }
