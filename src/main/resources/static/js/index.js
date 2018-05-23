@@ -153,7 +153,7 @@ function setGalleryData(dataList){
         $(obj).html(dataList[index].title);
         $($('[name="gallery_thumb"]')[index]).attr('src', dataList[index].thumb);
         $($('[name="gallery_description"]')[index]).html(dataList[index].description);
-        $($('[name="gallery_url"]')[index]).attr('href', '/article/'+dataList[index].id);
+        $($('[name="gallery_url"]')[index]).attr('href', '/show/'+dataList[index].id);
     });
 }
 /**
