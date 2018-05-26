@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/api/user")
 public class UserApi {
     @Autowired
     private UserService userService;
@@ -26,5 +26,10 @@ public class UserApi {
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable Integer id){
         userService.delete(id);
+    }
+
+    @PutMapping(value = "/{id}")
+    public void update(@PathVariable  Integer id, String phone, String email, Integer type){
+        userService.update(id, phone, email, type);
     }
 }

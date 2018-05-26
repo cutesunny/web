@@ -10,6 +10,7 @@ import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -51,11 +52,19 @@ public class UserService {
 
     }
 
+    public User findById(Integer id){
+        return userDao.findTopById(id);
+    }
     public List<User> findAll(){
         return userDao.findAll();
     }
 
     public void delete(Integer id){
         userDao.deleteById(id);
+    }
+
+    @Transactional
+    public void update(Integer id, String phone, String email, Integer type) {
+        userDao.update(id, phone, email, type);
     }
 }
