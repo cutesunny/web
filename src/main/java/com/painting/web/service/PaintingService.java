@@ -50,4 +50,14 @@ public class PaintingService {
         Pageable pageable1 =  PageRequest.of(0, 8,sort);
         return paintingDao.findAll(pageable1).getContent();
     }
+
+    public List<Painting> findAll(){
+        return paintingDao.findAll();
+    }
+    /**
+     * 删除
+     */
+    public void delete(Integer id){
+        paintingDao.deleteById(id);
+    }
 }

@@ -4,6 +4,7 @@ import com.painting.web.entity.Calligraphy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -21,4 +22,8 @@ public interface CalligraphyDao extends JpaRepository<Calligraphy, Integer> {
 
     @Override
     Calligraphy getOne(Integer id);
+
+    @Override
+    @Query(value = "select * from calligraphy where type != 0", nativeQuery = true)
+    List<Calligraphy> findAll();
 }

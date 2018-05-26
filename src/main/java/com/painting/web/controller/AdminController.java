@@ -1,9 +1,6 @@
 package com.painting.web.controller;
 
-import com.painting.web.service.CommentService;
-import com.painting.web.service.GuestBookService;
-import com.painting.web.service.UserLogService;
-import com.painting.web.service.UserService;
+import com.painting.web.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +20,10 @@ public class AdminController {
     private UserLogService userLogService;
     @Autowired
     private CommentService commentService;
-
+    @Autowired
+    private CalligraphyService calligraphyService;
+    @Autowired
+    private PaintingService paintingService;
     @GetMapping(value = "/index")
     public String index(){
         return "admin/index";
@@ -115,5 +115,22 @@ public class AdminController {
     public String welcome(){
         return "admin/welcome";
     }
-
+    /**
+     * 书法
+     * @return
+     */
+    @GetMapping(value = "/calligraphy-list")
+    public String calligraphyList(Model model){
+        model.addAttribute("datas", calligraphyService.findAll());
+        return "admin/calligraphy-list";
+    }
+    /**
+     * 绘画
+     * @return
+     */
+    @GetMapping(value = "/painting-list")
+    public String paintingList(Model model){
+        model.addAttribute("datas", paintingService.findAll());
+        return "admin/painting-list";
+    }
 }

@@ -7,10 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +25,10 @@ public class PaintingApi {
     @GetMapping(value = "/list")
     public Page<Painting> getList(Integer pageNum, Integer pageSize){
         return paintingService.findAll(pageNum, pageSize);
+    }
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable Integer id){
+        paintingService.delete(id);
     }
 
 }

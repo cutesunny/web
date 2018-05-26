@@ -49,4 +49,14 @@ public class CalligraphyService {
     public List<Calligraphy> getIndexData() {
         return calligraphyDao.findAllByTypeOrderByIdAsc(Calligraphy.INDEX_DATA.toString());
     }
+    public List<Calligraphy> findAll(){
+        List<Calligraphy> list = calligraphyDao.findAll();
+        return list;
+    }
+    /**
+     * 删除
+     */
+    public void delete(Integer id){
+        calligraphyDao.deleteById(id);
+    }
 }

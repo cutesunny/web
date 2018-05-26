@@ -4,10 +4,7 @@ import com.painting.web.entity.Calligraphy;
 import com.painting.web.service.CalligraphyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +26,11 @@ public class CalligraphyApi {
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public List<Calligraphy> getList(){
         return calligraphyService.getIndexData();
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable Integer id){
+        calligraphyService.delete(id);
     }
 
 }

@@ -27,7 +27,7 @@ public class Calligraphy extends AbstractEntity{
     private String title;
     private String description;
     private String content;
-    private String type;
+    private Integer type;
     /**
      * 评论数量
      */
@@ -42,14 +42,13 @@ public class Calligraphy extends AbstractEntity{
         this.commentAmount = commentAmount;
     }
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
     }
-
 
     public String getPath() {
         return path;
