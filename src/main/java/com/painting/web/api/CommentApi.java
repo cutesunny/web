@@ -4,10 +4,7 @@ import com.painting.web.entity.Comment;
 import com.painting.web.entity.IException;
 import com.painting.web.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -24,5 +21,9 @@ public class CommentApi {
     @PostMapping
     public void comment(Comment comment, HttpSession session) throws IException {
         commentService.insert(comment, session);
+    }
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable Integer id){
+        commentService.delete(id);
     }
 }

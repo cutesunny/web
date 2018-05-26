@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by wangxiaodong on 2018/5/16.
@@ -51,5 +52,13 @@ public class CommentService {
         Pageable pageable = new QPageRequest(pageNum-1, pageSize);
         Page<Comment> page = commentDao.findAllByTypeAndMaterialId(type.toString(), materialId, pageable);
         return page;
+    }
+
+    public void delete(Integer id){
+        commentDao.deleteById(id);
+    }
+
+    public List<Comment> findAll(){
+        return commentDao.findAll();
     }
 }

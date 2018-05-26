@@ -1,5 +1,6 @@
 package com.painting.web.controller;
 
+import com.painting.web.service.CommentService;
 import com.painting.web.service.GuestBookService;
 import com.painting.web.service.UserLogService;
 import com.painting.web.service.UserService;
@@ -20,6 +21,8 @@ public class AdminController {
     private UserService userService;
     @Autowired
     private UserLogService userLogService;
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping(value = "/index")
     public String index(){
@@ -94,6 +97,15 @@ public class AdminController {
     public String contactUs(Model model){
         model.addAttribute("datas", guestBookService.list());
         return "admin/guest-book";
+    }
+    /**
+     * 评论管理
+     * @return
+     */
+    @GetMapping(value = "/comment-mgr")
+    public String commentMgr(Model model){
+        model.addAttribute("comments", commentService.findAll());
+        return "admin/comment";
     }
     /**
      * 欢迎
