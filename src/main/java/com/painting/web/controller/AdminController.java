@@ -1,6 +1,7 @@
 package com.painting.web.controller;
 
 import com.painting.web.service.GuestBookService;
+import com.painting.web.service.UserLogService;
 import com.painting.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,8 @@ public class AdminController {
     private GuestBookService guestBookService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserLogService userLogService;
 
     @GetMapping(value = "/index")
     public String index(){
@@ -60,9 +63,10 @@ public class AdminController {
      * 用户浏览记录
      * @return
      */
-    @GetMapping(value = "/user-record-browse")
-    public String userRecordBrowse(){
-        return "admin/user-record-browse";
+    @GetMapping(value = "/user-log")
+    public String userRecordBrowse(Model model){
+        model.addAttribute("logs", userLogService.findAll());
+        return "admin/user-log";
     }
 
     /**

@@ -1,8 +1,10 @@
 package com.painting.web.service;
 
 import com.painting.web.dao.UserDao;
+import com.painting.web.dao.UserLogDao;
 import com.painting.web.entity.IException;
 import com.painting.web.entity.User;
+import com.painting.web.entity.UserLog;
 import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,7 +21,8 @@ public class UserService {
 
     @Autowired
     private UserDao userDao;
-
+    @Autowired
+    private UserLogDao userLogDao;
     /**
      * 注册
      * @param user
@@ -45,6 +49,11 @@ public class UserService {
             password = DigestUtils.md5DigestAsHex(password.getBytes());
             if(user != null && password.equals(user.getPassword())){
                 session.setAttribute("user", user);
+                UserLog userLog = new UserLog();
+                userLog.setIp("127.0.0.1");
+                userLog.setUsername(user.getUsername());
+                userLog.setTime(new Date());
+                userLogDao.save(userLog);
             }else{
                 throw new IException("用户名或密码错误");
             }
