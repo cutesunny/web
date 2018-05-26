@@ -25,7 +25,7 @@ public class AuctionTask {
     /**
      * 每隔三十秒,判断商品是否结束,计算最终竞拍成功的用户
      */
-    @Scheduled(initialDelay = 5000,fixedDelay = 30*1000)
+    //@Scheduled(initialDelay = 5000,fixedDelay = 30*1000)
     public void task(){
         System.out.println("开始执行:"+new Date());
         List<Auction> auctions = auctionDao.findAllWithTimeOut();
