@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GuestBookService{
 
@@ -39,5 +41,14 @@ public class GuestBookService{
      */
     public void save(GuestBook guestBook) {
         guestBookDao.saveAndFlush(guestBook);
+    }
+    public void delete(Integer id){
+        guestBookDao.deleteById(id);;
+    }
+    /**
+     * 全部
+     */
+    public List<GuestBook> list(){
+        return guestBookDao.findAll();
     }
 }

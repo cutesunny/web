@@ -1,12 +1,18 @@
 package com.painting.web.controller;
 
+import com.painting.web.service.GuestBookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(value = "/admin")
 public class AdminController {
+
+    @Autowired
+    private GuestBookService guestBookService;
 
     @GetMapping(value = "/index")
     public String index(){
@@ -66,7 +72,15 @@ public class AdminController {
     public String login(){
         return "admin/login";
     }
-
+    /**
+     * 意见反馈
+     * @return
+     */
+    @GetMapping(value = "/guest-book")
+    public String contactUs(Model model){
+        model.addAttribute("datas", guestBookService.list());
+        return "admin/guest-book";
+    }
     /**
      * 欢迎
      * @return
@@ -75,4 +89,5 @@ public class AdminController {
     public String welcome(){
         return "admin/welcome";
     }
+
 }

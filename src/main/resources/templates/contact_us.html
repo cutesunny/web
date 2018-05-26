@@ -83,12 +83,12 @@
 										<input type="text" name="username" id="username" required="required" placeholder="请输入姓名" />
 									</div>
 									<div class="col-lg-4">
-										<label for="tel">电话号码：&nbsp;&nbsp;<span id="iphoneInfo"></span></label>
-										<input type="tel" name="tel" id="tel" onblur="phone()" placeholder="请输入电话号码" />
+										<label for="phone">电话号码：&nbsp;&nbsp;<span id="iphoneInfo"></span></label>
+										<input type="tel" name="tel" id="phone"  placeholder="请输入电话号码" />
 									</div>
 									<div class="col-lg-4" >
-										<label for="emailnumber">邮箱：&nbsp;&nbsp;<span id="emailInfo"></span></label>
-										<input type="email" name="emailnumber" id="emailnumber" onblur="youxiang()" placeholder="请输入邮箱" />
+										<label for="email">邮箱：&nbsp;&nbsp;<span id="emailInfo"></span></label>
+										<input type="email" name="emailnumber" id="email" placeholder="请输入邮箱" />
 									</div>
 								</div>
 							</div>
@@ -119,8 +119,8 @@
 								<div class="row">
 									<div class="col-lg-12">
 
-										<label for="message">留言：</label><br />
-										<textarea name="message" id="message" required="required" placeholder="欢迎留言，我们将提供更加优质的服务！"></textarea>
+										<label for="content">留言：</label><br />
+										<textarea name="message" id="content" required="required" placeholder="欢迎留言，我们将提供更加优质的服务！"></textarea>
 
 									</div>
 								</div>
@@ -128,7 +128,7 @@
 							<div class="contactus4">
 								<div class="row">
 									<div class="col-lg-12">
-										<input type="submit" value="提交" />
+										<input type="button" onclick="doPost()" value="提交" />
 									</div>
 								</div>
 							</div>
@@ -225,12 +225,43 @@
 		<script src="/js/jquery.min.js"></script>
 		<!--使用bootstrap插件必须引入-->
 		<script src="/js/bootstrap.min.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/jquery.scrollex.min.js"></script>
 		<script src="/js/jquery.scrolly.min.js"></script>
 		<script src="/js/skel.min.js"></script>
 		<script src="/js/util.js"></script>
 		<script src="/js/main.js"></script>
+		<script src="/js/base.js"></script>
+		<script src="/layer/layer.js"></script>
 	</body>
-
+	<script>
+		function doPost(){
+            let username = $('#username').val();
+            let phone = $('#phone').val();
+            let email = $('#email').val();
+            let content = $('#content').val();
+            $.ajax({
+                url:baseUrl+'/api/guest-book',
+                method:"post",
+                dataType:"json",
+                data:{
+                    username:username,
+                    phone:phone,
+                    email:email,
+                    content:content
+                },
+                success:function (response) {
+                    if(response.code === 200){
+                        layer.msg('发表成功', {icon: 1}, function () {
+                            window.location.reload();
+                        });
+                    }else{
+                        layer.msg(response.errMsg, {icon: 2});
+                    }
+                },
+                error:function () {
+                    layer.msg('网络繁忙', {icon: 2});
+                }
+            });
+		}
+	</script>
 </html>
