@@ -19,7 +19,7 @@ public class User extends AbstractEntity{
     private String password;
     private String email;
     private String phone;
-    private String type;
+    private Integer type;
 
     public String getUsername() {
         return username;
@@ -53,11 +53,11 @@ public class User extends AbstractEntity{
         this.phone = phone;
     }
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 }

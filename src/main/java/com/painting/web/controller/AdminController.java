@@ -1,6 +1,7 @@
 package com.painting.web.controller;
 
 import com.painting.web.service.GuestBookService;
+import com.painting.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,8 @@ public class AdminController {
 
     @Autowired
     private GuestBookService guestBookService;
+    @Autowired
+    private UserService userService;
 
     @GetMapping(value = "/index")
     public String index(){
@@ -33,7 +36,8 @@ public class AdminController {
      * @return
      */
     @GetMapping(value = "/user-list")
-    public String userList(){
+    public String userList(Model model){
+        model.addAttribute("users",userService.findAll());
         return "admin/user-list";
     }
 

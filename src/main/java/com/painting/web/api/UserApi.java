@@ -1,12 +1,11 @@
 package com.painting.web.api;
 
+import com.painting.web.dao.UserDao;
 import com.painting.web.entity.IException;
 import com.painting.web.entity.User;
 import com.painting.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,5 +22,9 @@ public class UserApi {
     @PostMapping(value = "/register")
     public void login(User user) throws IException {
         userService.register(user);
+    }
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable Integer id){
+        userService.delete(id);
     }
 }
