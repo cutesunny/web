@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -40,6 +41,7 @@ public class GuestBookService{
      * 保存
      */
     public void save(GuestBook guestBook) {
+        guestBook.setTime(new Date());
         guestBookDao.saveAndFlush(guestBook);
     }
     public void delete(Integer id){
