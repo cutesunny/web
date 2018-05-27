@@ -36,7 +36,7 @@ public class CalligraphyService {
         if(type == null){
             calligraphyPage = calligraphyDao.findAll(pageable1);
         }else{
-            calligraphyPage = calligraphyDao.findAllByTypeOrderByIdDesc(type.toString(), pageable1);
+            calligraphyPage = calligraphyDao.findAllByTypeOrderByIdDesc(type, pageable1);
         }
         return calligraphyPage;
     }
@@ -47,7 +47,7 @@ public class CalligraphyService {
      * @return
      */
     public List<Calligraphy> getIndexData() {
-        return calligraphyDao.findAllByTypeOrderByIdAsc(Calligraphy.INDEX_DATA.toString());
+        return calligraphyDao.findAllByTypeOrderByIdAsc(Calligraphy.INDEX_DATA);
     }
     public List<Calligraphy> findAll(){
         List<Calligraphy> list = calligraphyDao.findAll();

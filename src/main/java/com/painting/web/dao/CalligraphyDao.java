@@ -15,10 +15,10 @@ import java.util.List;
 public interface CalligraphyDao extends JpaRepository<Calligraphy, Integer> {
 
 
-    Page<Calligraphy> findAllByTypeOrderByIdDesc(@Param("type") String type, Pageable pageable);
+    Page<Calligraphy> findAllByTypeOrderByIdDesc(Integer type, Pageable pageable);
 
 
-    List<Calligraphy> findAllByTypeOrderByIdAsc(String type);
+    List<Calligraphy> findAllByTypeOrderByIdAsc(Integer type);
 
     @Override
     Calligraphy getOne(Integer id);
