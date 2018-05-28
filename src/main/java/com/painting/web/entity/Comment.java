@@ -21,7 +21,7 @@ public class Comment extends AbstractEntity{
     @Column(name = "create_time")
     private Date createTime;
 
-    private String type;
+    private Integer type;
 
 
     public String getContent() {
@@ -64,11 +64,11 @@ public class Comment extends AbstractEntity{
         this.materialId = materialId;
     }
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 }

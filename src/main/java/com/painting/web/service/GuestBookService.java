@@ -2,11 +2,14 @@ package com.painting.web.service;
 
 import com.painting.web.dao.GuestBookDao;
 import com.painting.web.entity.GuestBook;
+import com.painting.web.entity.User;
 import com.painting.web.vo.ResponseVO;
 import com.painting.web.service.GuestBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
@@ -47,10 +50,14 @@ public class GuestBookService{
     public void delete(Integer id){
         guestBookDao.deleteById(id);;
     }
-    /**
-     * 全部
-     */
-    public List<GuestBook> list(){
-        return guestBookDao.findAll();
+
+
+    public Page<GuestBook> page(Integer pageNo) {
+        pageNo=pageNo==null?1:pageNo;
+        Integer pageSize = 10;
+        Pageable pageable1 =  PageRequest.of(pageNo-1, pageSize, Sort.by(Sort.Direction.DESC, "id"));
+        Page<GuestBook> page;
+        page = guestBookDao.findAll(pageable1);
+        return page;
     }
 }

@@ -2,11 +2,16 @@ package com.painting.web.service;
 
 import com.painting.web.dao.UserDao;
 import com.painting.web.dao.UserLogDao;
+import com.painting.web.entity.Calligraphy;
 import com.painting.web.entity.IException;
 import com.painting.web.entity.User;
 import com.painting.web.entity.UserLog;
 import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
@@ -75,5 +80,14 @@ public class UserService {
     @Transactional
     public void update(Integer id, String phone, String email, Integer type) {
         userDao.update(id, phone, email, type);
+    }
+
+    public Page<User> page(Integer pageNo) {
+        pageNo=pageNo==null?1:pageNo;
+        Integer pageSize = 10;
+        Pageable pageable1 =  PageRequest.of(pageNo-1, pageSize, Sort.by(Sort.Direction.DESC, "id"));
+        Page<User> page;
+        page = userDao.findAll(pageable1);
+        return page;
     }
 }

@@ -29,33 +29,17 @@ public class AdminController {
         return "admin/index";
     }
 
-    /**
-     * 产品列表
-     * @return
-     */
-    @GetMapping(value = "/product-list")
-    public String productMgr(){
-        return "admin/product-list";
-    }
 
     /**
      * 用户列表
      * @return
      */
     @GetMapping(value = "/user-list")
-    public String userList(Model model){
-        model.addAttribute("users",userService.findAll());
+    public String userList(Model model, Integer pageNo){
+        model.addAttribute("page",userService.page(pageNo));
         return "admin/user-list";
     }
 
-    /**
-     * 用户等级
-     * @return
-     */
-    @GetMapping(value = "/user-level")
-    public String userLevel(){
-        return "admin/user-list";
-    }
 
     @GetMapping(value = "/user/{id}")
     public String userInfo(@PathVariable Integer id, Model model){
@@ -63,13 +47,13 @@ public class AdminController {
         return "admin/user-info";
     }
     /**
-     * 用户浏览记录
+     * 用户登陆记录
      * @return
      */
-    @GetMapping(value = "/user-log")
-    public String userRecordBrowse(Model model){
-        model.addAttribute("logs", userLogService.findAll());
-        return "admin/user-log";
+    @GetMapping(value = "/user-log-list")
+    public String userRecordBrowse(Model model, Integer pageNo){
+        model.addAttribute("page", userLogService.page(pageNo));
+        return "admin/user-log-list";
     }
 
     /**
@@ -93,19 +77,19 @@ public class AdminController {
      * 意见反馈
      * @return
      */
-    @GetMapping(value = "/guest-book")
-    public String contactUs(Model model){
-        model.addAttribute("datas", guestBookService.list());
-        return "admin/guest-book";
+    @GetMapping(value = "/guest-book-list")
+    public String contactUs(Integer pageNo,  Model model){
+        model.addAttribute("page", guestBookService.page(pageNo));
+        return "admin/guest-book-list";
     }
     /**
      * 评论管理
      * @return
      */
-    @GetMapping(value = "/comment-mgr")
-    public String commentMgr(Model model){
-        model.addAttribute("comments", commentService.findAll());
-        return "admin/comment";
+    @GetMapping(value = "/comment-list")
+    public String commentList(Integer pageNo,  Model model){
+        model.addAttribute("page", commentService.page(pageNo));
+        return "admin/comment-list";
     }
     /**
      * 欢迎
@@ -116,12 +100,12 @@ public class AdminController {
         return "admin/welcome";
     }
     /**
-     * 书法
+     * 书法列表
      * @return
      */
     @GetMapping(value = "/calligraphy-list")
-    public String calligraphyList(Model model){
-        model.addAttribute("datas", calligraphyService.findAll());
+    public String calligraphyList(Integer pageNo,  Model model){
+        model.addAttribute("page", calligraphyService.page(pageNo));
         return "admin/calligraphy-list";
     }
     /**
@@ -142,12 +126,12 @@ public class AdminController {
         return "admin/calligraphy-update";
     }
     /**
-     * 绘画
+     * 绘画列表
      * @return
      */
     @GetMapping(value = "/painting-list")
-    public String paintingList(Model model){
-        model.addAttribute("datas", paintingService.findAll());
+    public String paintingList(Integer pageNo,  Model model){
+        model.addAttribute("page", paintingService.page(pageNo));
         return "admin/painting-list";
     }
     /**

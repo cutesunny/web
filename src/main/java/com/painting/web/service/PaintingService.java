@@ -64,4 +64,13 @@ public class PaintingService {
     public void save(Painting painting) {
         paintingDao.save(painting);
     }
+
+    public Page<Painting> page(Integer pageNo) {
+        pageNo=pageNo==null?1:pageNo;
+        Integer pageSize = 10;
+        Pageable pageable1 =  PageRequest.of(pageNo-1, pageSize, Sort.by(Sort.Direction.DESC, "id"));
+        Page<Painting> page;
+        page = paintingDao.findAll(pageable1);
+        return page;
+    }
 }

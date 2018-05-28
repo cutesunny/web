@@ -18,7 +18,7 @@ public interface CommentDao extends JpaRepository<Comment, Integer>{
      * @param materialId
      * @return
      */
-    Page<Comment> findAllByTypeAndMaterialId(String type, Integer materialId, Pageable pageable);
+    Page<Comment> findAllByTypeAndMaterialId(Integer type, Integer materialId, Pageable pageable);
 
 
 }

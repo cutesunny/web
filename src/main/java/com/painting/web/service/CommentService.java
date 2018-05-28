@@ -1,12 +1,15 @@
 package com.painting.web.service;
 
 import com.painting.web.dao.CommentDao;
+import com.painting.web.entity.Calligraphy;
 import com.painting.web.entity.Comment;
 import com.painting.web.entity.IException;
 import com.painting.web.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
@@ -50,7 +53,7 @@ public class CommentService {
         pageNum=pageNum==null?1:pageNum;
         pageSize=pageSize==null?10:pageSize;
         Pageable pageable = new QPageRequest(pageNum-1, pageSize);
-        Page<Comment> page = commentDao.findAllByTypeAndMaterialId(type.toString(), materialId, pageable);
+        Page<Comment> page = commentDao.findAllByTypeAndMaterialId(type, materialId, pageable);
         return page;
     }
 
@@ -58,7 +61,12 @@ public class CommentService {
         commentDao.deleteById(id);
     }
 
-    public List<Comment> findAll(){
-        return commentDao.findAll();
+    public Page<Comment> page(Integer pageNo) {
+        pageNo=pageNo==null?1:pageNo;
+        Integer pageSize = 10;
+        Pageable pageable1 =  PageRequest.of(pageNo-1, pageSize, Sort.by(Sort.Direction.DESC, "id"));
+        Page<Comment> page;
+        page = commentDao.findAll(pageable1);
+        return page;
     }
 }
