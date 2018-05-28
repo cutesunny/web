@@ -21,7 +21,7 @@ public class CalligraphyService {
 
 
     public Calligraphy getById(Integer id) {
-        Calligraphy calligraphy = calligraphyDao.getOne(id);
+        Calligraphy calligraphy = calligraphyDao.findTopById(id);
         return calligraphy;
     }
 
@@ -58,5 +58,13 @@ public class CalligraphyService {
      */
     public void delete(Integer id){
         calligraphyDao.deleteById(id);
+    }
+
+    public void save(Calligraphy calligraphy) {
+        calligraphy.setCommentAmount(0);
+        calligraphyDao.save(calligraphy);
+    }
+    public void update(Calligraphy calligraphy){
+        calligraphyDao.save(calligraphy);
     }
 }

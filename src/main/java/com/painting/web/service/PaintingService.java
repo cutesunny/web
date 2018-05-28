@@ -60,4 +60,8 @@ public class PaintingService {
     public void delete(Integer id){
         paintingDao.deleteById(id);
     }
+
+    public void save(Painting painting) {
+        paintingDao.save(painting);
+    }
 }

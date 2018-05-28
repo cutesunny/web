@@ -33,4 +33,13 @@ public class CalligraphyApi {
         calligraphyService.delete(id);
     }
 
+    @PostMapping
+    public void add(Calligraphy calligraphy){
+        calligraphyService.save(calligraphy);
+    }
+
+    @PutMapping
+    public void update(Calligraphy calligraphy){
+        calligraphyService.update(calligraphy);
+    }
 }

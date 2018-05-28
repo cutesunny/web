@@ -1,5 +1,6 @@
 package com.painting.web.api;
 
+import com.painting.web.entity.Calligraphy;
 import com.painting.web.entity.Painting;
 import com.painting.web.service.PaintingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,4 +32,8 @@ public class PaintingApi {
         paintingService.delete(id);
     }
 
+    public void save(Painting painting) {
+        painting.setCommentAmount(0);
+        paintingService.save(painting);
+    }
 }

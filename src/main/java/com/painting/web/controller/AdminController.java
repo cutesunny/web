@@ -125,6 +125,23 @@ public class AdminController {
         return "admin/calligraphy-list";
     }
     /**
+     * 书法添加
+     * @return
+     */
+    @GetMapping(value = "/calligraphy-add")
+    public String addCalligraphy(){
+        return "admin/calligraphy-add";
+    }
+    /**
+     * 书法编辑
+     * @return
+     */
+    @GetMapping(value = "/calligraphy/{id}")
+    public String updateCalligraphy(@PathVariable Integer id, Model model){
+        model.addAttribute("data", calligraphyService.getById(id));
+        return "admin/calligraphy-update";
+    }
+    /**
      * 绘画
      * @return
      */
@@ -132,5 +149,22 @@ public class AdminController {
     public String paintingList(Model model){
         model.addAttribute("datas", paintingService.findAll());
         return "admin/painting-list";
+    }
+    /**
+     * 绘画添加
+     * @return
+     */
+    @GetMapping(value = "/painting-add")
+    public String addPainting(){
+        return "admin/painting-add";
+    }
+    /**
+     * 绘画编辑
+     * @return
+     */
+    @GetMapping(value = "/painting/{id}")
+    public String updatePainting(@PathVariable Integer id, Model model){
+        model.addAttribute("data", paintingService.getById(id));
+        return "admin/painting-update";
     }
 }

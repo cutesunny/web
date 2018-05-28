@@ -12,16 +12,15 @@ public class Painting extends AbstractEntity{
     private String description;
     private String content;
     @Column(name = "comment_amount")
-    private String commentAmount;
+    private Integer commentAmount;
 
-    public String getCommentAmount() {
+    public Integer getCommentAmount() {
         return commentAmount;
     }
 
-    public void setCommentAmount(String commentAmount) {
+    public void setCommentAmount(Integer commentAmount) {
         this.commentAmount = commentAmount;
     }
-
 
     public String getPath() {
         return path;

@@ -1,5 +1,6 @@
 package com.painting.web.plugin;
 
+import com.google.gson.Gson;
 import com.painting.web.vo.ResponseVO;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -31,7 +32,7 @@ public class ResponseWrapper implements ResponseBodyAdvice<Object> {
         if (null == data) {
              return new ResponseVO().setCode(ResponseVO.SUCCESS);
         }
-        return new ResponseVO().setData(data);
+        return new Gson().toJson(new ResponseVO().setData(data));
     }
 
     @Override

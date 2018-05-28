@@ -20,8 +20,7 @@ public interface CalligraphyDao extends JpaRepository<Calligraphy, Integer> {
 
     List<Calligraphy> findAllByTypeOrderByIdAsc(Integer type);
 
-    @Override
-    Calligraphy getOne(Integer id);
+    Calligraphy findTopById(Integer id);
 
     @Override
     @Query(value = "select * from calligraphy where type != 0", nativeQuery = true)
