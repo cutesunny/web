@@ -36,13 +36,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="text-c" th:each="item:${datas}">
+				<tr class="text-c" th:each="item:${page.content}">
 					<td th:text="${item.id}">001</td>
 					<td th:if="${item.type eq 0}">首页</td>
 					<td th:if="${item.type eq 1}">行书</td>
 					<td th:if="${item.type eq 2}">草书</td>
 					<td th:if="${item.type eq 3}">楷书</td>
-					<td><a href="javascript:;" ><img width="210" class="picture-thumb" th:src="${item.path}"></a></td>
+					<td><a href="javascript:;" ><img height="120px;" class="picture-thumb" th:src="${item.path}"></a></td>
 					<td class="text-l" th:utext="|${item.title}<br/>${item.description}|"></td>
 					<td class="text-c" th:text="${item.commentAmount}">评论数量</td>
 					<td class="td-manage">
@@ -52,6 +52,12 @@
 				</tr>
 			</tbody>
 		</table>
+		<br/>
+		<div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+			<input type="button" class="btn btn-primary"  onclick="last()" th:disabled="${!page.hasPrevious()}" value="上一页"/>
+			<span th:utext="|&nbsp;&nbsp;${page.getPageable().getPageNumber()+1 + '/' +page.totalPages}&nbsp;&nbsp;|"></span>
+			<input type="button"  class="btn btn-primary" onclick="next()" th:disabled="${!page.hasNext()}" value="下一页"/>
+		</div>
 	</div>
 </div>
 
@@ -65,7 +71,10 @@
 <script type="text/javascript" src="/admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript" src="/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script>
-<script type="text/javascript">
+<script th:inline="javascript">
+    var pageNo = /*[[${page.getPageable().getPageNumber()+1}]]*/ null;
+    var totalPage = /*[[${page.totalPages}]]*/ null;
+
 function del(id) {
 	layer.confirm('确认要删除吗？', function (index) {
 		$.ajax({
@@ -102,6 +111,12 @@ function edit(id){
         content: '/admin/calligraphy/'+id
     });
     layer.full(index);
+}
+function  last() {
+	window.location.href = "/admin/calligraphy-list?pageNo="+(pageNo-1)
+}
+function next() {
+    window.location.href = "/admin/calligraphy-list?pageNo="+(pageNo+1)
 }
 </script>
 </body>

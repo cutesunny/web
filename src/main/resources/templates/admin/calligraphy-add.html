@@ -7,8 +7,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 	<meta http-equiv="Cache-Control" content="no-siteapp" />
-	<link rel="Bookmark" href="/admin/favicon.ico" >
-	<link rel="Shortcut Icon" href="/admin/favicon.ico" />
 
 	<link rel="stylesheet" type="text/css" href="/admin/static/h-ui/css/H-ui.min.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/H-ui.admin.css" />
@@ -17,11 +15,10 @@
 	<link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
 	<link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/style.css" />
 
-	<link href="/admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="page-container">
-	<form action="" method="post" class="form form-horizontal" id="form-article-add">
+	<form  class="form form-horizontal" id="form-article-add">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>作品标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -64,7 +61,7 @@
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button onclick="doPost();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<input type="button" value="保存" onclick="doPost();" class="btn btn-primary radius"  />
 			</div>
 		</div>
 	</form>
@@ -81,10 +78,9 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
-<script type="text/javascript" src="/admin/lib/webuploader/0.1.5/webuploader.min.js"></script>
-<script type="text/javascript" src="/admin/lib/ueditor/1.4.3/ueditor.config.js"></script>
-<script type="text/javascript" src="/admin/lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
-<script type="text/javascript" src="/admin/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="/admin/lib/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="/admin/lib/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript" src="/admin/lib/ueditor/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('.skin-minimal input').iCheck({
@@ -150,7 +146,7 @@ function  doPost() {
         success: function (data) {
             if (data.code === 200) {
                 layer.msg('添加成功!', {icon: 1, time: 1000}, function () {
-                    window.location.reload();
+                    //window.location.reload();
                 });
             } else {
                 layer.msg('添加失败', {icon: 2, time: 1000});
@@ -161,6 +157,14 @@ function  doPost() {
             layer.msg('添加失败', {icon: 2, time: 1000});
         }
     });
+}
+UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+UE.Editor.prototype.getActionUrl = function(action) {
+    if (action === 'uploadImage') {
+        return '/ueditor/image';
+    } else {
+        return this._bkGetActionUrl.call(this, action);
+    }
 }
 </script>
 </body>
