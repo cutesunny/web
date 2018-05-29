@@ -25,4 +25,11 @@ public class SliderImageService {
     }
 
 
+    public void delete(Integer id){
+        sliderImageDao.deleteById(id);
+    }
+
+    public void add(SliderImage sliderImage){
+        sliderImageDao.save(sliderImage);
+    }
 }

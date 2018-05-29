@@ -12,7 +12,6 @@ import javax.persistence.Table;
 public class SliderImage extends AbstractEntity{
 
     private String path;
-    private Integer rank;
 
     public String getPath() {
         return path;
@@ -22,11 +21,4 @@ public class SliderImage extends AbstractEntity{
         this.path = path;
     }
 
-    public Integer getRank() {
-        return rank;
-    }
-
-    public void setRank(Integer rank) {
-        this.rank = rank;
-    }
 }

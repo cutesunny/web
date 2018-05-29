@@ -24,6 +24,11 @@ public class AdminController {
     private CalligraphyService calligraphyService;
     @Autowired
     private PaintingService paintingService;
+    @Autowired
+    private SliderImageService sliderImageService;
+
+
+
     @GetMapping(value = "/index")
     public String index(){
         return "admin/index";
@@ -151,4 +156,18 @@ public class AdminController {
         model.addAttribute("data", paintingService.getById(id));
         return "admin/painting-update";
     }
+    /** ------------------------首页数据------------------------------ */
+
+
+    /**
+     * 轮播图
+     * @param model
+     * @return
+     */
+    @GetMapping(value = "/slider-image-list")
+    public String sliderImage(Model model){
+        model.addAttribute("datas", sliderImageService.findAll());
+        return "admin/slider-image-list";
+    }
+
 }
