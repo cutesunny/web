@@ -15,9 +15,10 @@ import java.util.List;
 public interface ArticleDao extends JpaRepository<Article, Integer> {
 
 
-    Page<Article> findAllByTypeOrderByIdDesc(String type, Pageable pageable);
+    Page<Article> findAllByTypeOrderByIdDesc(Integer type, Pageable pageable);
 
-    List<Article> findAllByTypeOrderByIdAsc(String type);
+    List<Article> findAllByTypeOrderByIdAsc(Integer type);
+
 
 
 }

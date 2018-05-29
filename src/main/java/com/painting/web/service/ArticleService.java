@@ -30,7 +30,7 @@ public class ArticleService {
         page = page==null?1:page;
         size = size==null?12:size;
         Pageable pageable1 = new QPageRequest(page-1, size);
-        return articleDao.findAllByTypeOrderByIdDesc(type.toString(), pageable1);
+        return articleDao.findAllByTypeOrderByIdDesc(type, pageable1);
     }
 
     /**
@@ -52,5 +52,16 @@ public class ArticleService {
         model.addAttribute("data3", articles.get(1));
         model.addAttribute("data4",  articleDao.findAllByTypeOrderByIdDesc(Article.GALLERY, new QPageRequest(0,3)));
         model.addAttribute("data5",  articleDao.findAllByTypeOrderByIdDesc(Article.ONLINE, new QPageRequest(0,3)));
+    }
+    public Page<Article> pageAll(Integer pageNo, Integer pageSize){
+        pageNo = pageNo==null?1:pageNo;
+        Pageable pageable1 = new QPageRequest(pageNo-1, pageSize);
+        return articleDao.findAll(pageable1);
+    }
+    public void delete(Integer id){
+        articleDao.deleteById(id);
+    }
+    public void save(Article article){
+        articleDao.save(article);
     }
 }

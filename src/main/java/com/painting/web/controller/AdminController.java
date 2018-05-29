@@ -26,7 +26,8 @@ public class AdminController {
     private PaintingService paintingService;
     @Autowired
     private SliderImageService sliderImageService;
-
+    @Autowired
+    private ArticleService articleService;
 
 
     @GetMapping(value = "/index")
@@ -156,9 +157,33 @@ public class AdminController {
         model.addAttribute("data", paintingService.getById(id));
         return "admin/painting-update";
     }
-    /** ------------------------首页数据------------------------------ */
-
-
+    /**
+     * 文章列表
+     * @param model
+     * @return
+     */
+    @GetMapping(value = "/article-list")
+    public String articleList(Integer pageNo,Model model){
+        model.addAttribute("page", articleService.pageAll(pageNo, 10));
+        return "admin/article-list";
+    }
+    /**
+     * 文章添加
+     * @return
+     */
+    @GetMapping(value = "/article-add")
+    public String addArticle(){
+        return "admin/article-add";
+    }
+    /**
+     * 文章编辑
+     * @return
+     */
+    @GetMapping(value = "/article/{id}")
+    public String updateArticle(@PathVariable Integer id, Model model){
+        model.addAttribute("data", articleService.getById(id));
+        return "admin/article-update";
+    }
     /**
      * 轮播图
      * @param model

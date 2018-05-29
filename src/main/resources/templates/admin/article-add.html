@@ -20,7 +20,7 @@
 <div class="page-container">
 	<form  class="form form-horizontal" id="form-article-add">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>作品标题：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="title" name="">
 			</div>
@@ -29,9 +29,9 @@
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select id="type" class="select">
-					<option value="1">行书</option>
-					<option value="2">草书</option>
-					<option value="3">楷书</option>
+					<option value="1">近期展会</option>
+					<option value="2">画廊</option>
+					<option value="3">在线展览</option>
 				</select>
 				</span>
 			</div>
@@ -129,16 +129,16 @@ function doUpload() {
 function  doPost() {
 	let title = $('#title').val();
 	let description = $('#description').val();
-	let path = $('#thumb').html();
+	let thumb = $('#thumb').html();
 	let content = ue.getContent();
 	let type = $('#type').val();
     $.ajax({
         type: 'post',
-        url: '/api/calligraphy',
+        url: '/api/article',
 		data:{
             title:title,
             description:description,
-            path:path,
+            thumb:thumb,
             content:content,
             type:type
 		},

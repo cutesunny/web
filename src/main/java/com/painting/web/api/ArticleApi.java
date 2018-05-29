@@ -2,13 +2,12 @@ package com.painting.web.api;
 
 
 import com.painting.web.entity.Article;
+import com.painting.web.entity.Calligraphy;
 import com.painting.web.service.ArticleService;
 import com.painting.web.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,6 +32,21 @@ public class ArticleApi {
     @RequestMapping(method = RequestMethod.GET)
     public Object getOne(Integer id){
         return articleService.getById(id);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable Integer id){
+        articleService.delete(id);
+    }
+
+    @PostMapping
+    public void add(Article article){
+        articleService.save(article);
+    }
+
+    @PutMapping
+    public void update(Article article){
+        articleService.save(article);
     }
 
 }

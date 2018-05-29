@@ -10,16 +10,16 @@ import javax.persistence.Table;
 @Entity(name = "article")
 public class Article extends AbstractEntity{
 
-    public static final String RECENTLY_EXHIBITION = "1";//近期展会
-    public static final String GALLERY = "2";//画廊
-    public static final String ONLINE = "3";//在线展览
-    public static final String INDEX_DATA = "4";//首页数据
+    public static final int RECENTLY_EXHIBITION = 1;//近期展会
+    public static final int GALLERY = 2;//画廊
+    public static final int ONLINE = 3;//在线展览
+    public static final int INDEX_DATA = 4;//首页数据
 
     private String title;
     private String thumb;
     private String description;
     private String content;
-    private String type;
+    private Integer type;
 
     public String getThumb() {
         return thumb;
@@ -53,11 +53,11 @@ public class Article extends AbstractEntity{
         this.content = content;
     }
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 }

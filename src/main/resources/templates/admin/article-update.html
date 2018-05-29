@@ -1,6 +1,6 @@
-<!--_meta 作为公共模版分离出去-->
+
 <!DOCTYPE HTML>
-<html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
@@ -18,20 +18,22 @@
 </head>
 <body>
 <div class="page-container">
-	<form  class="form form-horizontal" id="form-article-add">
+	<input type="hidden" id="id" th:value="${data.id}" />
+	<form action="" method="post" class="form form-horizontal" id="form-article-add">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>作品标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="title" name="">
+				<input type="text" class="input-text" th:value="${data.title}"  placeholder="" id="title" name="">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select id="type" class="select">
-					<option value="1">行书</option>
-					<option value="2">草书</option>
-					<option value="3">楷书</option>
+					<option value="1" th:selected="${data.type == 1}">近期展会</option>
+					<option value="2"  th:selected="${data.type == 2}">画廊</option>
+					<option value="3"  th:selected="${data.type == 3}">在线展览</option>
+					<option value="4"  th:selected="${data.type == 4}">首页数据</option>
 				</select>
 				</span>
 			</div>
@@ -39,7 +41,8 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">简介：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea id="description" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" ></textarea>
+				<textarea id="description" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！"
+						  th:utext="${data.description}" ></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 			</div>
 		</div>
@@ -49,19 +52,19 @@
 				<div class="uploader-thum-container">
 					<div id="filePicker"  class="btn btn-primary" onclick="openUpload()">选择图片</div>
 					<input type="file"  id="file-upload" hidden onchange="doUpload()"/>
-					<label id="thumb"></label>
+					<label id="thumb" th:text="${data.thumb}"></label>
 				</div>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">详细内容：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<script id="editor" type="text/plain" style="width:100%;height:400px;"></script>
+				<script id="editor" type="text/plain" style="width:100%;height:400px;" th:utext="${data.content}"></script>
 			</div>
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<input type="button" value="保存" onclick="doPost();" class="btn btn-primary radius"  />
+                <input type="button" value="保存" onclick="doPost();" class="btn btn-primary radius"  />
 			</div>
 		</div>
 	</form>
@@ -94,6 +97,7 @@ var ue;
 $(function(){
 	ue = UE.getEditor('editor');
 });
+
 function openUpload() {
 	$('#file-upload').click();
 }
@@ -127,34 +131,36 @@ function doUpload() {
 }
 //新增
 function  doPost() {
+    let id = $('#id').val();
 	let title = $('#title').val();
 	let description = $('#description').val();
-	let path = $('#thumb').html();
+	let thumb = $('#thumb').html();
 	let content = ue.getContent();
 	let type = $('#type').val();
     $.ajax({
-        type: 'post',
-        url: '/api/calligraphy',
+        type: 'put',
+        url: '/api/article',
 		data:{
+            id:id,
             title:title,
             description:description,
-            path:path,
+            thumb:thumb,
             content:content,
             type:type
 		},
         dataType: 'json',
         success: function (data) {
             if (data.code === 200) {
-                layer.msg('添加成功!', {icon: 1, time: 1000}, function () {
+                layer.msg('保存成功!', {icon: 1, time: 1000}, function () {
                     window.location.reload();
                 });
             } else {
-                layer.msg('添加失败', {icon: 2, time: 1000});
+                layer.msg('保存失败', {icon: 2, time: 1000});
             }
 
         },
         error: function () {
-            layer.msg('添加失败', {icon: 2, time: 1000});
+            layer.msg('保存失败', {icon: 2, time: 1000});
         }
     });
 }
