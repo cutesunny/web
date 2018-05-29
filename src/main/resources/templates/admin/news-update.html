@@ -30,10 +30,10 @@
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select id="type" class="select">
-					<option value="1" th:selected="${data.type == 1}">近期展会</option>
-					<option value="2"  th:selected="${data.type == 2}">画廊</option>
-					<option value="3"  th:selected="${data.type == 3}">在线展览</option>
-					<option value="4"  th:selected="${data.type == 4}">首页数据</option>
+					<option value="1" th:selected="${data.type == 1}">焦点</option>
+					<option value="2"  th:selected="${data.type == 2}">艺术</option>
+					<option value="3"  th:selected="${data.type == 3}">艺术家</option>
+					<option value="4"  th:selected="${data.type == 4}">快讯</option>
 				</select>
 				</span>
 			</div>
@@ -139,7 +139,7 @@ function  doPost() {
 	let type = $('#type').val();
     $.ajax({
         type: 'put',
-        url: '/api/article',
+        url: '/api/news',
 		data:{
             id:id,
             title:title,

@@ -28,7 +28,8 @@ public class AdminController {
     private SliderImageService sliderImageService;
     @Autowired
     private ArticleService articleService;
-
+    @Autowired
+    private NewsService newsService;
 
     @GetMapping(value = "/index")
     public String index(){
@@ -183,6 +184,33 @@ public class AdminController {
     public String updateArticle(@PathVariable Integer id, Model model){
         model.addAttribute("data", articleService.getById(id));
         return "admin/article-update";
+    }
+    /**
+     * 新闻列表
+     * @param model
+     * @return
+     */
+    @GetMapping(value = "/news-list")
+    public String newsList(Integer pageNo,Model model){
+        model.addAttribute("page", newsService.findAll(null, pageNo, 10));
+        return "admin/news-list";
+    }
+    /**
+     * 新闻添加
+     * @return
+     */
+    @GetMapping(value = "/news-add")
+    public String addNews(){
+        return "admin/news-add";
+    }
+    /**
+     * 新闻编辑
+     * @return
+     */
+    @GetMapping(value = "/news/{id}")
+    public String updateNews(@PathVariable Integer id, Model model){
+        model.addAttribute("data", newsService.getById(id));
+        return "admin/news-update";
     }
     /**
      * 轮播图

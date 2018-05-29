@@ -12,10 +12,10 @@
 <link rel="stylesheet" type="text/css" href="/admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
 <link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/style.css" />
-<title>文章</title>
+<title>新闻</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 文章 <span class="c-gray en">&gt;</span> 列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 新闻 <span class="c-gray en">&gt;</span> 列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> 
@@ -29,6 +29,7 @@
 				<tr class="text-c">
 					<th width="80">ID</th>
 					<th width="100">分类</th>
+					<th width="100">作者</th>
 					<th width="100">封面</th>
 					<th>标题/简介</th>
 					<th width="100">操作</th>
@@ -37,10 +38,11 @@
 			<tbody>
 				<tr class="text-c" th:each="item:${page.content}">
 					<td th:text="${item.id}">001</td>
-					<td th:if="${item.type eq 1}">近期展会</td>
-					<td th:if="${item.type eq 2}">画廊</td>
-					<td th:if="${item.type eq 3}">在线展览</td>
-					<td th:if="${item.type eq 4}">首页数据</td>
+					<td th:if="${item.type eq 1}">焦点</td>
+					<td th:if="${item.type eq 2}">艺术</td>
+					<td th:if="${item.type eq 3}">艺术家</td>
+					<td th:if="${item.type eq 4}">快讯</td>
+					<td th:text="${item.author}">001</td>
 					<td><a href="javascript:;" ><img height="120px;" class="picture-thumb" th:src="${item.thumb}"></a></td>
 					<td class="text-l" th:utext="|${item.title}<br/>${item.description}|"></td>
 					<td class="td-manage">
@@ -77,7 +79,7 @@ function del(id) {
 	layer.confirm('确认要删除吗？', function (index) {
 		$.ajax({
 			type: 'delete',
-			url: '/api/article/'+id,
+			url: '/api/news/'+id,
 			dataType: 'json',
 			success: function (data) {
 				if (data.code === 200) {
@@ -98,7 +100,7 @@ function del(id) {
 function add(){
     var index = layer.open({
         type: 2,
-        content: '/admin/article-add'
+        content: '/admin/news-add'
     });
     layer.full(index);
 }
@@ -106,15 +108,15 @@ function add(){
 function edit(id){
     var index = layer.open({
         type: 2,
-        content: '/admin/article/'+id
+        content: '/admin/news/'+id
     });
     layer.full(index);
 }
 function  last() {
-	window.location.href = "/admin/article-list?pageNo="+(pageNo-1)
+	window.location.href = "/admin/news-list?pageNo="+(pageNo-1)
 }
 function next() {
-    window.location.href = "/admin/article-list?pageNo="+(pageNo+1)
+    window.location.href = "/admin/news-list?pageNo="+(pageNo+1)
 }
 </script>
 </body>

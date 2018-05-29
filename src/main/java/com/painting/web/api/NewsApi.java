@@ -1,14 +1,12 @@
 package com.painting.web.api;
 
 import com.painting.web.entity.News;
+import com.painting.web.entity.Painting;
 import com.painting.web.service.NewsService;
 import com.painting.web.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 新闻
@@ -29,5 +27,20 @@ public class NewsApi {
     @GetMapping
     public News getOne(Integer id){
         return newsService.getById(id);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable Integer id){
+        newsService.delete(id);
+    }
+
+    @PostMapping
+    public void save(News news) {
+        newsService.save(news);
+    }
+
+    @PutMapping
+    public void update(News news) {
+        newsService.save(news);
     }
 }

@@ -42,5 +42,16 @@ public class NewsService {
         }
     }
 
+    /**
+     * 删除
+     */
+    public void delete(Integer id){
+        newsDao.deleteById(id);
+    }
+
+    public void save(News news) {
+        newsDao.save(news);
+    }
+
 
 }
