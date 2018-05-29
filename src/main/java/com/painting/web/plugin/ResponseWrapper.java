@@ -32,7 +32,7 @@ public class ResponseWrapper implements ResponseBodyAdvice<Object> {
         if (null == data) {
              return new ResponseVO().setCode(ResponseVO.SUCCESS);
         }
-        return new Gson().toJson(new ResponseVO().setData(data));
+        return new ResponseVO().setData(data);
     }
 
     @Override
