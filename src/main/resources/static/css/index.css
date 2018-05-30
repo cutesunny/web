@@ -292,6 +292,7 @@ body.is-menu-visible #menu {
 	line-height: inherit;
 	position: absolute;
 	top: 0;
+	float: left;
 }
 
 #header h1 a {
@@ -303,12 +304,40 @@ body.is-menu-visible #menu {
 	color: white;
 }
 
+#header  .loging{
+	float: left;
+	width: 8%;
+	height: 3em;
+	margin-left: 85%;
+	/*border: 1px solid red;*/
+}
+#header .loging ul li{
+	width: 50%;
+	/*height: 40px;*/
+	/*border: 1px solid white;*/
+	float: left;
+}
+#header .loging ul li a{
+	text-decoration: none;
+	display: block;
+	color: white;
+	font-size: 16px;
+	/*text-align: center;*/
+	line-height: 3em;
+}
+
 #header nav {
 	height: inherit;
 	line-height: inherit;
 	position: absolute;
 	right: 0;
 	top: 0;
+}
+
+#header p a{
+	text-decoration: none;
+	display: block;
+	color: white;
 }
 
 #header nav>ul {

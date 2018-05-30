@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+﻿﻿<!DOCTYPE HTML>
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
@@ -26,7 +26,7 @@
 	</div>-->
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<!--<span class="l"><a href="/admin/javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span>-->
-		<span class="r">共有数据：<strong th:text="${page.getTotalElements()}">88</strong> 条</span> </div>
+		<span class="r">共有数据：<strong th:text="${page.totalPages}">88</strong> 条</span> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-hover table-bg table-sort">
 			<thead>
