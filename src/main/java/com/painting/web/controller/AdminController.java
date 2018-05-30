@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+
 @Controller
 @RequestMapping(value = "/admin")
 public class AdminController {
@@ -38,7 +42,15 @@ public class AdminController {
         return "admin/index";
     }
 
-
+    /**
+     * 退出
+     * @return
+     */
+    @GetMapping(value = "/logout")
+    public void logout(HttpServletResponse response, HttpSession session) throws IOException {
+        session.removeAttribute("admin");
+        response.sendRedirect("/admin/login");
+    }
     /**
      * 用户列表
      * @return
