@@ -21,132 +21,10 @@
     <link href="/css/gonex-icons.css" rel="stylesheet" />
     <link href="/css/cssh-erji.css" rel="stylesheet" />
     <link href="/css/remark.css" rel="stylesheet" />
+    <link href="/css/login.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
 </head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-    }
 
-    a {
-        text-decoration: none;
-    }
-
-    ul li {
-        list-style: none;
-    }
-
-    body,
-    html {
-        font-size: 18px;
-        font-family: "微软雅黑";
-    }
-
-    .mywork-main {
-        margin-left: 4%;
-        margin-right: 4%;
-    }
-    .mywork-details{
-        height: 800px;
-        background: url("img/mywork-bg.jpg");
-    }
-    .mywork-details .col-lg-12{
-        height:800px;
-    }
-    .mywork-content{
-        width: 30%;
-        margin-left: 35%;
-    }
-    @media screen and (max-width: 980px) {
-        .mywork-content{
-            width: 50%;
-            margin-left: 25%;
-        }
-    }
-    @media screen and (max-width: 736px) {
-        .mywork-content{
-            width: 60%;
-            margin-left: 20%;
-        }
-    }
-    @media screen and (max-width: 500px) {
-        .mywork-content{
-            width: 80%;
-            margin-left: 10%;
-        }
-    }
-    .mywork-details .col-lg-12 h3{
-        color: #ffffff;
-        line-height: 100px;
-        text-align: center;
-    }
-    .mywork-details label{
-        color: white;
-        display: block;
-        font-size: 20px;
-    }
-    .mywork1{
-        height: 90px;
-    }
-    .mywork1 input{
-        width: 100%;
-        outline: none;
-        border: none;
-        background: rgba(255, 255, 255, 0.5);
-        height: 50px;
-    }
-    .mywork2{
-        height: 90px;
-    }
-    .mywork2 select{
-        width: 100%;
-        outline: none;
-        border: none;
-        background: rgba(255, 255, 255, 0.5);
-        height: 50px;
-    }
-    .mywork3{
-        height: 90px;
-    }
-    .mywork3 input{
-        width: 100%;
-        outline: none;
-        border: none;
-        background: rgba(255, 255, 255, 0.5);
-        height: 50px;
-    }
-    .mywork6{
-        height: 130px;
-    }
-    .mywork6 textarea{
-        width: 100%;
-        height: 80px;
-        outline: none;
-        border: none;
-        background: rgba(255, 255, 255, 0.5);
-    }
-    .mywork4{
-        height: 130px;
-    }
-    .mywork4 textarea{
-        width: 100%;
-        height: 80px;
-        outline: none;
-        border: none;
-        background: rgba(255, 255, 255, 0.5);
-    }
-    .mywork5{
-        height: 50px;
-    }
-    .mywork5 input{
-        width: 30%;
-        margin-left: 35%;
-        outline: none;
-        border: none;
-        background: #e25111;
-        height: 40px;
-    }
-</style>
 
 <body>
 <div id="page-wrapper">
@@ -154,6 +32,24 @@
     <!-- Header -->
     <header id="header">
         <h1><a href="/">书画网</a></h1>
+        <div class="loging">
+            <ul th:if="${session.user == null}">
+                <li>
+                    <a href="#" onclick="login();">登录</a>
+                </li>
+                <li>
+                    <a href="#" onclick="register();">注册</a>
+                </li>
+            </ul>
+            <ul th:if="${session.user != null}">
+                <li>
+                    <a href="#" th:text="|欢迎你:${session.user?.username}|"></a>
+                </li>
+                <li>
+                    <a href="/logout" >注销登陆</a>
+                </li>
+            </ul>
+        </div>
         <nav id="nav">
             <ul>
                 <li class="special">
@@ -189,6 +85,125 @@
                 </li>
             </ul>
         </nav>
+        <div class="login" id="login">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="log-in">
+                        <div class="close-login" onclick="closelogin();">
+                            <div class="exit">
+                                <a href="#">X</a>
+                            </div>
+                        </div>
+                        <div class="login-main">
+                            <form action="#" method="post">
+                                <h2>书画网</h2>
+                                <div class="log">
+                                    <input type="text" id="l_username" name="name" class="name" placeholder="&nbsp;用户名" required="">
+                                    <input type="password" id="l_password" name="password" class="password" placeholder=" &nbsp;密码" required="">
+                                </div>
+                                <div class="mm">
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="remember me" />
+                                        记住密码&nbsp;&nbsp;|<a href="#">&nbsp;&nbsp;忘记密码?</a>
+                                    </label>
+                                </div>
+                                <div class="log-bt">
+                                    <input type="button" onclick="doLogin()"  value="登录">
+                                    <input type="submit" value="注册" style="margin-left: 30px;">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="register" id="register">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="regist">
+                        <div class="close-register" onclick="closeregister();">
+                            <div class="exit">
+                                <a href="#">X</a>
+                            </div>
+                        </div>
+                        <div class="register-main">
+                            <form action="#" method="post">
+                                <h2>书画网</h2>
+                                <div class="regist1">
+                                    <label for="reg_username"><span>用户名：</span></label>
+                                    <input type="text"  id="reg_username" class="name" placeholder="&nbsp;用户名" required="">
+                                    <label for="reg_password"><span>密码：</span></label>
+                                    <input type="password" id="reg_password"  class="password" placeholder=" &nbsp;密码" required="">
+                                    <label for="reg_password_"><span>确认密码：</span></label>
+                                    <input type="password" id="reg_password_" class="password" placeholder=" &nbsp;密码" required="">
+                                    <label for="reg_email"><span>邮箱：</span></label>
+                                    <input type="email"  id="reg_email" class="email" placeholder=" &nbsp;邮箱" required="">
+                                    <label for="reg_phone"><span>电话：</span></label>
+                                    <input type="tel" id="reg_phone" class="tel" placeholder=" &nbsp;电话" required="">
+                                </div>
+                                <div class="kind">
+                                    <label><span>会员类型：</span></label>
+                                    <input type="radio" name="reg_type" class="radio1" value="1" checked/><span>普通会员</span>
+                                    <input type="radio" name="reg_type" value="2" class="radio2"/><span>资深专家</span>
+                                </div>
+                                <div class="register-bt">
+                                    <p>
+                                        <input type="button" value="注册" class="submit1" onclick="doRegister()"/>
+                                        <input type="button" value="专家认证" class="submit2" onclick="certification();"/>
+                                    </p>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="certification" id="certification">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="certificate">
+                        <div class="close-certification" onclick="closecertification();">
+                            <div class="exit">
+                                <a href="#">X</a>
+                            </div>
+                        </div>
+                        <div class="certification-main">
+                            <form action="#" method="post">
+                                <h2>书画网</h2>
+                                <div class="certificate1">
+                                    <label for="cer_username"><span>真实姓名：</span></label>
+                                    <input type="text"  id="cer_username" class="name" placeholder="&nbsp;姓名" required="">
+                                    <label for="cer_nubmer"><span>身份证号码：</span></label>
+                                    <input type="number" id="cer_nubmer"  class="cer_nubmer" placeholder="&nbsp;证件号" required="">
+                                    <label for="cer_sex"><span>性别：</span></label>
+                                    <input type="text"  id="cer_sex" class="cer_sex" placeholder="&nbsp;性别" required="">
+                                </div>
+                                <div class="select1">
+                                    <label for="cer-lever"><span>专家等级：</span></label>
+                                    <select name="id"  id="cer-lever" class="cer-lever" placeholder=" &nbsp;等级" required="">
+                                        <option value="">国家级</option>
+                                        <option value="">省级</option>
+                                        <option value="">市级</option>
+                                    </select>
+                                </div>
+                                <div class="describe">
+                                    <label>获得荣誉：</label>
+                                    <textarea name="describe" id="describe" required="required" placeholder="介绍一下您的获奖情况吧！"></textarea>
+                                </div>
+                                <div class="cer-bt">
+                                    <p>
+                                        <input type="button" value="返回" class="submit1"/>
+                                        <input type="button" value="注册" class="submit2" onclick="doRegister()"/>
+                                    </p>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 </div>
 <div class="container-fluid">
@@ -329,6 +344,7 @@
 <script src="/js/skel.min.js"></script>
 <script src="/js/util.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/login.js"></script>
 </body>
 
 </html>

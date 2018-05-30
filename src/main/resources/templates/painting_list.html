@@ -21,188 +21,12 @@
 		<link href="/css/gonex-icons.css" rel="stylesheet" />
 		<link href="/css/cssh-erji.css" rel="stylesheet" />
         <link href="/css/animation.css" rel="stylesheet" />
+		<link href="/css/login.css" rel="stylesheet" />
+		<link href="/css/style.css" rel="stylesheet" />
+
+
 	</head>
-	<style>
-		* {
-	margin: 0;
-	padding: 0;
-}
-		
-a{
-	text-decoration: none;
-}
-		
-ul li {
-	list-style: none;
-}
-		
-body,html {
-	font-size: 18px;
-	font-family: "微软雅黑";
-}
-.ddsh-details2-main{
-	margin-left: 4%;
-	margin-right: 4%;
-}
-.ddsh-details2-top{
-	/*margin-top: 20px;*/
-	height: 100px;
-	/*border: 1px solid red;*/
-}
-.ddsh-details2-top .col-lg-12{
-	height: 100px;
-	/*border: 1px solid green;*/
-}
-.ddsh-details2-top .col-lg-12 h2{
-	text-align: center;
-	color: white;
-	line-height: 100px;
-	margin-top: -1px;
-}
-.ddsh-details2-photo1{
-	/*height: 300px;*/
-	/*border: 1px solid red;*/
-}
-.ddsh-details2-photo .col-lg-4{
-	height: 300px;
-	/*border: 1px solid white;*/
-}
-.ddsh-details2-photo .col-lg-4 img{
-	height: 300px;
-	width: 100%;
-}
-        figure.effect-chico img {
-            -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-            transition: opacity 0.35s, transform 0.35s;
-            -webkit-transform: scale(1.12);
-            transform: scale(1.12);
-        }
 
-        figure.effect-chico:hover img {
-            opacity: 0.5;
-            -webkit-transform: scale(1);
-            transform: scale(1);
-        }
-
-        figure.effect-chico figcaption {
-            padding: 3em;
-        }
-
-        figure.effect-chico figcaption::before {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            bottom: 30px;
-            left: 30px;
-            border: 1px solid #fff;
-            content: '';
-            -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-        }
-
-        figure.effect-chico figcaption::before,
-        figure.effect-chico p {
-            opacity: 0;
-            -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-            transition: opacity 0.35s, transform 0.35s;
-        }
-
-        figure.effect-chico h2 {
-            padding: 20% 0 20px 0;
-        }
-
-        figure.effect-chico p {
-            margin: 0 auto;
-            max-width: 400px;
-            -webkit-transform: scale(1.5);
-            transform: scale(1.5);
-        }
-
-        figure.effect-chico:hover figcaption::before,
-        figure.effect-chico:hover p {
-            opacity: 1;
-            -webkit-transform: scale(1);
-            transform: scale(1);
-        }
-
-        @media screen and (max-width: 50em) {
-            .content {
-                padding: 0 10px;
-                text-align: center;
-            }
-            .grid figure {
-                display: inline-block;
-                float: none;
-                margin: 10px auto;
-                width: 100%;
-            }
-        }
-.ddsh-details2-photo2{
-	margin-top: 20px;
-	/*height: 300px;*/
-	/*border: 1px solid red;*/
-}
-.ddsh-details2-photo3{
-	margin-top: 20px;
-	/*height: 300px;*/
-	/*border: 1px solid red;*/
-}
-.ddsh-details2-photo4{
-	margin-top: 20px;
-	/*height: 300px;*/
-	/*border: 1px solid red;*/
-}
-        .ddsh-details2-bottom {
-            height: 100px;
-            /*border: 1px solid red;*/
-        }
-
-         .ddsh-details2-bottom .col-lg-12 {
-            height: 100px;
-            /*border: 1px solid green;*/
-        }
-
-        .ddsh-details2-bottom .nextpage {
-            height: 40px;
-            width: 300px;
-            /*border: 1px solid red;*/
-            /*background: gold;*/
-            margin: 30px auto;
-        }
-
-        .ddsh-details2-bottom .nextpage a {
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            line-height: 40px;
-        }
-        .ddsh-details2-bottom .nextpage a span {
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            padding:0 30px;
-            background: gold;
-            float: left;
-            line-height: 40px;
-        }
-        .ddsh-details2-bottom .nextpage .next span{
-            margin-left: 70px;
-        }
-        @media screen and (max-width: 500px) {
-            .ddsh-details2-bottom .nextpage a span {
-                text-decoration: none;
-                display: block;
-                text-align: center;
-                padding:0 20px;
-                background: gold;
-                float: left;
-                line-height: 40px;
-            }
-            .ddsh-details2-bottom .nextpage .next span{
-                margin-left: 10px;
-            }
-        }
-	</style>
 
 	<body>
 		<div id="page-wrapper">
@@ -210,41 +34,178 @@ body,html {
 			<!-- Header -->
 			<header id="header">
 				<h1><a href="/">书画网</a></h1>
+				<div class="loging">
+					<ul th:if="${session.user == null}">
+						<li>
+							<a href="#" onclick="login();">登录</a>
+						</li>
+						<li>
+							<a href="#" onclick="register();">注册</a>
+						</li>
+					</ul>
+					<ul th:if="${session.user != null}">
+						<li>
+							<a href="#" th:text="|欢迎你:${session.user?.username}|"></a>
+						</li>
+						<li>
+							<a href="/logout" >注销登陆</a>
+						</li>
+					</ul>
+				</div>
 				<nav id="nav">
 					<ul>
 						<li class="special">
 							<a href="#menu" class="menuToggle"><span>Menu</span></a>
 							<div id="menu">
-                                <ul>
-                                    <li>
-                                        <a href="/">首页</a>
-                                    </li>
-                                    <li>
-                                        <a href="/calligraphy">传世书法</a>
-                                    </li>
-                                    <li>
-                                        <a href="/painting">传世绘画</a>
-                                    </li>
-                                    <li>
-                                        <a href="/show">书画展览</a>
-                                    </li>
-                                    <li>
-                                        <a href="auction">书画竞拍</a>
-                                    </li>
-                                    <li>
-                                        <a href="/share">书画共享</a>
-                                    </li>
-                                    <li>
-                                        <a href="/news">新闻资讯</a>
-                                    </li>
-                                    <li>
-                                        <a href="/contact-us">联系我们</a>
-                                    </li>
-                                </ul>
+								<ul>
+									<li>
+										<a href="/">首页</a>
+									</li>
+									<li>
+										<a href="/calligraphy">传世书法</a>
+									</li>
+									<li>
+										<a href="/painting">传世绘画</a>
+									</li>
+									<li>
+										<a href="/show">书画展览</a>
+									</li>
+									<li>
+										<a href="/auction">书画竞拍</a>
+									</li>
+									<li>
+										<a href="/share">书画共享</a>
+									</li>
+									<li>
+										<a href="/news">新闻资讯</a>
+									</li>
+									<li>
+										<a href="/contact-us">联系我们</a>
+									</li>
+								</ul>
 							</div>
 						</li>
 					</ul>
 				</nav>
+				<div class="login" id="login">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="log-in">
+								<div class="close-login" onclick="closelogin();">
+									<div class="exit">
+										<a href="#">X</a>
+									</div>
+								</div>
+								<div class="login-main">
+									<form action="#" method="post">
+										<h2>书画网</h2>
+										<div class="log">
+											<input type="text" id="l_username" name="name" class="name" placeholder="&nbsp;用户名" required="">
+											<input type="password" id="l_password" name="password" class="password" placeholder=" &nbsp;密码" required="">
+										</div>
+										<div class="mm">
+											<label class="checkbox">
+												<input type="checkbox" value="remember me" />
+												记住密码&nbsp;&nbsp;|<a href="#">&nbsp;&nbsp;忘记密码?</a>
+											</label>
+										</div>
+										<div class="log-bt">
+											<input type="button" onclick="doLogin()"  value="登录">
+											<input type="submit" value="注册" style="margin-left: 30px;">
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="register" id="register">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="regist">
+								<div class="close-register" onclick="closeregister();">
+									<div class="exit">
+										<a href="#">X</a>
+									</div>
+								</div>
+								<div class="register-main">
+									<form action="#" method="post">
+										<h2>书画网</h2>
+										<div class="regist1">
+											<label for="reg_username"><span>用户名：</span></label>
+											<input type="text"  id="reg_username" class="name" placeholder="&nbsp;用户名" required="">
+											<label for="reg_password"><span>密码：</span></label>
+											<input type="password" id="reg_password"  class="password" placeholder=" &nbsp;密码" required="">
+											<label for="reg_password_"><span>确认密码：</span></label>
+											<input type="password" id="reg_password_" class="password" placeholder=" &nbsp;密码" required="">
+											<label for="reg_email"><span>邮箱：</span></label>
+											<input type="email"  id="reg_email" class="email" placeholder=" &nbsp;邮箱" required="">
+											<label for="reg_phone"><span>电话：</span></label>
+											<input type="tel" id="reg_phone" class="tel" placeholder=" &nbsp;电话" required="">
+										</div>
+										<div class="kind">
+											<label><span>会员类型：</span></label>
+											<input type="radio" name="reg_type" class="radio1" value="1" checked/><span>普通会员</span>
+											<input type="radio" name="reg_type" value="2" class="radio2"/><span>资深专家</span>
+										</div>
+										<div class="register-bt">
+											<p>
+												<input type="button" value="注册" class="submit1" onclick="doRegister()"/>
+												<input type="button" value="专家认证" class="submit2" onclick="certification();"/>
+											</p>
+										</div>
+									</form>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="certification" id="certification">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="certificate">
+								<div class="close-certification" onclick="closecertification();">
+									<div class="exit">
+										<a href="#">X</a>
+									</div>
+								</div>
+								<div class="certification-main">
+									<form action="#" method="post">
+										<h2>书画网</h2>
+										<div class="certificate1">
+											<label for="cer_username"><span>真实姓名：</span></label>
+											<input type="text"  id="cer_username" class="name" placeholder="&nbsp;姓名" required="">
+											<label for="cer_nubmer"><span>身份证号码：</span></label>
+											<input type="number" id="cer_nubmer"  class="cer_nubmer" placeholder="&nbsp;证件号" required="">
+											<label for="cer_sex"><span>性别：</span></label>
+											<input type="text"  id="cer_sex" class="cer_sex" placeholder="&nbsp;性别" required="">
+										</div>
+										<div class="select1">
+											<label for="cer-lever"><span>专家等级：</span></label>
+											<select name="id"  id="cer-lever" class="cer-lever" placeholder=" &nbsp;等级" required="">
+												<option value="">国家级</option>
+												<option value="">省级</option>
+												<option value="">市级</option>
+											</select>
+										</div>
+										<div class="describe">
+											<label>获得荣誉：</label>
+											<textarea name="describe" id="describe" required="required" placeholder="介绍一下您的获奖情况吧！"></textarea>
+										</div>
+										<div class="cer-bt">
+											<p>
+												<input type="button" value="返回" class="submit1"/>
+												<input type="button" value="注册" class="submit2" onclick="doRegister()"/>
+											</p>
+										</div>
+									</form>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</header>
 		</div>	
 			<div class="container-fluid">
@@ -381,6 +342,7 @@ body,html {
 		<script src="/js/skel.min.js"></script>
 		<script src="/js/util.js"></script>
 		<script src="/js/main.js"></script>
+		<script src="/js/login.js"></script>
 	<script>
 
 	</script>
