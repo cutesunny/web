@@ -25,7 +25,7 @@ public class ResponseWrapper implements ResponseBodyAdvice<Object> {
                                   @Nullable Class<? extends HttpMessageConverter<?>> aClass,
                                   @Nullable ServerHttpRequest serverHttpRequest,
                                   @Nullable ServerHttpResponse serverHttpResponse) {
-        if(data instanceof ResponseVO){
+        if(data instanceof ResponseVO || data instanceof String) {
             return data;
         }
         //null表示该controller没有返回值
