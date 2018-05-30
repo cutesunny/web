@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(value = "/api/admin")
 public class AdminApi {
 
+    
     @Autowired
     private AdminService adminService;
     @Autowired
