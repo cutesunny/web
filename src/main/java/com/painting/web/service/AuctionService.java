@@ -74,4 +74,20 @@ public class AuctionService {
         //保存竞拍记录
         logDao.save(log);
     }
+
+    public void add(Auction auction){
+        auction.setStatus(Auction.NORMAL);
+        auction.setCurrentPrice(auction.getBasePrice());
+        auctionDao.save(auction);
+    }
+
+    public void update(Auction auction){
+        Auction _auction = auctionDao.findTopById(auction.getId());
+        auction.setStatus(_auction.getStatus());
+        auction.setCurrentPrice(_auction.getCurrentPrice());
+        auctionDao.save(auction);
+    }
+    public void delete(Integer id){
+        auctionDao.deleteById(id);
+    }
 }

@@ -21,7 +21,7 @@ public class AuctionLog extends AbstractEntity{
     private Date time;
 
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
     @JoinColumn(name = "auction_id")
     private Auction auction;
 

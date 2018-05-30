@@ -30,6 +30,8 @@ public class AdminController {
     private ArticleService articleService;
     @Autowired
     private NewsService newsService;
+    @Autowired
+    private AuctionService auctionService;
 
     @GetMapping(value = "/index")
     public String index(){
@@ -210,7 +212,34 @@ public class AdminController {
     @GetMapping(value = "/news/{id}")
     public String updateNews(@PathVariable Integer id, Model model){
         model.addAttribute("data", newsService.getById(id));
-        return "admin/news-update";
+        return "admin/auction-update";
+    }
+    /**
+     * 商品列表
+     * @param model
+     * @return
+     */
+    @GetMapping(value = "/auction-list")
+    public String auctionList(Integer pageNo,Model model){
+        model.addAttribute("page", auctionService.page(null, pageNo, 10));
+        return "admin/auction-list";
+    }
+    /**
+     *商品添加
+     * @return
+     */
+    @GetMapping(value = "/auction-add")
+    public String addAuction(){
+        return "admin/auction-add";
+    }
+    /**
+     * 商品编辑
+     * @return
+     */
+    @GetMapping(value = "/auction/{id}")
+    public String updateAuction(@PathVariable Integer id, Model model){
+        model.addAttribute("data", auctionService.getOne(id));
+        return "admin/auction-update";
     }
     /**
      * 轮播图

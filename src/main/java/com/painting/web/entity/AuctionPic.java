@@ -14,8 +14,8 @@ public class AuctionPic extends AbstractEntity{
     private String  path;
     private Integer rank;
 
-    @ManyToOne
-    @JoinColumn(name = "auction_id")
+//    @ManyToOne
+//    @JoinColumn(name = "auction_id")
     private Auction auction;
 
 

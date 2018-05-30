@@ -1,3 +1,4 @@
+<!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -17,32 +18,55 @@
 </head>
 <body>
 <div class="page-container">
-	<input type="hidden" id="id" th:value="${data.id}" />
-	<form action="" method="post" class="form form-horizontal" id="form-article-add">
+	<form  class="form form-horizontal" id="form-article-add">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" th:value="${data.title}"  placeholder="" id="title" name="">
+				<input type="text" class="input-text" value="" placeholder="" id="title" name="" th:value="${data.title}">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select id="type" class="select">
-					<option value="1" th:selected="${data.type == 1}">近期展会</option>
-					<option value="2"  th:selected="${data.type == 2}">画廊</option>
-					<option value="3"  th:selected="${data.type == 3}">在线展览</option>
-					<option value="4"  th:selected="${data.type == 4}">首页数据</option>
+					<option value="1" th:selected="${data.type == 1}">书法</option>
+					<option value="2" th:selected="${data.type == 2}">国画</option>
+					<option value="3" th:selected="${data.type == 3}">油画</option>
+					<option value="4" th:selected="${data.type == 4}">版画</option>
+					<option value="5" th:selected="${data.type == 5}">水粉</option>
+					<option value="6" th:selected="${data.type == 6}">艺术品</option>
 				</select>
 				</span>
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">简介：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>底价：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea id="description" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！"
-						  th:utext="${data.description}" ></textarea>
-				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+				<input type="text" class="input-text" placeholder="" th:value="${data.basePrice}" id="basePrice" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>保证金：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text"  placeholder="" id="deposit" th:value="${data.deposit}" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>加幅价：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text"  placeholder="" id="increasePrice" th:value="${data.increasePrice}">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">评论开始日期：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" th:value="${#dates.format(data.endTime,'YY-MM-dd HH:mm:ss')}" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'commentdatemax\')||\'%y-%M-%d\'}' })" id="commentdatemin" name="commentdatemin" class="input-text Wdate">
+			</div>
+		</div>
+		<div class="row cl" hidden>
+			<label class="form-label col-xs-4 col-sm-2">评论结束日期：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'commentdatemin\')}' })" id="commentdatemax" name="commentdatemax" class="input-text Wdate">
 			</div>
 		</div>
 		<div class="row cl">
@@ -63,7 +87,7 @@
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                <input type="button" value="保存" onclick="doPost();" class="btn btn-primary radius"  />
+				<input type="button" value="保存" onclick="doPost();" class="btn btn-primary radius"  />
 			</div>
 		</div>
 	</form>
@@ -96,7 +120,6 @@ var ue;
 $(function(){
 	ue = UE.getEditor('editor');
 });
-
 function openUpload() {
 	$('#file-upload').click();
 }
@@ -130,36 +153,40 @@ function doUpload() {
 }
 //新增
 function  doPost() {
-    let id = $('#id').val();
 	let title = $('#title').val();
 	let description = $('#description').val();
 	let thumb = $('#thumb').html();
 	let content = ue.getContent();
 	let type = $('#type').val();
+	let basePrice = $('#basePrice').val();
+	let deposit = $('#deposit').val();
+	let increasePrice = $('#increasePrice').val();
     $.ajax({
         type: 'put',
-        url: '/api/article',
+        url: '/api/auction',
 		data:{
-            id:id,
             title:title,
             description:description,
             thumb:thumb,
+            basePrice:basePrice,
+            deposit:deposit,
+            increasePrice:increasePrice,
             content:content,
             type:type
 		},
         dataType: 'json',
         success: function (data) {
             if (data.code === 200) {
-                layer.msg('保存成功!', {icon: 1, time: 1000}, function () {
+                layer.msg('添加成功!', {icon: 1, time: 1000}, function () {
                     window.location.reload();
                 });
             } else {
-                layer.msg('保存失败', {icon: 2, time: 1000});
+                layer.msg('添加失败', {icon: 2, time: 1000});
             }
 
         },
         error: function () {
-            layer.msg('保存失败', {icon: 2, time: 1000});
+            layer.msg('添加失败', {icon: 2, time: 1000});
         }
     });
 }

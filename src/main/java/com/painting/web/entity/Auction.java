@@ -57,13 +57,13 @@ public class Auction extends AbstractEntity{
 
 
 
-    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+/*    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     @OrderBy("rank asc")
     @JoinColumn(name = "auction_id")
-    private Set<AuctionPic> pics;
+    private Set<AuctionPic> pics;*/
 
 
-    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToMany(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
     @OrderBy("time desc")
     @JoinColumn(name = "auction_id")
     private Set<AuctionLog> logs;
@@ -133,14 +133,14 @@ public class Auction extends AbstractEntity{
     public void setFinalPrice(Double finalPrice) {
         this.finalPrice = finalPrice;
     }
-
+/*
     public Set<AuctionPic> getPics() {
         return pics;
     }
 
     public void setPics(Set<AuctionPic> pics) {
         this.pics = pics;
-    }
+    }*/
 
     public Set<AuctionLog> getLogs() {
         return logs;

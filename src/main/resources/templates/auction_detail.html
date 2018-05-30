@@ -83,8 +83,8 @@
                                         <img th:src="${auction.thumb}" id="imgBox">
                                     </div>
                                     <div id="icon">
-                                        <div id="icon1" th:each="item:${auction.pics}">
-                                            <img th:src="${item.path}" onclick="onMove(this)" alt="1" class="img2">
+                                        <div id="icon1">
+                                            <img th:src="${auction.thumb}" onclick="onMove(this)" alt="1" class="img2">
                                         </div>
                                     </div>
                                 </div>
