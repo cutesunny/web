@@ -62,7 +62,7 @@ public class PaintingController {
     @GetMapping(value = "/{id}/comment-list")
     public String commentList(@PathVariable Integer id, Integer pageNum, Integer pageSize,Model model){
         model.addAttribute("data", service.getById(id));
-        model.addAttribute("comments", commentService.page(Comment.CALLIGRAPHY, id, pageNum, pageSize ));
+        model.addAttribute("page", commentService.page(Comment.PAINTING, id, pageNum, pageSize ));
         return "comment";
     }
 }

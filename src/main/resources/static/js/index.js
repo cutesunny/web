@@ -182,7 +182,7 @@ function doLogin() {
         && password !== null && password !== ''){
         //do something
         $.ajax({
-			url:baseUrl+'/user/login',
+			url:'/api/user/login',
 			method:'post',
 			data:{
 				username:username,
@@ -214,7 +214,7 @@ function doRegister() {
         && password !== null && password !== ''){
         //do something
         $.ajax({
-            url:baseUrl+'/user/register',
+            url:'/api/user/register',
             method:'post',
             data:{
                 username:username,
