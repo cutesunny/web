@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import java.util.Map;
+
 
 @RestControllerAdvice(annotations = { RestController.class })
 public class ResponseWrapper implements ResponseBodyAdvice<Object> {
@@ -25,7 +27,7 @@ public class ResponseWrapper implements ResponseBodyAdvice<Object> {
                                   @Nullable Class<? extends HttpMessageConverter<?>> aClass,
                                   @Nullable ServerHttpRequest serverHttpRequest,
                                   @Nullable ServerHttpResponse serverHttpResponse) {
-        if(data instanceof ResponseVO || data instanceof String) {
+        if(data instanceof ResponseVO || data instanceof String || data instanceof Map) {
             return data;
         }
         //null表示该controller没有返回值
