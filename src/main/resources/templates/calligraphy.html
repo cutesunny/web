@@ -137,13 +137,13 @@
 											<a th:href="|/calligraphy/${item.id}|" th:text="${item.title}">行书</a>
 										</div>
 										<div class="cssh-show1-main-bottom-2">
-											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
-											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
-											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
-											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
-											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
-											<img src="img/message.png" style="width: 24px;height: 24px; margin-top: 3px; margin-left: 14%;" />
-											<a href="remark.html" th:text="|${item.commentAmount}条评论|"></a>
+											<img src="/img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="/img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="/img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="/img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="/img/bigstar.png" style="width: 24px;height: 24px;" />
+											<img src="/img/message.png" style="width: 24px;height: 24px; margin-top: 3px; margin-left: 14%;" />
+											<a th:href="|/calligraphy/${item.id}/comment-list|" th:text="|${item.commentAmount}条评论|"></a>
 										</div>
 									</div>
 								</div>
@@ -185,7 +185,7 @@
 											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
 											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
 											<img src="img/message.png" style="width: 24px;height: 24px; margin-top: 3px; margin-left: 14%;" />
-											<a href="remark.html" th:text="|${item.commentAmount}条评论|">596条评论</a>
+											<a th:href="|/calligraphy/${item.id}/comment-list|" th:text="|${item.commentAmount}条评论|">596条评论</a>
 										</div>
 									</div>
 								</div>
@@ -227,7 +227,7 @@
 											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
 											<img src="img/bigstar.png" style="width: 24px;height: 24px;" />
 											<img src="img/message.png" style="width: 24px;height: 24px; margin-top: 3px; margin-left: 14%;" />
-											<a href="remark.html" th:text="|${item.commentAmount}条评论|">596条评论</a>
+											<a th:href="|/calligraphy/${item.id}/comment-list|" th:text="|${item.commentAmount}条评论|">596条评论</a>
 										</div>
 									</div>
 								</div>
