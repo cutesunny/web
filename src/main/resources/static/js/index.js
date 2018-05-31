@@ -239,3 +239,27 @@ function doRegister() {
         });
     }
 }
+function search(){
+    let key = $('#key').val();
+    if(key !== null && key !== ''){
+        //do something
+        $.ajax({
+            url:'/search',
+            method:'get',
+            data:{
+                key:key
+            },
+            dataType:'json',
+            success:function (response) {
+                if(response.code === 200){
+                    window.location.href = response.data;
+                }else{
+                    layer.msg('没有找到相关内容', {icon: 2});
+                }
+            },
+            error:function () {
+                layer.msg('网络繁忙', {icon: 2});
+            }
+        });
+    }
+}

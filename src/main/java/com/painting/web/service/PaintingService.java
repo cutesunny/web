@@ -62,6 +62,12 @@ public class PaintingService {
     }
 
     public void save(Painting painting) {
+        if(painting.getId() == null){
+            painting.setCommentAmount(0);;
+        }else{
+            Painting _p = paintingDao.getOne(painting.getId());
+            painting.setCommentAmount(_p.getCommentAmount());
+        }
         paintingDao.save(painting);
     }
 
@@ -73,4 +79,9 @@ public class PaintingService {
         page = paintingDao.findAll(pageable1);
         return page;
     }
+
+    public Painting search(String key){
+        return paintingDao.search(key);
+    }
+
 }

@@ -37,6 +37,14 @@ public class IndexController {
     public String contact(){
         return "contact_us";
     }
+    /**
+     * 分享
+     * @return
+     */
+    @GetMapping(value = "/share")
+    public String share(){
+        return "share";
+    }
 
     /**
      * 登出

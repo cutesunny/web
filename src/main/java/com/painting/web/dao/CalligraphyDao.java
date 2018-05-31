@@ -25,4 +25,7 @@ public interface CalligraphyDao extends JpaRepository<Calligraphy, Integer> {
     @Override
     @Query(value = "select * from calligraphy where type != 0", nativeQuery = true)
     List<Calligraphy> findAll();
+
+    @Query(value = "SELECT  * from  calligraphy where title like concat('%',?1,'%') limit 1", nativeQuery = true)
+    Calligraphy search(String key);
 }

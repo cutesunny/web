@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <!--设置支持移动端的视窗-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
-    <title>近期展览</title>
+    <title>分享</title>
     <!--Bootsttap-->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/contact.css" rel="stylesheet" />
@@ -216,33 +216,32 @@
                         <h3>上传作品</h3>
                         <form>
                             <div class="mywork1">
-                                <label for="work-name">作品类别：</label>
-                                <input type="text" name="work-name" required="required" placeholder="作品名称"/>
+                                <label for="title">作品名称：</label>
+                                <input type="text" id="title" name="work-name" required="required" placeholder="作品名称"/>
                             </div>
                             <div class="mywork2">
-                                <label for="work-kind">作品类别：</label>
-                                <select name="id">
-                                    <option value="">书法作品</option>
-                                    <option value="">国画作品</option>
-                                    <option value="">油画作品</option>
-                                    <option value="">版画作品</option>
-                                    <option value="">水粉作品</option>
+                                <label for="type">作品类别：</label>
+                                <select id="type">
+                                    <option value="1">行书</option>
+                                    <option value="2">草书</option>
+                                    <option value="3">楷书</option>
                                 </select>
                             </div>
                             <div class="mywork3">
-                                <label for="imgfile">选择图片文件:</label>
-                                <input type="file" name="imgfile"  accept="image/gif, image/jpeg" style="outline: none;border: none;"/>
+                                <label for="file-upload">选择图片文件:</label>
+                                <input type="file" id="file-upload" name="imgfile"  style="outline: none;border: none;" onchange="doUpload()"/>
+                                <input type="hidden" id="thumb">
                             </div>
                             <div class="mywork6">
-                                <label>作品特点：</label>
-                                <textarea name="special" id="special" required="required" placeholder="介绍一下宝贝的特点吧！"></textarea>
+                                <label>作品简介：</label>
+                                <textarea name="special" id="description" required="required" placeholder="介绍一下宝贝的特点吧！"></textarea>
                             </div>
                             <div class="mywork4">
-                                <label>作品描述：</label>
-                                <textarea name="describe" id="describe" required="required" placeholder="留下宝贝的获奖情况及其他描述吧！"></textarea>
+                                <label>作品详情：</label>
+                                <textarea name="describe" id="content" required="required" placeholder="留下宝贝的获奖情况及其他描述吧！"></textarea>
                             </div>
                             <div class="mywork5">
-                                <input name="upload" type="submit" value="上传" />
+                                <input name="upload" type="button" value="分享" onclick="doPost()"/>
                             </div>
                         </form>
                     </div>
@@ -336,17 +335,78 @@
 </div>
 
 <!--jQuery  使用bootstrap插件必须引入jQuery-->
-<script src="js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/layer/layer.js"></script>
 <!--使用bootstrap插件必须引入-->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.scrollex.min.js"></script>
-<script src="js/jquery.scrolly.min.js"></script>
-<script src="js/skel.min.js"></script>
-<script src="js/util.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.scrollex.min.js"></script>
+<script src="/js/jquery.scrolly.min.js"></script>
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
 <script src="/js/login.js"></script>
 <script src="/js/index.js"></script>
 </body>
+<script>
+    function doUpload() {
+        var fileObj=document.getElementById('file-upload').files[0];
+        if(fileObj === null){
+            return;
+        }
+        var form = new FormData();
+        form.append('upfile',fileObj);
+        $.ajax({
+            url : '/api/admin/upload_image',
+            type : 'POST',
+            data : form,
+            dataType:'json',
+            processData : false,/* 告诉jQuery不要去处理发送的数据*/
+            contentType : false, /* 告诉jQuery不要去设置Content-Type请求头*/
+            success : function(responseMsg) {
+                if(responseMsg.code === 200){
+                    layer.msg('上传成功!', {icon: 1, time: 500});
+                    $('#thumb').val(responseMsg.data);//预览图片
+                }else{
+                    layer.msg('上传失败!', {icon: 2, time: 1000});
+                }
+            },
+            error : function(responseStr) {
+                layer.msg('上传失败!', {icon: 2, time: 1000});
+            }
+        });
+    }
+    //新增
+    function  doPost() {
+        let title = $('#title').val();
+        let description = $('#description').val();
+        let path = $('#thumb').val();
+        let content = $('#content').text();
+        let type = $('#type').val();
+        $.ajax({
+            type: 'post',
+            url: '/api/calligraphy',
+            data:{
+                title:title,
+                description:description,
+                path:path,
+                content:content,
+                type:type
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data.code === 200) {
+                    layer.msg('分享成功!', {icon: 1, time: 1000}, function () {
+                        window.location.reload();
+                    });
+                } else {
+                    layer.msg('分享失败', {icon: 2, time: 1000});
+                }
 
+            },
+            error: function () {
+                layer.msg('分享失败', {icon: 2, time: 1000});
+            }
+        });
+    }
+</script>
 </html>
