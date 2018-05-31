@@ -32,8 +32,12 @@ public class PaintingApi {
         paintingService.delete(id);
     }
 
-    public void save(Painting painting) {
-        painting.setCommentAmount(0);
+    @PostMapping
+    public void add(Painting painting) {
+        paintingService.save(painting);
+    }
+    @PutMapping
+    public void update(Painting painting) {
         paintingService.save(painting);
     }
 }
