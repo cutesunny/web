@@ -79,4 +79,8 @@ public class CalligraphyService {
         page = calligraphyDao.findAll(pageable1);
         return page;
     }
+
+    public Calligraphy search(String key){
+        return calligraphyDao.search(key);
+    }
 }

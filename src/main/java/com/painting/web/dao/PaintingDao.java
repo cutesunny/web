@@ -1,9 +1,11 @@
 package com.painting.web.dao;
 
+import com.painting.web.entity.Calligraphy;
 import com.painting.web.entity.Painting;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -26,11 +28,7 @@ public interface PaintingDao extends JpaRepository<Painting, Integer> {
 
 
  */
-/**
-  * 热评数据
-  * @param pageable
-  * @return
-  *//*
+/*
 
     Page<Painting> findAllOrderByCommentAmountDesc(Pageable pageable);
 */
@@ -43,6 +41,7 @@ public interface PaintingDao extends JpaRepository<Painting, Integer> {
     Page<Painting> findAllByType(@Param("type") Integer type, Pageable pageable);
 
 */
-
+    @Query(value = "SELECT  * from  painting where title like concat('%',?1,'%') limit 1", nativeQuery = true)
+    Painting search(String key);
 
 }

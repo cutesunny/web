@@ -73,4 +73,9 @@ public class PaintingService {
         page = paintingDao.findAll(pageable1);
         return page;
     }
+
+    public Painting search(String key){
+        return paintingDao.search(key);
+    }
+
 }
