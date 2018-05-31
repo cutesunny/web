@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <!--使得i内核使用更高的渲染效果展示-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--设置支持移动端的视窗-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
+    <title>分享</title>
+    <!--Bootsttap-->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/contact.css" rel="stylesheet" />
+    <link href="/css/shop.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/chuanshishuhua.css" rel="stylesheet" />
+    <link href="/css/dangdaishuhua.css" rel="stylesheet" />
+    <link href="/css/show.css" rel="stylesheet" />
+    <link href="/css/news.css" rel="stylesheet" />
+    <link href="/css/gonex-icons.css" rel="stylesheet" />
+    <link href="/css/cssh-erji.css" rel="stylesheet" />
+    <link href="/css/remark.css" rel="stylesheet" />
+    <link href="/css/login.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="/">书画网</a></h1>
+        <div class="loging">
+            <ul th:if="${session.user == null}">
+                <li>
+                    <a href="#" onclick="login();">登录</a>
+                </li>
+                <li>
+                    <a href="#" onclick="register();">注册</a>
+                </li>
+            </ul>
+            <ul th:if="${session.user != null}">
+                <li>
+                    <a href="#" th:text="|欢迎你:${session.user?.username}|"></a>
+                </li>
+                <li>
+                    <a href="/logout" >注销登陆</a>
+                </li>
+            </ul>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                    <div id="menu">
+                        <ul>
+                            <li>
+                                <a href="/">首页</a>
+                            </li>
+                            <li>
+                                <a href="/calligraphy">传世书法</a>
+                            </li>
+                            <li>
+                                <a href="/painting">传世绘画</a>
+                            </li>
+                            <li>
+                                <a href="/show">书画展览</a>
+                            </li>
+                            <li>
+                                <a href="/auction">书画竞拍</a>
+                            </li>
+                            <li>
+                                <a href="/share">书画共享</a>
+                            </li>
+                            <li>
+                                <a href="/news">新闻资讯</a>
+                            </li>
+                            <li>
+                                <a href="/contact-us">联系我们</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="login" id="login">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="log-in">
+                        <div class="close-login" onclick="closelogin();">
+                            <div class="exit">
+                                <a href="#">X</a>
+                            </div>
+                        </div>
+                        <div class="login-main">
+                            <form action="#" method="post">
+                                <h2>书画网</h2>
+                                <div class="log">
+                                    <input type="text" id="l_username" name="name" class="name" placeholder="&nbsp;用户名" required="">
+                                    <input type="password" id="l_password" name="password" class="password" placeholder=" &nbsp;密码" required="">
+                                </div>
+                                <div class="mm">
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="remember me" />
+                                        记住密码&nbsp;&nbsp;|<a href="#">&nbsp;&nbsp;忘记密码?</a>
+                                    </label>
+                                </div>
+                                <div class="log-bt">
+                                    <input type="button" onclick="doLogin()"  value="登录">
+                                    <input type="submit" value="注册" style="margin-left: 30px;">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="register" id="register">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="regist">
+                        <div class="close-register" onclick="closeregister();">
+                            <div class="exit">
+                                <a href="#">X</a>
+                            </div>
+                        </div>
+                        <div class="register-main">
+                            <form action="#" method="post">
+                                <h2>书画网</h2>
+                                <div class="regist1">
+                                    <label for="reg_username"><span>用户名：</span></label>
+                                    <input type="text"  id="reg_username" class="name" placeholder="&nbsp;用户名" required="">
+                                    <label for="reg_password"><span>密码：</span></label>
+                                    <input type="password" id="reg_password"  class="password" placeholder=" &nbsp;密码" required="">
+                                    <label for="reg_password_"><span>确认密码：</span></label>
+                                    <input type="password" id="reg_password_" class="password" placeholder=" &nbsp;密码" required="">
+                                    <label for="reg_email"><span>邮箱：</span></label>
+                                    <input type="email"  id="reg_email" class="email" placeholder=" &nbsp;邮箱" required="">
+                                    <label for="reg_phone"><span>电话：</span></label>
+                                    <input type="tel" id="reg_phone" class="tel" placeholder=" &nbsp;电话" required="">
+                                </div>
+                                <div class="kind">
+                                    <label><span>会员类型：</span></label>
+                                    <input type="radio" name="reg_type" class="radio1" value="1" checked/><span>普通会员</span>
+                                    <input type="radio" name="reg_type" value="2" class="radio2"/><span>资深专家</span>
+                                </div>
+                                <div class="register-bt">
+                                    <p>
+                                        <input type="button" value="注册" class="submit1" onclick="doRegister()"/>
+                                        <input type="button" value="专家认证" class="submit2" onclick="certification();"/>
+                                    </p>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="certification" id="certification">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="certificate">
+                        <div class="close-certification" onclick="closecertification();">
+                            <div class="exit">
+                                <a href="#">X</a>
+                            </div>
+                        </div>
+                        <div class="certification-main">
+                            <form action="#" method="post">
+                                <h2>书画网</h2>
+                                <div class="certificate1">
+                                    <label for="cer_username"><span>真实姓名：</span></label>
+                                    <input type="text"  id="cer_username" class="name" placeholder="&nbsp;姓名" required="">
+                                    <label for="cer_nubmer"><span>身份证号码：</span></label>
+                                    <input type="number" id="cer_nubmer"  class="cer_nubmer" placeholder="&nbsp;证件号" required="">
+                                    <label for="cer_sex"><span>性别：</span></label>
+                                    <input type="text"  id="cer_sex" class="cer_sex" placeholder="&nbsp;性别" required="">
+                                </div>
+                                <div class="select1">
+                                    <label for="cer-lever"><span>专家等级：</span></label>
+                                    <select name="id"  id="cer-lever" class="cer-lever" placeholder=" &nbsp;等级" required="">
+                                        <option value="">国家级</option>
+                                        <option value="">省级</option>
+                                        <option value="">市级</option>
+                                    </select>
+                                </div>
+                                <div class="describe">
+                                    <label>获得荣誉：</label>
+                                    <textarea name="describe" id="describe" required="required" placeholder="介绍一下您的获奖情况吧！"></textarea>
+                                </div>
+                                <div class="cer-bt">
+                                    <p>
+                                        <input type="button" value="返回" class="submit1"/>
+                                        <input type="button" value="注册" class="submit2" onclick="doRegister()"/>
+                                    </p>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+<div class="container-fluid">
+    <div class="my-auction-main">
+        <div class="my-auction-details">
+           <ul>
+               <li>
+                   <div class="row">
+                       <div class="col-lg-1">
+                           <input type="radio" name="choose" checked value="value">
+                       </div>
+                       <div class="col-lg-3">
+                           <img src="img/goods5.jpg">
+                       </div>
+                       <div class="col-lg-6">
+                           <p>戴泽 风景（夏日树萌） 75cmx57cm 布面油彩 1946</p>
+                           <span>实际竞拍价格</span>
+                       </div>
+                       <div class="col-lg-2">
+                           <p>竞拍时间</p>
+                       </div>
+                   </div>
+               </li>
+           </ul>
+
+
+
+
+        </div>
+        <div class="footer">
+            <div class="footer-main">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="footer-page1">
+                            <h3>关于我们</h3>
+                            <ul class="footer-page1-1">
+                                <li>
+                                    <a href="#">在这里，你可以share</a>
+                                </li>
+                                <li>
+                                    <a href="#">在这里，你可以remark</a>k</li>
+                                <li>
+                                    <a href="#">在这里，你可以go shopping</a>
+                                </li>
+                                <li>
+                                    <a href="#">在这里，你可以learn</a>
+                                </li>
+                                <li>
+                                    <a href="#">在这里，你可以read</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="footer-page2">
+                            <h3>页面链接</h3>
+                            <ul class="footer-page2-1">
+                                <li>
+                                    <a href="#">传世书画</a>
+                                </li>
+                                <li>
+                                    <a href="#">当代书画</a>k</li>
+                                <li>
+                                    <a href="#">书画展览</a>
+                                </li>
+                                <li>
+                                    <a href="#">书画拍卖</a>
+                                </li>
+                                <li>
+                                    <a href="#">新闻资讯</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="footer-page3">
+                            <h3>联系我们</h3>
+                            <ul class="footer-page3-1">
+                                <li>
+                                    <a href="#">电话：028-123456789</a>
+                                </li>
+                                <li>
+                                    <a href="#">手机：1234567890</a>k</li>
+                                <li>
+                                    <a href="#">邮箱：1829978700@qq.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-img">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="social-info">
+                            <a href="#" class="-facebook"><span class="ico ico-facebook" aria-hidden="true"></span></a>
+                            <a href="#" class="-twitter"><span class="ico ico-twitter" aria-hidden="true"></span></a>
+                            <a href="#" class="-dribbble"><span class="ico ico-dribbble" aria-hidden="true"></span></a>
+                            <a href="#" class="-googleplus"><span class="ico ico-google-plus" aria-hidden="true"></span></a>
+                            <a href="#" class="-youtube"><span class="ico ico-youtube" aria-hidden="true"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>© 2018 - All Rights Reserved. 书画网</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--jQuery  使用bootstrap插件必须引入jQuery-->
+<script src="/js/jquery.min.js"></script>
+<script src="/layer/layer.js"></script>
+<!--使用bootstrap插件必须引入-->
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.scrollex.min.js"></script>
+<script src="/js/jquery.scrolly.min.js"></script>
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<script src="/layer/layer.js"></script>
+<script src="/js/base.js"></script>
+<script src="/js/login.js"></script>
+</body>
+</html>
