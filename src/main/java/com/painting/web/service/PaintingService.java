@@ -62,6 +62,12 @@ public class PaintingService {
     }
 
     public void save(Painting painting) {
+        if(painting.getId() == null){
+            painting.setCommentAmount(0);;
+        }else{
+            Painting _p = paintingDao.getOne(painting.getId());
+            painting.setCommentAmount(_p.getCommentAmount());
+        }
         paintingDao.save(painting);
     }
 
