@@ -18,6 +18,7 @@
 </head>
 <body>
 <div class="page-container">
+	<input type="hidden" id="id" th:value="${data.id}">
 	<form  class="form form-horizontal" id="form-article-add">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>标题：</label>
@@ -153,6 +154,7 @@ function doUpload() {
 }
 //新增
 function  doPost() {
+	let id = $('#id').val();
 	let title = $('#title').val();
 	let description = $('#description').val();
 	let thumb = $('#thumb').html();
@@ -165,6 +167,7 @@ function  doPost() {
         type: 'put',
         url: '/api/auction',
 		data:{
+            id:id,
             title:title,
             description:description,
             thumb:thumb,
