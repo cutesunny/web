@@ -33,6 +33,8 @@ public class AdminService {
             }else{
                 throw new IException("用户名或密码错误");
             }
+        }else{
+            throw new IException("用户名或密码为空");
         }
 
     }

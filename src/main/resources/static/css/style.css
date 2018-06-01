@@ -304,7 +304,7 @@
            }
            .news-details img{
                width: 800px;
-               height: 300px;
+               height: 500px;
                /*margin-left: 200px;*/
                /*margin-top: 50px;*/
            }
@@ -1365,4 +1365,31 @@
            .my-auction-details ul li{
                height: 200px;
                border: 1px solid red;
+           }
+           .my-auction-details .col-lg-1{
+               height: 200px;
+               border: 1px solid red;
+           }
+           .my-auction-details .col-lg-3{
+               height: 200px;
+               border: 1px solid red;
+           }
+           .my-auction-details img{
+               width: 100%;
+               height: 150px;
+               margin-top: 25px;
+           }
+           .my-auction-details .col-lg-6{
+               height: 200px;
+               border: 1px solid red;
+               color: white;
+               text-align: center;
+               /*line-height: 200px;*/
+           }
+           .my-auction-details .col-lg-2{
+               height: 200px;
+               border: 1px solid red;
+               color: white;
+               text-align: center;
+               line-height: 200px;
            }
