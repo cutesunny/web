@@ -43,10 +43,10 @@
                     </ul>
                     <ul th:if="${session.user != null}">
                         <li>
-                            <a href="#" th:text="|欢迎你:${session.user?.username}|"></a>
+                            <a href="#" th:text="|${session.user?.username}|"></a>
                         </li>
                         <li>
-                            <a href="/logout" >注销登陆</a>
+                            <a href="/logout" >注销</a>
                         </li>
                     </ul>
                 </div>
@@ -576,7 +576,6 @@
 		<script src="/js/jquery.min.js"></script>
 		<!--使用bootstrap插件必须引入-->
 		<script src="/js/bootstrap.min.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/jquery.scrollex.min.js"></script>
 		<script src="/js/jquery.scrolly.min.js"></script>
 		<script src="/js/skel.min.js"></script>
@@ -586,9 +585,9 @@
 		<script src="/layer/layer.js"></script>
 		<script src="/js/auction.js"></script>
         <script src="/js/auction_details.js"></script>
+        <script src="/layer/layer.js"></script>
+        <script src="/js/base.js"></script>
         <script src="/js/login.js"></script>
-        <script src="/js/index.js"></script>
-
 
         <script>
 

@@ -26,6 +26,7 @@
 		<script src="/js/jquery.min.js"></script>
 		<script src="/layer/layer.js"></script>
 		<script src="/js/base.js"></script>
+		<script src="/js/login.js"></script>
 		<script src="/js/index.js"></script>
 	</head>
 
@@ -49,10 +50,10 @@
 						</ul>
 						<ul th:if="${session.user != null}">
 							<li>
-								<a href="#" th:text="|欢迎你:${session.user?.username}|"></a>
+								<a href="#" th:text="|${session.user?.username}|"></a>
 							</li>
 							<li>
-								<a href="/logout" >注销登陆</a>
+								<a href="/logout" >注销</a>
 							</li>
 						</ul>
 					</div>
@@ -70,6 +71,7 @@
                                         <li><a href="/share">书画共享</a></li>
 										<li><a href="/news">新闻资讯</a></li>
 										<li><a href="/contact-us">联系我们</a></li>
+										<li><a href="/my-auction">我的竞拍</a></li>
 									</ul>
 								</div>
 							</li>

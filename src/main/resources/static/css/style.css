@@ -294,39 +294,40 @@
                color: white;
            }
            .news-details{
-               height: 900px;
+               /*height: 900px;*/
                /*border: 1px solid red;*/
            }
            .news-details .col-lg-12{
-               height: 900px;
+               /*height: 900px;*/
                /*border: 1px solid white;*/
                color: white;
            }
            .news-details img{
                width: 800px;
                height: 300px;
-               margin-left: 200px;
-               margin-top: 50px;
+               /*margin-left: 200px;*/
+               /*margin-top: 50px;*/
            }
            .news-details span{
                text-decoration: none;
                display: block;
                text-align: center;
                color: white;
-               margin-top: 10px;
+               /*margin-top: 10px;*/
            }
            .news-details p{
+               text-indent: 2em;
                line-height: 30px;
                color: white;
-               margin-top: 50px;
+               /*margin-top: 50px;*/
            }
            .news-details-remark{
+               margin-top: 50px;
                height: 300px;
                /*border: 1px solid white;*/
            }
            .news-details-remark .col-lg-12{
                height: 300px;
-
                /*border: 1px solid red;*/
            }
            .news-details-remark label{
@@ -339,7 +340,7 @@
                  border: none;*/
                background: beige;
                height: 200px;
-               width: 1200px;
+               width: 100%;
            }
            .news-details-remark .submit{
                /*border: 1px solid red;*/
@@ -365,7 +366,7 @@
            }
            .mywork-details{
                height: 800px;
-               background: url("img/mywork-bg.jpg");
+               background-image: url("../img/login.jpg");
            }
            .mywork-details .col-lg-12{
                height:800px;
@@ -977,7 +978,7 @@
            }
            .mywork-details{
                height: 800px;
-               background: url("img/mywork-bg.jpg");
+               background-image: url("../img/mywork-bg.jpg");
            }
            .mywork-details .col-lg-12{
                height:800px;
@@ -1114,7 +1115,7 @@
            .show3-details-top img{
                width: 70%;
                height: 500px;
-               /*margin-left: 15%;*/
+               margin-left: 10%;
                margin-top: 15px;
            }
            /*.show3-details-bottom{*/
@@ -1127,7 +1128,6 @@
                line-height: 25px;
                color: white;
                font-size: 20px;
-               text-align: center;
                /*border: 1px solid red;*/
            }
            @media screen and (max-width: 1280px) {
@@ -1354,4 +1354,15 @@
                .show1-bottom .nextpage .next span{
                    margin-left: 10px;
                }
+           }
+
+
+           /*my-auction.css*/
+           .my-auction-main {
+               margin-left: 4%;
+               margin-right: 4%;
+           }
+           .my-auction-details ul li{
+               height: 200px;
+               border: 1px solid red;
            }
