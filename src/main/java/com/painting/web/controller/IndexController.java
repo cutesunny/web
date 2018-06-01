@@ -53,7 +53,6 @@ public class IndexController {
      */
     @GetMapping(value = "/logout")
     public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        request.getSession().removeAttribute("user");
-        response.sendRedirect("/");
+        response.sendRedirect(request.getHeader("referer"));
     }
 }
