@@ -52,7 +52,8 @@ public class IndexController {
      * @param response
      */
     @GetMapping(value = "/logout")
-    public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
+        session.removeAttribute("user");
         response.sendRedirect(request.getHeader("referer"));
     }
 }
