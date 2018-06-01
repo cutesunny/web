@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by wangxiaodong on 2018/5/17.
@@ -86,6 +87,10 @@ public class AuctionService {
         auction.setStatus(_auction.getStatus());
         auction.setCurrentPrice(_auction.getCurrentPrice());
         auctionDao.save(auction);
+    }
+    public List<AuctionLog> findAllByUsername(HttpSession session){
+        User user = (User)session.getAttribute("user");
+        return logDao.findAllByUsername(user.getUsername());
     }
     public void delete(Integer id){
         auctionDao.deleteById(id);

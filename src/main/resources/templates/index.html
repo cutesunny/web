@@ -71,7 +71,9 @@
                                         <li><a href="/share">书画共享</a></li>
 										<li><a href="/news">新闻资讯</a></li>
 										<li><a href="/contact-us">联系我们</a></li>
-										<li><a href="/my-auction">我的竞拍</a></li>
+										<li th:if="${session.user != null}">
+											<a href="/user/auction/list">我的竞拍</a>
+										</li>
 									</ul>
 								</div>
 							</li>

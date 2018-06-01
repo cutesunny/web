@@ -8,7 +8,7 @@
     <!--设置支持移动端的视窗-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <!--上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后-->
-    <title>分享</title>
+    <title>我的竞拍</title>
     <!--Bootsttap-->
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/css/contact.css" rel="stylesheet" type="text/css" />
@@ -79,7 +79,10 @@
                                 <a href="/news">新闻资讯</a>
                             </li>
                             <li>
-                                <a href="/contact-us">联系我们</a>
+                              <a href="/contact-us">联系我们</a>
+                            </li>
+                            <li th:if="${session.user != null}">
+                                <a href="/user/auction/list">我的竞拍</a>
                             </li>
                         </ul>
                     </div>
@@ -212,19 +215,19 @@
         <div class="my-auction-details">
            <ul>
                <li>
-                   <div class="row">
-                       <div class="col-lg-1">
+                   <div class="row" th:each="item:${datas}">
+<!--                       <div class="col-lg-1">
                            <input type="radio" name="choose" checked value="value">
-                       </div>
+                       </div>-->
                        <div class="col-lg-3">
-                           <img src="img/goods5.jpg">
+                           <img th:src="${item.auction.thumb}">
                        </div>
                        <div class="col-lg-6">
-                           <p>戴泽 风景（夏日树萌） 75cmx57cm 布面油彩 1946</p>
-                           <span>实际竞拍价格</span>
+                           <p  th:src="${item.auction.title}">戴泽 风景（夏日树萌） 75cmx57cm 布面油彩 1946</p>
+                           <span th:text="${item.price}">竞拍价格</span>
                        </div>
                        <div class="col-lg-2">
-                           <p>竞拍时间</p>
+                           <p th:text="${#dates.format(item.time,'YY-MM-dd HH:mm:ss')}">竞拍时间</p>
                        </div>
                    </div>
                </li>
