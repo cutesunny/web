@@ -1,6 +1,8 @@
 package com.painting.web.service;
 
+import com.painting.web.dao.CalligraphyDao;
 import com.painting.web.dao.CommentDao;
+import com.painting.web.dao.PaintingDao;
 import com.painting.web.entity.Calligraphy;
 import com.painting.web.entity.Comment;
 import com.painting.web.entity.IException;
@@ -25,6 +27,10 @@ public class CommentService {
 
     @Autowired
     private CommentDao commentDao;
+    @Autowired
+    private CalligraphyDao calligraphyDao;
+    @Autowired
+    private PaintingDao paintingDao;
 
     /**
      * 评论
@@ -34,11 +40,16 @@ public class CommentService {
     public void insert(Comment comment, HttpSession session) throws IException {
         User user = (User)session.getAttribute("user");
         if(user == null){
-            throw new IException("你还没有登陆");
+            throw new IException("你还没有登录");
         }
         comment.setUsername(user.getUsername());
         comment.setCreateTime(new Date());
         commentDao.save(comment);
+        if(comment.getType().equals(Comment.CALLIGRAPHY)){
+            calligraphyDao.increaseComment(comment.getMaterialId());
+        }else{
+            paintingDao.increaseComment(comment.getMaterialId());
+        }
     }
 
     /**

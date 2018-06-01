@@ -35,6 +35,7 @@ public class CalligraphyController {
     @GetMapping(value = "/{id}")
     public String detail(@PathVariable Integer id, Model model){
         model.addAttribute("item", calligraphyService.getById(id));
+        model.addAttribute("page", commentService.page(Comment.CALLIGRAPHY, id, 1, 50 ));
         return "calligraphy_detail";
     }
 

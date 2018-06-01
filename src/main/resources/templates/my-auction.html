@@ -22,10 +22,47 @@
     <link href="/css/cssh-erji.css" rel="stylesheet" type="text/css"/>
     <link href="/css/remark.css" rel="stylesheet" type="text/css"/>
     <link href="/css/login.css" rel="stylesheet" type="text/css"/>
-    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="/css/style.css" rel="stylesheet" type="text/css"/>-->
 
 
 </head>
+<style>
+    .my-auction-main {
+        margin-left: 4%;
+        margin-right: 4%;
+    }
+    .my-auction-details ul li{
+        height: 200px;
+        border: 1px solid red;
+    }
+    .my-auction-details .col-lg-1{
+        height: 200px;
+        border: 1px solid red;
+    }
+    .my-auction-details .col-lg-3{
+        height: 200px;
+        border: 1px solid red;
+    }
+    .my-auction-details img{
+        width: 100%;
+        height: 150px;
+        margin-top: 25px;
+    }
+    .my-auction-details .col-lg-6{
+        height: 200px;
+        border: 1px solid red;
+        color: white;
+        text-align: center;
+        /*line-height: 200px;*/
+    }
+    .my-auction-details .col-lg-2{
+        height: 200px;
+        border: 1px solid red;
+        color: white;
+        text-align: center;
+        line-height: 200px;
+    }
+</style>
 
 <body>
 <div id="page-wrapper">
@@ -57,30 +94,14 @@
                     <a href="#menu" class="menuToggle"><span>Menu</span></a>
                     <div id="menu">
                         <ul>
-                            <li>
-                                <a href="/">首页</a>
-                            </li>
-                            <li>
-                                <a href="/calligraphy">传世书法</a>
-                            </li>
-                            <li>
-                                <a href="/painting">传世绘画</a>
-                            </li>
-                            <li>
-                                <a href="/show">书画展览</a>
-                            </li>
-                            <li>
-                                <a href="/auction">书画竞拍</a>
-                            </li>
-                            <li>
-                                <a href="/share">书画共享</a>
-                            </li>
-                            <li>
-                                <a href="/news">新闻资讯</a>
-                            </li>
-                            <li>
-                              <a href="/contact-us">联系我们</a>
-                            </li>
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/calligraphy">传世书法</a></li>
+                            <li><a href="/painting">当代书画</a></li>
+                            <li><a href="/show">书画展览</a></li>
+                            <li><a href="/auction">书画竞拍</a></li>
+                            <li><a href="/share">书画共享</a></li>
+                            <li><a href="/news">新闻资讯</a></li>
+                            <li><a href="/contact-us">联系我们</a></li>
                             <li th:if="${session.user != null}">
                                 <a href="/user/auction/list">我的竞拍</a>
                             </li>
@@ -113,7 +134,7 @@
                                 </div>
                                 <div class="log-bt">
                                     <input type="button" onclick="doLogin()"  value="登录">
-                                    <input type="submit" value="注册" style="margin-left: 30px;">
+                                    <input type="button" value="注册" style="margin-left: 30px;" onclick="closelogin(); register();">
                                 </div>
                             </form>
                         </div>

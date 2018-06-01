@@ -42,6 +42,7 @@ public class PaintingController {
     @GetMapping(value = "/{id}")
     public String index(@PathVariable Integer id, Model model) {
         model.addAttribute("item", service.getById(id));
+        model.addAttribute("page", commentService.page(Comment.PAINTING, id, 1, 20 ));
         return "painting_detail";
     }
 

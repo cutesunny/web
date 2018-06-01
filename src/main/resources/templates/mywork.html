@@ -22,9 +22,114 @@
     <link href="/css/cssh-erji.css" rel="stylesheet" />
     <link href="/css/remark.css" rel="stylesheet" />
     <link href="/css/login.css" rel="stylesheet" />
-    <link href="/css/style.css" rel="stylesheet" />
+    <!--<link href="/css/style.css" rel="stylesheet" />-->
 </head>
-
+<style>
+    .mywork-main {
+        margin-left: 4%;
+        margin-right: 4%;
+    }
+    .mywork-details{
+        height: 800px;
+        background-image: url("../img/login.jpg");
+    }
+    .mywork-details .col-lg-12{
+        height:800px;
+    }
+    .mywork-content{
+        width: 30%;
+        margin-left: 35%;
+    }
+    @media screen and (max-width: 980px) {
+        .mywork-content{
+            width: 50%;
+            margin-left: 25%;
+        }
+    }
+    @media screen and (max-width: 736px) {
+        .mywork-content{
+            width: 60%;
+            margin-left: 20%;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .mywork-content{
+            width: 80%;
+            margin-left: 10%;
+        }
+    }
+    .mywork-details .col-lg-12 h3{
+        color: #ffffff;
+        line-height: 100px;
+        text-align: center;
+    }
+    .mywork-details label{
+        color: white;
+        display: block;
+        font-size: 20px;
+    }
+    .mywork1{
+        height: 90px;
+    }
+    .mywork1 input{
+        width: 100%;
+        outline: none;
+        border: none;
+        background: rgba(255, 255, 255, 0.5);
+        height: 50px;
+    }
+    .mywork2{
+        height: 90px;
+    }
+    .mywork2 select{
+        width: 100%;
+        outline: none;
+        border: none;
+        background: rgba(255, 255, 255, 0.5);
+        height: 50px;
+    }
+    .mywork3{
+        height: 90px;
+    }
+    .mywork3 input{
+        width: 100%;
+        outline: none;
+        border: none;
+        background: rgba(255, 255, 255, 0.5);
+        height: 50px;
+    }
+    .mywork6{
+        height: 130px;
+    }
+    .mywork6 textarea{
+        width: 100%;
+        height: 80px;
+        outline: none;
+        border: none;
+        background: rgba(255, 255, 255, 0.5);
+    }
+    .mywork4{
+        height: 130px;
+    }
+    .mywork4 textarea{
+        width: 100%;
+        height: 80px;
+        outline: none;
+        border: none;
+        background: rgba(255, 255, 255, 0.5);
+    }
+    .mywork5{
+        height: 50px;
+    }
+    .mywork5 input{
+        width: 30%;
+        margin-left: 35%;
+        outline: none;
+        border: none;
+        background: #e25111;
+        height: 40px;
+    }
+</style>
 
 <body>
 <div id="page-wrapper">
@@ -56,29 +161,16 @@
                     <a href="#menu" class="menuToggle"><span>Menu</span></a>
                     <div id="menu">
                         <ul>
-                            <li>
-                                <a href="/">首页</a>
-                            </li>
-                            <li>
-                                <a href="/calligraphy">传世书法</a>
-                            </li>
-                            <li>
-                                <a href="/painting">传世绘画</a>
-                            </li>
-                            <li>
-                                <a href="/show">书画展览</a>
-                            </li>
-                            <li>
-                                <a href="/auction">书画竞拍</a>
-                            </li>
-                            <li>
-                                <a href="/share">书画共享</a>
-                            </li>
-                            <li>
-                                <a href="/news">新闻资讯</a>
-                            </li>
-                            <li>
-                                <a href="/contact-us">联系我们</a>
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/calligraphy">传世书法</a></li>
+                            <li><a href="/painting">当代书画</a></li>
+                            <li><a href="/show">书画展览</a></li>
+                            <li><a href="/auction">书画竞拍</a></li>
+                            <li><a href="/share">书画共享</a></li>
+                            <li><a href="/news">新闻资讯</a></li>
+                            <li><a href="/contact-us">联系我们</a></li>
+                            <li th:if="${session.user != null}">
+                                <a href="/user/auction/list">我的竞拍</a>
                             </li>
                         </ul>
                     </div>
@@ -109,7 +201,7 @@
                                 </div>
                                 <div class="log-bt">
                                     <input type="button" onclick="doLogin()"  value="登录">
-                                    <input type="submit" value="注册" style="margin-left: 30px;">
+                                    <input type="button" value="注册" style="margin-left: 30px;" onclick="closelogin(); register();">
                                 </div>
                             </form>
                         </div>

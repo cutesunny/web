@@ -22,9 +22,107 @@
 		<link href="/css/cssh-erji.css" rel="stylesheet" />
 		<link href="/css/remark.css" rel="stylesheet" />
 		<link href="/css/login.css" rel="stylesheet" />
-		<link href="/css/style.css" rel="stylesheet" />
+		<!--<link href="/css/style.css" rel="stylesheet" />-->
 	</head>
+	<style>
+		.cssh-details1-main {
+			margin-left: 4%;
+			margin-right: 4%;
+		}
 
+		.cssh-details1-top {
+			height: 100px;
+			/*border: 1px solid red;*/
+		}
+
+		.cssh-details1-top .col-lg-12 {
+			height: 100px;
+			/*border: 1px solid white;*/
+		}
+
+		.cssh-details1-top .col-lg-12 h2 {
+			text-align: center;
+			line-height: 100px;
+			color: white;
+			margin-top: -1px;
+		}
+		.cssh-details1-content{
+			/*height: 1600px;*/
+			/*border: 1px solid red;*/
+		}
+		.cssh-details1-content .col-lg-12{
+			/*height:1600px;*/
+			/*border: 1px solid white;*/
+		}
+		.cssh-details1-content-top{
+			height: 450px;
+			/*border: 1px solid red;*/
+		}
+		.cssh-details1-content-top .cssh1-1 img{
+			width: 70%;
+			height: 400px;
+			margin-left: 15%;
+			margin-top: 25px;
+		}
+		.cssh-details1-content-top figcaption p{
+			color: white;
+			line-height:30px;
+			text-align: center;
+		}
+		.cssh-details1-content-top img{
+			width: 70%;
+			height: 400px;
+			margin-left: 15%;
+			margin-top: 25px;
+		}
+		.cssh-details1-content-bottom{
+			height: 250px;
+			color: white;
+			/*border: 1px solid green;*/
+		}
+		.cssh-details1-content-bottom p{
+			/*padding: 10px 0;*/
+			text-indent: 2em;
+			margin: 10px 20px;
+			line-height: 25px;
+			color: white;
+		}
+		.cssh-details1-remark{
+			margin-top: 50px;
+			height: 300px;
+			/*border: 1px solid white;*/
+		}
+		.cssh-details1-remark .col-lg-12{
+			height: 300px;
+			/*border: 1px solid red;*/
+		}
+		.cssh-details1-remark label{
+			color: white;
+			font-size: 30px;
+			font-family: "楷体";
+		}
+		.cssh-details1-remark textarea{
+			/*outline: none;
+              border: none;*/
+			background: beige;
+			height: 200px;
+			width: 100%;
+		}
+		.cssh-details1-remark .submit{
+			/*border: 1px solid red;*/
+			padding: 10px 60px;
+			background: royalblue;
+			text-decoration: none;
+			display: block;
+			cursor: pointer;
+			margin-left: 990px;
+			color: white;
+			/*margin-top: 0px;*/
+		}
+		.cssh-details1-remark .submit:hover {
+			opacity: 0.6;
+		}
+	</style>
 <script th:inline="javascript">
 	var type = 1;
     var materialId = /*[[${item.id}]]*/ null;
@@ -59,29 +157,16 @@
 							<a href="#menu" class="menuToggle"><span>Menu</span></a>
 							<div id="menu">
 								<ul>
-									<li>
-										<a href="/">首页</a>
-									</li>
-									<li>
-										<a href="/calligraphy">传世书法</a>
-									</li>
-									<li>
-										<a href="/painting">传世绘画</a>
-									</li>
-									<li>
-										<a href="/show">书画展览</a>
-									</li>
-									<li>
-										<a href="/auction">书画竞拍</a>
-									</li>
-									<li>
-										<a href="/share">书画共享</a>
-									</li>
-									<li>
-										<a href="/news">新闻资讯</a>
-									</li>
-									<li>
-										<a href="/contact-us">联系我们</a>
+									<li><a href="/">首页</a></li>
+									<li><a href="/calligraphy">传世书法</a></li>
+									<li><a href="/painting">当代书画</a></li>
+									<li><a href="/show">书画展览</a></li>
+									<li><a href="/auction">书画竞拍</a></li>
+									<li><a href="/share">书画共享</a></li>
+									<li><a href="/news">新闻资讯</a></li>
+									<li><a href="/contact-us">联系我们</a></li>
+									<li th:if="${session.user != null}">
+										<a href="/user/auction/list">我的竞拍</a>
 									</li>
 								</ul>
 							</div>
@@ -112,7 +197,7 @@
 										</div>
 										<div class="log-bt">
 											<input type="button" onclick="doLogin()"  value="登录">
-											<input type="submit" value="注册" style="margin-left: 30px;">
+											<input type="button" value="注册" style="margin-left: 30px;" onclick="closelogin(); register();">
 										</div>
 									</form>
 								</div>
@@ -239,6 +324,70 @@
 								<textarea name="content" id="content"  placeholder="来说两句吧..."></textarea>
 								<a class="submit" id="comment">畅言一下</a>
 							</form>
+						</div>
+					</div>
+				</div>
+				<div class="remark-top">
+					<div class="row">
+						<div class="col-lg-12">
+							<h2 th:text="|(共${page.getTotalElements()}条)|"></h2>
+						</div>
+					</div>
+				</div>
+				<div class="remark-2" th:each="item:${page.content}">
+					<div class="remark-1-top">
+						<div class="row">
+							<div class="col-lg-3">
+								<div class="remark-1-top-1">
+									<img src="/img/touxiang1.jpg" />
+								</div>
+								<div class="remark-1-top-2">
+									<p th:text="${item.username}"></p>
+									<p>
+										<img src="/img/star.png" />
+										<img src="/img/star.png" />
+										<img src="/img/star.png" />
+										<img src="/img/star.png" />
+									</p>
+									<p th:text="${item.createTime}"></p>
+								</div>
+							</div>
+							<div class="col-lg-9">
+								<div class="remark-1-top-3">
+									<a href="#">
+										<div class="re-1">
+											<span>9</span>
+											<img src="/img/heart1.jpg" />
+										</div>
+										<div class="re-2">
+											<img src="/img/heart2.jpg" />
+											<span>5</span>
+										</div>
+										<div class="re-3">
+											<img src="/img/jubao.jpg" />
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="remark-1-bottom">
+						<div class="row">
+							<div class="col-lg-12">
+								<p th:text="${item.content}"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="remark-bottom">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="nextpage">
+								<!--                                <a href="#">
+                                                                    <div class="pre"><span>上一页</span></div>
+                                                                    <div class="next"><span>下一页</span></div>
+                                                                </a>-->
+							</div>
 						</div>
 					</div>
 				</div>

@@ -7,7 +7,7 @@
     <groupId>com.painting</groupId>
     <artifactId>web</artifactId>
     <version>1.0</version>
-
+<!-- 管理依赖包 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

@@ -55,7 +55,7 @@ public class AuctionService {
     public void order(Integer id, HttpSession session) throws IException {
         User user = (User) session.getAttribute("user");
         if(user == null){
-            throw new IException("你还没有登陆");
+            throw new IException("你还没有登录");
         }
         AuctionLog log = new AuctionLog();
         Auction auction = auctionDao.findTopById(id);

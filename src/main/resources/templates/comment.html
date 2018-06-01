@@ -54,29 +54,16 @@
 							<a href="#menu" class="menuToggle"><span>Menu</span></a>
 							<div id="menu">
 								<ul>
-									<li>
-										<a href="/">首页</a>
-									</li>
-									<li>
-										<a href="/calligraphy">传世书法</a>
-									</li>
-									<li>
-										<a href="/painting">传世绘画</a>
-									</li>
-									<li>
-										<a href="/show">书画展览</a>
-									</li>
-									<li>
-										<a href="/auction">书画竞拍</a>
-									</li>
-									<li>
-										<a href="/share">书画共享</a>
-									</li>
-									<li>
-										<a href="/news">新闻资讯</a>
-									</li>
-									<li>
-										<a href="/contact-us">联系我们</a>
+									<li><a href="/">首页</a></li>
+									<li><a href="/calligraphy">传世书法</a></li>
+									<li><a href="/painting">当代书画</a></li>
+									<li><a href="/show">书画展览</a></li>
+									<li><a href="/auction">书画竞拍</a></li>
+									<li><a href="/share">书画共享</a></li>
+									<li><a href="/news">新闻资讯</a></li>
+									<li><a href="/contact-us">联系我们</a></li>
+									<li th:if="${session.user != null}">
+										<a href="/user/auction/list">我的竞拍</a>
 									</li>
 								</ul>
 							</div>
@@ -107,7 +94,7 @@
 										</div>
 										<div class="log-bt">
 											<input type="button" onclick="doLogin()"  value="登录">
-											<input type="submit" value="注册" style="margin-left: 30px;">
+											<input type="button" value="注册" style="margin-left: 30px;" onclick="closelogin(); register();">
 										</div>
 									</form>
 								</div>
@@ -253,8 +240,7 @@
 					<div class="remark-1-bottom">
 						<div class="row">
 							<div class="col-lg-12">
-								<p th:text="${item.content}">宽巷子是“闲生活”区，以旅游休闲为主题。改造后的宽 巷子是老成都生活的再现，在这条巷子中游览，能走进老成都生活体验馆，感受成都的风土人情和几乎要失传了 的一些老成都的民俗生活场景。而四合院中可以品上盖碗茶，吃上正宗的川菜。宽巷子唤起了人们对老成都的亲 切回忆。新建的宅院式精品酒店等各具特色的建筑群落给富有传统气息的巷子点缀上了时尚的气息，是老成都的 “闲生活”。
-								</p>
+								<p th:text="${item.content}"></p>
 							</div>
 						</div>
 					</div>
