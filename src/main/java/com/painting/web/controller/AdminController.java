@@ -224,7 +224,7 @@ public class AdminController {
     @GetMapping(value = "/news/{id}")
     public String updateNews(@PathVariable Integer id, Model model){
         model.addAttribute("data", newsService.getById(id));
-        return "admin/auction-update";
+        return "admin/news-update";
     }
     /**
      * 商品列表
