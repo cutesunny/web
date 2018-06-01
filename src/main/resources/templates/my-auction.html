@@ -22,7 +22,7 @@
     <link href="/css/cssh-erji.css" rel="stylesheet" type="text/css"/>
     <link href="/css/remark.css" rel="stylesheet" type="text/css"/>
     <link href="/css/login.css" rel="stylesheet" type="text/css"/>
-    <!--<link href="/css/style.css" rel="stylesheet" type="text/css"/>-->
+
 
 
 </head>
@@ -31,33 +31,76 @@
         margin-left: 4%;
         margin-right: 4%;
     }
-    .my-auction-details ul li{
+    .my-auction-details .con li{
         height: 200px;
-        border: 1px solid red;
+        /*border: 1px solid red;*/
     }
-    .my-auction-details .col-lg-1{
-        height: 200px;
-        border: 1px solid red;
+    .my-auction-details .tit li{
+        height: 50px;
+        /*border: 1px solid red;*/
     }
-    .my-auction-details .col-lg-3{
-        height: 200px;
-        border: 1px solid red;
+    .my-auction-details span{
+        color: white;
+    }
+    .my-auction-details p{
+        color: white;
+    }
+    .my-auction-details  .tit .col-lg-3{
+        height: 50px;
+        border: 1px solid gainsboro;
+        text-align: center;
+        line-height: 50px;
     }
     .my-auction-details img{
         width: 100%;
         height: 150px;
         margin-top: 25px;
     }
-    .my-auction-details .col-lg-6{
-        height: 200px;
-        border: 1px solid red;
+    .my-auction-details  .tit .col-lg-6{
+        height: 50px;
+        border: 1px solid gainsboro;
         color: white;
         text-align: center;
-        /*line-height: 200px;*/
+        line-height:50px;
     }
-    .my-auction-details .col-lg-2{
+    .my-auction-details .tit .col-lg-1{
+        height: 50px;
+        border: 1px solid gainsboro;
+        text-align: center;
+        line-height: 50px;
+    }
+    .my-auction-details  .tit .col-lg-2{
+        height: 50px;
+        border: 1px solid gainsboro;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+    }
+    .my-auction-details  .con .col-lg-3{
         height: 200px;
-        border: 1px solid red;
+        border: 1px solid gainsboro;
+    }
+    .my-auction-details img{
+        width: 100%;
+        height: 150px;
+        margin-top: 25px;
+    }
+    .my-auction-details  .con .col-lg-6{
+        height: 200px;
+        border: 1px solid gainsboro;
+        color: white;
+        text-align: center;
+        line-height: 200px;
+    }
+    .my-auction-details .con .col-lg-1{
+        height: 200px;
+        border: 1px solid gainsboro;
+        text-align: center;
+        line-height: 200px;
+    }
+    .my-auction-details  .con .col-lg-2{
+        height: 200px;
+        border: 1px solid gainsboro;
         color: white;
         text-align: center;
         line-height: 200px;
@@ -105,6 +148,7 @@
                             <li th:if="${session.user != null}">
                                 <a href="/user/auction/list">我的竞拍</a>
                             </li>
+                            <li><a href="/admin/login">后台管理</a></li>
                         </ul>
                     </div>
                 </li>
@@ -234,27 +278,44 @@
 <div class="container-fluid">
     <div class="my-auction-main">
         <div class="my-auction-details">
-           <ul>
-               <li th:each="item:${datas}">
-                   <div class="row" >
-                       <!--<div class="col-lg-1">-->
-                           <!--<input type="radio" name="choose" checked value="value">-->
-                       <!--</div>-->
-                       <div class="col-lg-3">
-                           <img th:src="${item.auction.thumb}">
-                       </div>
-                       <div class="col-lg-6">
-                           <p  th:src="${item.auction.title}">戴泽 风景（夏日树萌） 75cmx57cm 布面油彩 1946</p>
-                           <span th:text="${item.price}">竞拍价格</span>
-                       </div>
-                       <div class="col-lg-2">
-                           <p th:text="${#dates.format(item.time,'YY-MM-dd HH:mm:ss')}">竞拍时间</p>
-                       </div>
-                   </div>
-               </li>
-           </ul>
-
-
+            <ul>
+                <div class="tit">
+                    <li>
+                        <div class="row" >
+                            <div class="col-lg-3">
+                                <p>拍品</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <p>拍品名称</p>
+                            </div>
+                            <div class="col-lg-1">
+                                <span>竞拍价格</span>
+                            </div>
+                            <div class="col-lg-2">
+                                <p>竞拍时间</p>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                <div class="con">
+                    <li th:each="item:${datas}">
+                        <div class="row" >
+                            <div class="col-lg-3">
+                                <img th:src="${item.auction.thumb}">
+                            </div>
+                            <div class="col-lg-6">
+                                <p  th:src="${item.auction.title}">戴泽 风景（夏日树萌） 75cmx57cm 布面油彩 1946</p>
+                            </div>
+                            <div class="col-lg-1">
+                                <span th:text="${item.price}">竞拍价格</span>
+                            </div>
+                            <div class="col-lg-2">
+                                <p th:text="${#dates.format(item.time,'YY-MM-dd HH:mm:ss')}">竞拍时间</p>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </ul>
 
 
         </div>

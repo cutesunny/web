@@ -483,24 +483,24 @@ body.is-menu-visible #menu {
 /* Banner */
 
 #banner {
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    -moz-flex-direction: column;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -moz-justify-content: center;
-    -webkit-justify-content: center;
-    -ms-justify-content: center;
-    justify-content: center;
-    cursor: default;
-    height: 100vh;
-    min-height: 35em;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	-moz-flex-direction: column;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-moz-justify-content: center;
+	-webkit-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+	cursor: default;
+	height: 100vh;
+	min-height: 35em;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
 }
 
 #banner .inner h2 {
@@ -508,7 +508,7 @@ body.is-menu-visible #menu {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
-    -moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;
+    -moz-transition: -moz-transform  0.5s ease, opacity 0.5s ease;
     -webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
     -ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
     transition: transform 0.5s ease, opacity 0.5s ease;
@@ -527,16 +527,17 @@ body.is-menu-visible #menu {
     -webkit-transition: width 0.85s ease;
     -ms-transition: width 0.85s ease;
     transition: width 0.85s ease;
-    -moz-transition-delay: 0.25s;
-    -webkit-transition-delay: 0.25s;
-    -ms-transition-delay: 0.25s;
-    transition-delay: 0.25s;
+    -moz-transition-delay: 0.5s;
+    -webkit-transition-delay: 0.5s;
+    -ms-transition-delay: 0.5s;
+    transition-delay: 0.5s;
     background: #fff;
     content: '';
     display: block;
     height: 2px;
     position: absolute;
     width: 100%;
+	color: white;
 }
 
 #banner .inner h2:before {
@@ -598,6 +599,10 @@ body.is-menu-visible #menu {
     text-transform: uppercase;
     width: 16em;
     z-index: 1;
+}
+#banner .more a{
+	text-decoration: none;
+	display: block;
 }
 #banner .more:after {
 	background-image: url("../img/arrow.svg");
