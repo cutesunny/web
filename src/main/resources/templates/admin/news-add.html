@@ -26,6 +26,12 @@
 			</div>
 		</div>
 		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>作者：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="author" name="">
+			</div>
+		</div>
+		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select id="type" class="select">
@@ -129,6 +135,7 @@ function doUpload() {
 //新增
 function  doPost() {
 	let title = $('#title').val();
+	let author = $('#author').val();
 	let description = $('#description').val();
 	let thumb = $('#thumb').html();
 	let content = ue.getContent();
@@ -138,6 +145,7 @@ function  doPost() {
         url: '/api/news',
 		data:{
             title:title,
+            author:author,
             description:description,
             thumb:thumb,
             content:content,
